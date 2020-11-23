@@ -1,0 +1,22 @@
+<% provide(:title, 'Admin - Nhân viên') %>
+<%= render 'shared/admin/navigation' %>
+<div id="page-wrapper" class="gray-bg">
+  <%= render 'shared/admin/top_navbar' %>
+  <div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+      <h2>Tổng quan dữ liệu</h2>
+      <ol class="breadcrumb">
+        <li>
+          <%= link_to 'Trang chủ', admin_path %>
+        </li>
+        <li class="active">
+          <strong>Tổng quan</strong>
+        </li>
+      </ol>
+    </div>
+  </div>
+  <div class="wrapper wrapper-content animated fadeInRight">
+    <%= render 'admin/users/users' %>
+  </div>
+  <%= render 'shared/admin/footer' %>
+</div>

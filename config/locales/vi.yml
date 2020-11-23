@@ -1,0 +1,24 @@
+vi:
+  views:
+    statuses:
+      unactive: "Không hoạt động"
+      active: "Hoạt động"
+  activerecord:
+    models:
+      company: "công ty"
+      group: "phòng ban"
+      category: "danh mục"
+      regulation: "quy định, quy trình"
+      notification: "thông báo"
+      user: "nhân viên"
+      news: "tin tức"
+      carousel: "băng rôn"
+  helpers:
+    submit:
+      create: "Tạo %{model}"
+      submit: "Lưu %{model}"
+      update: "Cập nhật %{model}"
+  pagy:
+    nav:
+      next: "Trang kế tiếp"
+      prev: "Trở lại"

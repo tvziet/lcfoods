@@ -1,0 +1,31 @@
+<% provide(:title, 'Tất cả nhân viên') %>
+<%= render 'shared/pages/navigation' %>
+<%= render 'shared/pages/pagy_navigation' %>
+<div class="wrapper wrapper-content animated fadeInRight">
+  <div class="row">
+    <% @page_users.each do |page_user| %>
+      <div class="col-lg-3">
+        <div class="contact-box center-version">
+          <%= link_to chi_tiet_nhan_vien_path(page_user) do %>
+            <%= image_tag(page_user.avatar.url, class: "img-circle") %>
+            <h3 class="m-b-xs"><strong><%= page_user.full_name %></strong></h3>
+            <div class="font-bold"><%= page_user.group_name %></div>
+            <address class="m-t-md">
+              <strong><%= page_user.company_name %></strong><br>
+              <%= page_user.address %><br>
+              <span>Email:</span> <%= page_user.email %>
+            </address>
+          <% end %>
+          <div class="contact-box-footer">
+            <div class="m-t-xs btn-group">
+              <a class="btn btn-xs btn-white"><i class="fa fa-fax" aria-hidden="true"></i> Fax: <%= page_user.fax %></a>
+              <a class="btn btn-xs btn-white"><i class="fa fa-envelope"></i> SĐT: <%= page_user.cell_phone %></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<%= render 'shared/pages/pagy_navigation' %>
+<%= render 'shared/pages/footer' %>

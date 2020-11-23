@@ -1,0 +1,53 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5>BĂNG RÔN</h5>
+        <div class="ibox-tools">
+          <%= link_to "Thêm mới", new_admin_carousel_path, class:"btn btn-primary btn-xs" %>
+        </div>
+      </div>
+      <div class="ibox-content">
+        <table class="table table-striped table-bordered table-hover dataTables-example">
+          <thead>
+          <tr>
+            <th>Tệp</th>
+            <th>Trạng thái</th>
+            <th>Tác vụ</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @carousels.each do |carousel| %>
+            <tr class="gradeA">
+              <td>
+                <div class="file-box">
+                  <div class="file">
+                    <div class="image">
+                      <%= image_tag(carousel.image.url, class:"img-responsive") %>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <% if carousel.active? %>
+                  <span class="label label-primary"><%= t("views.statuses.active") %></span>
+                <% else %>
+                  <span class="label label-default"><%= t("views.statuses.unactive") %></span>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to edit_admin_carousel_path(carousel), class:"btn btn-white btn-sm" do %>
+                  <i class="fa fa-pencil"></i> Cập nhật
+                <% end %>
+                <%= link_to admin_carousel_path(carousel), method: :delete, data: { confirm: "Bạn có chắc chắc muốn xoá băng rôn này?" }, class:"btn btn-white btn-sm" do %>
+                  <i class="fa fa-trash"></i> Xoá
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<%= form_for [:admin, @news], html: { multipart: true }, class: "form-horizontal" do |form| %>
+  <% if @news.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@news.errors.count, "error") %> prohibited this news from being saved:</h2>
+      <ul>
+        <% @news.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Tiêu đề</label>
+    <div class="col-sm-10 m-b">
+      <%= form.text_field :title, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Nội dung</label>
+    <div class="col-sm-10 m-b">
+      <%= form.trix_editor :body, required: true, autofocus: true %>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Trạng thái</label>
+    <div class="col-sm-10 m-b">
+      <%= form.select :status, News.statuses.keys.collect { |g| [t("views.statuses.#{g.downcase}"), g] }, {}, { class: "form-control" } %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-4 col-sm-offset-2 m-t-sm">
+      <%= link_to "Quay lại", admin_path, class: "btn btn-white m-r-xs" %>
+      <%= form.submit class:"btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
