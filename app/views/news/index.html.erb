@@ -1,0 +1,34 @@
+<% provide(:title, 'Tin tức chung') %>
+<%= render 'shared/pages/navigation' %>
+
+<div class="wrapper wrapper-content  animated fadeInRight blog">
+  <div class="row">
+    <% @page_all_news.each do |page_news| %>
+      <div class="col-lg-4">
+        <div class="ibox">
+          <div class="ibox-content">
+            <h3 class="text-danger"><%= page_news.title %></h3>
+            <div class="small m-b-xs">
+              <strong>Admin</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> <%= page_news.created_at.strftime("%d-%m-%Y") %></span>
+            </div>
+            <p>
+              <%= sanitize page_news.body.truncate(200) %>
+            </p>
+            <div class="row">
+              <div class="col-md-6">
+                <%= link_to chi_tiet_tin_tuc_path(page_news), class: "btn btn-primary btn-xs" do %>
+                  Chi tiết <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<% if @page_all_news.any? %>
+  <%= render 'shared/pages/pagy_navigation' %>
+<% end %>
+<%= render 'shared/pages/footer' %>
+

@@ -2,7 +2,7 @@
   <div class="col-lg-12">
     <div class="ibox float-e-margins">
       <div class="ibox-title">
-        <h5>QUY ĐỊNH, QUY TRÌNH</h5>
+        <h5>QUY CHẾ, NỘI QUY</h5>
         <div class="ibox-tools">
           <%= link_to "Thêm mới", new_admin_regulation_path, class:"btn btn-primary btn-xs" %>
         </div>
@@ -13,6 +13,7 @@
           <tr>
             <th>Tiêu đề</th>
             <th>Nội dung</th>
+            <th>Công ty</th>
             <th>Danh mục</th>
             <th>Ngày tạo</th>
             <th>Tác vụ</th>
@@ -22,8 +23,9 @@
           <% @regulations.each do |regulation| %>
             <tr class="gradeA">
               <td><%= regulation.title %></td>
-              <td><%= sanitize regulation.body %></td>
-              <td><%= regulation.name %></td>
+              <td><%= sanitize regulation.body.truncate(100) %></td>
+              <td><%= regulation.company_name %></td>
+              <td><%= regulation.category_name %></td>
               <td><%= regulation.created_at.strftime("%d-%m-%Y") %></td>
               <td>
                 <%= link_to edit_admin_regulation_path(regulation), class:"btn btn-white btn-sm" do %>

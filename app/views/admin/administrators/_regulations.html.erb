@@ -21,10 +21,10 @@
               <td><%= regulation.title %></td>
               <td><%= sanitize regulation.body %></td>
               <td class="project-status">
-                <% if regulation.active? %>
-                  <span class="label label-primary"><%= t("views.statuses.active") %></span>
+                <% if regulation.notable? %>
+                  <span class="label label-primary"><%= t("views.statuses.notable") %></span>
                 <% else %>
-                  <span class="label label-default"><%= t("views.statuses.unactive") %></span>
+                  <span class="label label-default"><%= t("views.statuses.normal") %></span>
                 <% end %>
               </td>
               <td><%= regulation.created_at.strftime("%d-%m-%Y") %></td>

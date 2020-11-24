@@ -21,7 +21,7 @@
               <td><%= notification.title %></td>
               <td><%= sanitize notification.body %></td>
               <td class="project-status">
-                <% if notification.active? %>
+                <% if notification.notable? %>
                   <span class="label label-primary"><%= t("views.statuses.active") %></span>
                 <% else %>
                   <span class="label label-default"><%= t("views.statuses.unactive") %></span>

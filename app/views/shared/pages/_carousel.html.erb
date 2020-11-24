@@ -1,24 +1,30 @@
 <div class="wrapper wrapper-content">
   <div class="row">
-    <div class="col-lg-12">
+    <div class="col-lg-8 col-lg-offset-2">
       <div class="ibox float-e-margins">
         <div class="ibox-content ">
           <div class="carousel slide" id="carousel2">
             <ol class="carousel-indicators">
-              <li data-slide-to="0" data-target="#carousel2" class="active"></li>
-              <li data-slide-to="1" data-target="#carousel2"></li>
-              <li data-slide-to="2" data-target="#carousel2" class=""></li>
+              <% @carousels.each_with_index do |index, carousel| %>
+                <% if carousel == @carousels.first %>
+                  <li data-slide-to="<%= index %>" data-target="#carousel2" class="active"></li>
+                <% else %>
+                  <li data-slide-to="<%= index %>" data-target="#carousel2"></li>
+                <% end %>
+              <% end %>
             </ol>
             <div class="carousel-inner">
-              <div class="item active">
-                <img alt="image" class="img-responsive" src="https://s-media-cache-ak0.pinimg.com/originals/b0/e5/49/b0e549c2daab13354fead52d142efa0c.jpg">
-              </div>
-              <div class="item ">
-                <img alt="image" class="img-responsive" src="https://s-media-cache-ak0.pinimg.com/originals/bf/6f/69/bf6f697e0eeb6596a1415e31f3e4c1fb.jpg">
-              </div>
-              <div class="item">
-                <img alt="image" class="img-responsive" src="http://ultrawidewallpapers.com/wp-content/uploads/2015/09/hovering-fog-3440x1440.jpg">
-              </div>
+              <% @carousels.each do |carousel| %>
+                <% if carousel == @carousels.first %>
+                  <div class="item active">
+                    <%= image_tag(carousel.image.url, class:"img-responsive") %>
+                  </div>
+                <% else %>
+                  <div class="item ">
+                    <%= image_tag(carousel.image.url, class:"img-responsive") %>
+                  </div>
+                <% end %>
+              <% end %>
             </div>
             <a data-slide="prev" href="#carousel2" class="left carousel-control">
               <span class="icon-prev"></span>

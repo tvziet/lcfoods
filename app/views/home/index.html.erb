@@ -6,43 +6,61 @@
       <h2 class="text-center"><strong>QUY CHẾ, NỘI QUY</strong></h2>
       <hr style="height:2px;border-width:0;color: #c22b32;background-color: #c22b32">
       <img src="https://www.themandarin.com.au/wp-content/uploads/2019/03/Regulation-blocks.jpg" alt="regulation", class="img-responsive", style="height: 220px; width: 360px;">
-      <h4><strong>Thông báo về việc cắt giảm nhân lực đợt 2 năm 2020</strong></h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur autem consectetur delectus dignissimos dolores eius est exercitationem fuga fugit in nisi, quas qui quisquam quod, recusandae sequi sint, suscipit velit!</p>
+      <h4><strong><%= link_to @first_notable_regulation.title, chi_tiet_quy_dinh_path(@first_notable_regulation) %></strong></h4>
+      <p><%= sanitize @first_notable_regulation.body.truncate(200) %></p>
       <hr>
       <ul class="m-b-xs">
-        <li><i class="fa fa-angle-right" aria-hidden="true"></i> <a href="#">Quy chế 1</a></li>
-        <li><i class="fa fa-angle-right" aria-hidden="true"></i> <a href="#">Quy chế 2</a></li>
-        <li><i class="fa fa-angle-right" aria-hidden="true"></i> <a href="#">Quy chế 3</a></li>
+        <% @recently_notable_regulations.each do |regulation| %>
+          <li>
+            <i class="fa fa-angle-right" aria-hidden="true"></i> <%= link_to regulation.title, chi_tiet_quy_dinh_path(regulation) %>
+          </li>
+        <% end %>
       </ul>
-      <p><a class="navy-link" href="#" role="button">Xem thêm &raquo;</a></p>
+      <p>
+        <%= link_to tat_ca_quy_dinh_path, class:"navy-link" do %>
+          Xem thêm <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+        <% end %>
+      </p>
     </div>
     <div class="col-sm-4">
       <h2 class="text-center"><strong>TIN NỔI BẬT</strong></h2>
       <hr style="height:2px;border-width:0;color: #c22b32;background-color: #c22b32">
       <img src="https://api.theartnewspaper.com/text-to-image?text=News&w=1200&h=630&bg=d9212d&txtclr=ffffff&fs=150" alt="news", class="img-responsive", style="height: 220px; width: 360px;">
-      <h4><strong>Kiểm tra sức khoẻ toàn bộ nhân viên công ty</strong></h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur autem consectetur delectus dignissimos dolores eius est exercitationem fuga fugit in nisi, quas qui quisquam quod, recusandae sequi sint, suscipit velit!</p>
+      <h4><strong><%= link_to @first_notable_news.title, chi_tiet_tin_tuc_path(@first_notable_news) %></strong></h4>
+      <p><%= sanitize @first_notable_news.body.truncate(200) %></p>
       <hr>
       <ul class="m-b-xs">
-        <li><i class="fa fa-angle-right" aria-hidden="true"></i> <a href="#">Tin tức 1</a></li>
-        <li><i class="fa fa-angle-right" aria-hidden="true"></i> <a href="#">Tin tức 2</a></li>
-        <li><i class="fa fa-angle-right" aria-hidden="true"></i> <a href="#">Tin tức 3</a></li>
+        <% @recently_notable_news.each do |news| %>
+          <li>
+            <i class="fa fa-angle-right" aria-hidden="true"></i> <%= link_to news.title, chi_tiet_tin_tuc_path(news) %>
+          </li>
+        <% end %>
       </ul>
-      <p><a class="navy-link" href="#" role="button">Xem thêm &raquo;</a></p>
+      <p>
+        <%= link_to tat_ca_tin_tuc_path, class:"navy-link" do %>
+          Xem thêm <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+        <% end %>
+      </p>
     </div>
     <div class="col-sm-4">
       <h2 class="text-center"><strong>THÔNG TIN - THÔNG BÁO</strong></h2>
       <hr style="height:2px;border-width:0;color: #c22b32;background-color: #c22b32">
       <img src="https://www.uit.edu.vn/sites/vi/files/styles/uit_thumb/public/uploads/images/tb.png?itok=PsS9hEaR" alt="thong bao", class="img-responsive", style="height: 220px; width: 360px;" >
-      <h4><strong>Thông báo nghỉ tết Nguyên đán năm 2021</strong></h4>
-      <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus.</p>
+      <h4><strong><%= link_to @first_notable_notification.title, chi_tiet_thong_bao_path(@first_notable_notification) %></strong></h4>
+      <p><%= sanitize @first_notable_notification.body.truncate(200) %></p>
       <hr>
       <ul class="m-b-xs">
-        <li><i class="fa fa-angle-right" aria-hidden="true"></i> <a href="#">Thông báo 1</a></li>
-        <li><i class="fa fa-angle-right" aria-hidden="true"></i> <a href="#">Thông báo 2</a></li>
-        <li><i class="fa fa-angle-right" aria-hidden="true"></i> <a href="#">Thông báo 3</a></li>
+        <% @recently_notable_regulations.each do |notification| %>
+          <li>
+            <i class="fa fa-angle-right" aria-hidden="true"></i> <%= link_to notification.title, chi_tiet_thong_bao_path(notification) %>
+          </li>
+        <% end %>
       </ul>
-      <p><a class="navy-link" href="#" role="button">Xem thêm &raquo;</a></p>
+      <p>
+        <%= link_to tat_ca_thong_bao_path, class:"navy-link" do %>
+          Xem thêm <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+        <% end %>
+      </p>
     </div>
   </div>
 </section>

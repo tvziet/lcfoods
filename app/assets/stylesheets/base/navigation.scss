@@ -308,18 +308,18 @@ body.mini-navbar .navbar-default .nav > li > .nav-second-level li a {
 }
 
 .navbar-default .landing_link a {
-  background: lighten($navy, 3%);
+  background: lighten($red, 3%);
   color: white;
 }
 
 .navbar-default .landing_link a:hover {
-  background: $navy !important;
+  background: $red !important;
   color: white;
 }
 
 .navbar-default .landing_link a span.label {
   background: #fff;
-  color: lighten($navy, 3%);
+  color: lighten($red, 3%);
 }
 
 .logo-element {
@@ -562,4 +562,9 @@ body.canvas-menu nav.navbar-static-side {
 body.canvas-menu.mini-navbar nav.navbar-static-side {
   display: block;
   width: 220px;
+}
+
+.navbar-nav li.active {
+  color: #fff !important;
+  background-color: $red !important;
 }

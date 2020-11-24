@@ -1,0 +1,28 @@
+<% provide(:title, 'Chi tiết tin tức') %>
+<%= render 'shared/pages/navigation' %>
+<div class="wrapper wrapper-content animated fadeInRight article">
+  <div class="row">
+    <div class="col-lg-10 col-lg-offset-1">
+      <div class="ibox">
+        <div class="ibox-content">
+          <div class="pull-right">
+            <button class="btn btn-primary btn-xs" type="button"><%= @page_news.status_i18n %></button>
+          </div>
+          <div class="text-center article-title">
+            <span class="text-muted"><i class="fa fa-clock-o"></i> <%= @page_news.created_at.strftime("%d-%m-%Y") %></span>
+            <h1>
+              <%= @page_news.title %>
+            </h1>
+          </div>
+          <p>
+            <%= sanitize @page_news.body %>
+          </p>
+          <%# @page_news.attachments.each do |attachment| %>
+<!--            <strong>Tệp đính kèm: </strong><%#= link_to "#{attachment.file.filename}", pdfjs.full_path(file: "#{attachment.url}") %>-->
+          <%# end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render 'shared/pages/footer' %>

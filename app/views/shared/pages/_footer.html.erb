@@ -27,10 +27,11 @@
       <div class="col-md-4 col-xl-3 m-t">
         <h5>LIÊN KẾT NHANH</h5>
         <ul class="nav-list">
+          <li><%= link_to "Trang chủ", root_path %></li>
           <li><%= link_to "Danh sách nhân viên", tat_ca_nhan_vien_path %></li>
           <li><%= link_to "Quy chế, nội quy", tat_ca_quy_dinh_path %></li>
-          <li><a href="#">Thông báo mới</a></li>
-          <li><a href="#">Tin tức gần đây</a></li>
+          <li><%= link_to "Thông báo", tat_ca_thong_bao_path %></li>
+          <li><%= link_to "Tin tức", thong_tin_chung_path %></li>
         </ul>
       </div>
     </div>

@@ -15,3 +15,4 @@
 //= require activestorage
 //= require toastr
 //= require trix
+//= require custom

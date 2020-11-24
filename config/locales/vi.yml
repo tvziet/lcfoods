@@ -1,8 +1,17 @@
 vi:
-  views:
-    statuses:
-      unactive: "Không hoạt động"
-      active: "Hoạt động"
+  enums:
+    regulation:
+      status:
+        normal: "Gần đây"
+        notable: "Mới"
+    notification:
+      status:
+        normal: "Gần đây"
+        notable: "Mới"
+    news:
+      status:
+        normal: "Gần đây"
+        notable: "Mới"
   activerecord:
     models:
       company: "công ty"
@@ -13,6 +22,99 @@ vi:
       user: "nhân viên"
       news: "tin tức"
       carousel: "băng rôn"
+    attributes:
+      user:
+        first_name: "Họ tên đệm"
+        last_name: "Tên chính"
+        birthday: "Ngày tháng năm sinh"
+        cell_phone: "Số điện thoại"
+        address: "Địa chỉ"
+        bio: "Thông tin thêm"
+        fax: "Số fax"
+        avatar: "Ảnh đại diện"
+        company: "Tên công ty"
+        group: "Tên phòng ban"
+      company:
+        name: "Tên công ty"
+        status:
+          notable: "Mới"
+          normal: "Gần đây"
+      group:
+        name: "Tên phòng ban"
+        company: "Tên công ty"
+      category:
+        name: "Tên danh mục"
+      regulation:
+        company: "Tên công ty"
+        category: "Tên danh mục"
+        title: "Tiêu đề"
+        body: "Nội dung"
+        statuses:
+          notable: "Mới"
+          normal: "Gần đây"
+      notification:
+        company: "Tên công ty"
+        category: "Tên danh mục"
+        title: "Tiêu đề"
+        body: "Nội dung"
+        status:
+          notable: "Mới"
+          normal: "Gần đây"
+      news:
+        title: "Tiêu đề"
+        body: "Nội dung"
+        status:
+          notable: "Mới"
+          normal: "Gần đây"
+    errors:
+      models:
+        user:
+          attributes:
+            first_name:
+              blank: "không được để trống"
+            last_name:
+              blank: "không được để trống"
+            birthday:
+              blank: "không được để trống"
+            cell_phone:
+              blank: "không được để trống"
+            address:
+              blank: "không được để trống"
+            avatar:
+              blank: "không được để trống"
+            email:
+              blank: "không được để trống"
+              invalid: "không hợp lệ"
+            company:
+              required: "không được để trống"
+            group:
+              required: "không được để trống"
+        group:
+          attributes:
+            name:
+              blank: "không được để trống"
+              too_short: "quá ngắn, tối thiểu 3 ký tự"
+            company:
+              required: "không được để trống"
+        company:
+          attributes:
+            name:
+              blank: "không được để trống"
+              too_short: "quá ngắn, tối thiểu 3 ký tự"
+        category:
+          attributes:
+            name:
+              blank: "không được để trống"
+              too_short: "quá ngắn, tối thiểu 3 ký tự"
+        regulation:
+          attributes:
+            title:
+              blank: "không được để trống"
+              too_short: "quá ngắn, tối thiểu 10 ký tự"
+            company:
+              required: "không được để trống"
+            category:
+              required: "không được để trống"
   helpers:
     submit:
       create: "Tạo %{model}"

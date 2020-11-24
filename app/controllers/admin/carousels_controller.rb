@@ -3,7 +3,7 @@ class Admin::CarouselsController < ApplicationController
   before_action :set_carousel, only: %i[show edit update destroy]
 
   def index
-    @carousels = Carousel.all
+    @pagy, @carousels = pagy(Carousel.all.order(created_at: :desc))
   end
 
   def show; end

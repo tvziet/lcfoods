@@ -1,12 +1,20 @@
 <%= form_for [:admin, @group], class: "form-horizontal" do |form| %>
   <% if @group.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@group.errors.count, "error") %> prohibited this group from being saved:</h2>
-      <ul>
-        <% @group.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="panel panel-warning">
+          <div class="panel-heading">
+            <i class="fa fa-warning"></i> <%= pluralize(@group.errors.count, "lỗi") %> đã xảy ra:
+          </div>
+          <div class="panel-body">
+            <ul>
+              <% @group.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   <% end %>
   <div class="form-group">

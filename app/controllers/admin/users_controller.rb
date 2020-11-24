@@ -3,7 +3,7 @@ class Admin::UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
 
   def index
-    @users = User.all
+    @pagy, @users = pagy(User.all.order(created_at: :desc))
   end
 
   def show; end

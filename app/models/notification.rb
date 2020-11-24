@@ -4,5 +4,6 @@ class Notification < ApplicationRecord
   belongs_to :category
   belongs_to :company
   delegate :name, to: :category
-  enum status: { unactive: 0, active: 1 }
+  delegate :name, to: :company, prefix: :company
+  enum status: { normal: 0, notable: 1 }
 end
