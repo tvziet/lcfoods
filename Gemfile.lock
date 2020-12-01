@@ -226,6 +226,8 @@ GEM
       rails
     tzinfo (1.2.8)
       thread_safe (~> 0.1)
+    uglifier (4.2.0)
+      execjs (>= 0.3.0, < 3)
     unicode-display_width (1.7.0)
     warden (1.2.9)
       rack (>= 2.0.9)
@@ -261,6 +263,7 @@ DEPENDENCIES
   toastr-rails (~> 1.0, >= 1.0.3)
   trix
   tzinfo-data
+  uglifier
 
 RUBY VERSION
    ruby 2.6.5p114

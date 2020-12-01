@@ -18,6 +18,7 @@ gem 'puma', '~> 5.0', '>= 5.0.4'
 gem 'rails', '~> 6.0'
 gem 'toastr-rails', '~> 1.0', '>= 1.0.3'
 gem 'trix'
+gem 'uglifier'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
