@@ -1,6 +1,11 @@
 class NotificationsController < ApplicationController
   def index
-    @pagy, @page_notifications = pagy(Notification.all.order(created_at: :desc))
+    @page_notifications = Notification.all.order(created_at: :desc)
+    if params["search"]
+      @pagy, @page_notifications = pagy(@page_notifications.where('lower(title) LIKE ?', "%#{params["search"]}%"))
+    else
+      @pagy, @page_notifications = pagy(@page_notifications)
+    end
   end
 
   def show

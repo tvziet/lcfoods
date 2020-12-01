@@ -34,4 +34,31 @@
       </span>
     </div>
   <% end %>
+<% elsif params[:controller] == 'regulations' %>
+  <%= form_tag(tat_ca_quy_dinh_path, method: :get, class: "navbar-form-custom") do %>
+    <div class="input-group">
+      <%= text_field_tag :search, params[:q], placeholder: "Từ khoá", class: "form-control" %>
+      <span class="input-group-btn">
+        <%= button_tag "Tìm kiếm", class:"btn btn-primary", name: nil %>
+      </span>
+    </div>
+  <% end %>
+<% elsif params[:controller] == 'notifications' %>
+  <%= form_tag(tat_ca_thong_bao_path, method: :get, class: "navbar-form-custom") do %>
+    <div class="input-group">
+      <%= text_field_tag :search, params[:q], placeholder: "Từ khoá", class: "form-control" %>
+      <span class="input-group-btn">
+        <%= button_tag "Tìm kiếm", class:"btn btn-primary", name: nil %>
+      </span>
+    </div>
+  <% end %>
+<% elsif params[:controller] == 'news' %>
+  <%= form_tag(tat_ca_tin_tuc_path, method: :get, class: "navbar-form-custom") do %>
+    <div class="input-group">
+      <%= text_field_tag :search, params[:q], placeholder: "Từ khoá", class: "form-control" %>
+      <span class="input-group-btn">
+        <%= button_tag "Tìm kiếm", class:"btn btn-primary", name: nil %>
+      </span>
+    </div>
+  <% end %>
 <% end %>

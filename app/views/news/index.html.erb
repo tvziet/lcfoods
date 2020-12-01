@@ -2,6 +2,19 @@
 <%= render 'shared/pages/navigation' %>
 
 <div class="wrapper wrapper-content  animated fadeInRight blog">
+  <% if params["search"] %>
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="ibox float-e-margins">
+          <div>
+            <h3>
+              <%= @page_all_news.count %> kết quả cho từ khoá: <span class="text-danger"><%= params["search"] %></span>
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
   <div class="row">
     <% @page_all_news.each do |page_news| %>
       <div class="col-lg-4">
@@ -12,7 +25,7 @@
               <strong>Admin</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> <%= page_news.created_at.strftime("%d-%m-%Y") %></span>
             </div>
             <p>
-              <%= page_news.body %>
+              <%= raw page_news.body %>
             </p>
             <div class="row">
               <div class="col-md-6">

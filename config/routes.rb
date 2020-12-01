@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     resources :news, except: %i[index]
   end
   get 'admin', to: 'admin/administrators#index'
-  get 'tat-ca-tin-tuc', to: 'admin/news#index'
+  get 'tat-ca-tin-tuc', to: 'news#index'
   root 'home#index'
   devise_for :admins
   get 'tat-ca-nhan-vien', to: 'users#index'

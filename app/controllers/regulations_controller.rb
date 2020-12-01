@@ -1,6 +1,11 @@
 class RegulationsController < ApplicationController
   def index
-    @pagy, @page_regulations = pagy(Regulation.all.order(created_at: :desc))
+    @page_regulations = Regulation.all.order(created_at: :desc)
+    if params["search"]
+      @pagy, @page_regulations = pagy(@page_regulations.where('lower(title) LIKE ?', "%#{params["search"]}%"))
+    else
+      @pagy, @page_regulations = pagy(@page_regulations)
+    end
   end
 
   def show
@@ -15,6 +20,5 @@ class RegulationsController < ApplicationController
     else
       @pagy, @search_regulations = pagy(@company_regulations)
     end
-
   end
 end
