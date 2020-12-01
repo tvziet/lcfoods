@@ -5,25 +5,19 @@
         <div class="ibox-content ">
           <div class="carousel slide" id="carousel2">
             <ol class="carousel-indicators">
-              <% @carousels.each_with_index do |index, carousel| %>
-                <% if carousel == @carousels.first %>
-                  <li data-slide-to="<%= index %>" data-target="#carousel2" class="active"></li>
-                <% else %>
-                  <li data-slide-to="<%= index %>" data-target="#carousel2"></li>
-                <% end %>
+              <li data-slide-to="<%= @first_carousel.id %>" data-target="#carousel2" class="active"></li>
+              <% @recently_active_carousel.each do |carousel| %>
+                <li data-slide-to="<%= carousel.id %>" data-target="#carousel2"></li>
               <% end %>
             </ol>
             <div class="carousel-inner">
-              <% @carousels.each do |carousel| %>
-                <% if carousel == @carousels.first %>
-                  <div class="item active">
-                    <%= image_tag(carousel.image.url, class:"img-responsive") %>
-                  </div>
-                <% else %>
-                  <div class="item ">
-                    <%= image_tag(carousel.image.url, class:"img-responsive") %>
-                  </div>
-                <% end %>
+              <div class="item active">
+                <%= image_tag(@first_carousel.image, class:"img-responsive") %>
+              </div>
+              <% @recently_active_carousel.each do |carousel| %>
+                <div class="item ">
+                  <%= image_tag(carousel.image, class:"img-responsive") %>
+                </div>
               <% end %>
             </div>
             <a data-slide="prev" href="#carousel2" class="left carousel-control">

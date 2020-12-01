@@ -5,7 +5,7 @@
         <li class="nav-header">
           <div class="dropdown profile-element">
             <span>
-                <img alt="image" class="img-circle" src="<%= image_url 'https://static.intercomassets.com/avatars/3755342/square_128/Suhaidah-1581410760.png?1581410760' %>"/>
+              <%= image_tag("logo.png", alt: "Default avatar admin", width: 150, height: 80) %>
             </span>
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
               <span class="clear">
@@ -37,6 +37,7 @@
             <li><%= link_to "Quy định, quy trình", admin_regulations_path %></li>
             <li><%= link_to "Thông báo", admin_notifications_path %></li>
             <li><%= link_to "Tin tức", tat_ca_tin_tuc_path %></li>
+            <li><%= link_to "Văn bản mẫu", admin_documents_path %></li>
             <li><%= link_to "Băng rôn", admin_carousels_path %></li>
           </ul>
         </li>

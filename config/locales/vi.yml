@@ -4,6 +4,10 @@ vi:
       status:
         normal: "Gần đây"
         notable: "Mới"
+    carousel:
+      status:
+        active: "Hoạt động"
+        unactive: "Không hoạt động"
     notification:
       status:
         normal: "Gần đây"
@@ -22,6 +26,7 @@ vi:
       user: "nhân viên"
       news: "tin tức"
       carousel: "băng rôn"
+      document: "văn bảng mẫu"
     attributes:
       user:
         first_name: "Họ tên đệm"
@@ -124,3 +129,9 @@ vi:
     nav:
       next: "Trang kế tiếp"
       prev: "Trở lại"
+  views:
+    statuses:
+      normal: "Gần đây"
+      notable: "Mới"
+      unactive: "Không hoạt động"
+      active: "Hoạt động"

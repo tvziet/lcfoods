@@ -15,7 +15,7 @@
             </h1>
           </div>
           <p>
-            <%= sanitize @page_news.body %>
+            <%= raw @page_news.body %>
           </p>
           <%# @page_news.attachments.each do |attachment| %>
 <!--            <strong>Tệp đính kèm: </strong><%#= link_to "#{attachment.file.filename}", pdfjs.full_path(file: "#{attachment.url}") %>-->

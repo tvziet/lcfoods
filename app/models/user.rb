@@ -1,8 +1,7 @@
 class User < ApplicationRecord
-  mount_uploader :avatar, ImageUploader
-  serialize :avatar, JSON
+  has_one_attached :avatar
   validates :first_name, :last_name, presence: true, length: { maximum: 50 }
-  validates :birthday, :cell_phone, :address, :avatar, presence: true
+  validates :birthday, :cell_phone, :address, :avatar, :employee_number, presence: true
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },

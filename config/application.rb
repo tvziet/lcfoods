@@ -1,6 +1,6 @@
 require_relative 'boot'
 
-require "rails"
+require 'rails/all'
 # Pick the frameworks you want:
 require "active_model/railtie"
 require "active_job/railtie"
@@ -11,6 +11,8 @@ require "action_mailer/railtie"
 require "action_view/railtie"
 require "action_cable/engine"
 require "sprockets/railtie"
+require 'carrierwave'
+require 'carrierwave/orm/activerecord'
 # require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems
@@ -33,5 +35,7 @@ module LcFoods
     # I18n
     config.i18n.available_locales = [:en, :vi]
     config.i18n.default_locale = :vi
+
+    config.exceptions_app = self.routes
   end
 end

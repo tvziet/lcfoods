@@ -9,7 +9,7 @@
         </div>
         <div>
           <div class="ibox-content no-padding border-left-right">
-            <%= image_tag(@page_user.avatar.url, class:"img-responsive", style: "height: 250px; widht: 250px") %>
+            <%= image_tag(@page_user.avatar, class:"img-responsive", style: "height: 250px; widht: 250px") %>
           </div>
           <div class="ibox-content profile-content">
             <h4><strong><%= @page_user.full_name %></strong></h4>
@@ -21,7 +21,7 @@
               <li>
                 <p><i class="fa fa-birthday-cake" aria-hidden="true"></i> <%= @page_user.birthday %></p>
                 <p><i class="fa fa-phone" aria-hidden="true"></i> <%= @page_user.cell_phone %></p>
-                <p><i class="fa fa-fax" aria-hidden="true"></i> <%= @page_user.fax %></p>
+                <p><i class="fa fa-id-card" aria-hidden="true"></i> <%= @page_user.employee_number %></p>
                 <p><i class="fa fa-envelope" aria-hidden="true"></i> <%= @page_user.email %></p>
               </li>
             </ul>

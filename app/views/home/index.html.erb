@@ -5,9 +5,9 @@
     <div class="col-sm-4">
       <h2 class="text-center"><strong>QUY CHẾ, NỘI QUY</strong></h2>
       <hr style="height:2px;border-width:0;color: #c22b32;background-color: #c22b32">
-      <img src="https://www.themandarin.com.au/wp-content/uploads/2019/03/Regulation-blocks.jpg" alt="regulation", class="img-responsive", style="height: 220px; width: 360px;">
+      <%= image_tag("regulations.jpeg", alt: "Banner quy định, quy trình", class:"img-responsive") %>
       <h4><strong><%= link_to @first_notable_regulation.title, chi_tiet_quy_dinh_path(@first_notable_regulation) %></strong></h4>
-      <p><%= sanitize @first_notable_regulation.body.truncate(200) %></p>
+      <p><%= @first_notable_regulation.body %></p>
       <hr>
       <ul class="m-b-xs">
         <% @recently_notable_regulations.each do |regulation| %>
@@ -25,9 +25,9 @@
     <div class="col-sm-4">
       <h2 class="text-center"><strong>TIN NỔI BẬT</strong></h2>
       <hr style="height:2px;border-width:0;color: #c22b32;background-color: #c22b32">
-      <img src="https://api.theartnewspaper.com/text-to-image?text=News&w=1200&h=630&bg=d9212d&txtclr=ffffff&fs=150" alt="news", class="img-responsive", style="height: 220px; width: 360px;">
+      <%= image_tag("news.jpg", alt: "Banner tin tức", class:"img-responsive") %>
       <h4><strong><%= link_to @first_notable_news.title, chi_tiet_tin_tuc_path(@first_notable_news) %></strong></h4>
-      <p><%= sanitize @first_notable_news.body.truncate(200) %></p>
+      <p><%= raw @first_notable_news.body %></p>
       <hr>
       <ul class="m-b-xs">
         <% @recently_notable_news.each do |news| %>
@@ -45,9 +45,9 @@
     <div class="col-sm-4">
       <h2 class="text-center"><strong>THÔNG TIN - THÔNG BÁO</strong></h2>
       <hr style="height:2px;border-width:0;color: #c22b32;background-color: #c22b32">
-      <img src="https://www.uit.edu.vn/sites/vi/files/styles/uit_thumb/public/uploads/images/tb.png?itok=PsS9hEaR" alt="thong bao", class="img-responsive", style="height: 220px; width: 360px;" >
+      <%= image_tag("notifications.png", alt: "Banner thông báo", class:"img-responsive") %>
       <h4><strong><%= link_to @first_notable_notification.title, chi_tiet_thong_bao_path(@first_notable_notification) %></strong></h4>
-      <p><%= sanitize @first_notable_notification.body.truncate(200) %></p>
+      <p><%= @first_notable_notification.body %></p>
       <hr>
       <ul class="m-b-xs">
         <% @recently_notable_regulations.each do |notification| %>

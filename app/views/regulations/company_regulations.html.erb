@@ -12,7 +12,7 @@
               <strong>Admin</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> <%= company_regulation.created_at.strftime("%d-%m-%Y") %></span>
             </div>
             <p>
-              <%= sanitize company_regulation.body.truncate(200) %>
+              <%= company_regulation.body %>
             </p>
             <div class="row">
               <div class="col-md-6">
@@ -27,6 +27,11 @@
     <% end %>
   </div>
 </div>
-<%= render 'shared/pages/pagy_navigation' %>
+<% if params["search"] %>
+  <%= render 'regulations/search' %>
+<% end %>
+<% if @company_regulations.count > 10 %>
+  <%= render 'shared/pages/pagy_navigation' %>
+<% end %>
 <%= render 'shared/pages/footer' %>
 

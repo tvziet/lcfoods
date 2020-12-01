@@ -11,15 +11,10 @@
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav navbar-right">
-          <a class="navbar-minimalize minimalize-styl-2 btn btn-primary" href="#"><i class="fa fa-search" aria-hidden="true"></i> </a>
-          <form role="search" class="navbar-form-custom" method="post" action="">
-            <div class="form-group">
-              <input type="text" placeholder="Tìm kiếm" class="form-control" name="top-search" id="top-search"/>
-            </div>
-          </form>
+        <%= render 'shared/pages/form_search' %>
       </ul>
       <ul class="nav navbar-nav">
-        <li class="active" style="border-left: 4px solid #c22b32;"><a href="/">Trang chủ</a></li>
+        <li class="active" style="border-left: 4px solid #ED5565;"><a href="/">Trang chủ</a></li>
         <li>
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Nhân viên<b class="caret"></b></a>
           <ul class="dropdown-menu multi-level">
@@ -27,13 +22,10 @@
               <li class="dropdown-submenu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= page_company.name %></a>
                 <ul class="dropdown-menu">
-                  <li class="dropdown-submenu">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Phòng ban</a>
-                    <ul class="dropdown-menu">
-                      <% page_company.groups.each do |group| %>
-                        <li><%= link_to group.name, tat_ca_nhan_vien_phong_ban_path(group) %></li>
-                      <% end %>
-                    </ul>
+                  <li>
+                    <% page_company.groups.each do |group| %>
+                      <%= link_to group.name, tat_ca_nhan_vien_phong_ban_path(group) %>
+                    <% end %>
                   </li>
                 </ul>
               </li>
@@ -41,7 +33,7 @@
           </ul>
         </li>
         <li>
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Nội dung, quy chế<b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Quy định, quy trình<b class="caret"></b></a>
           <ul class="dropdown-menu multi-level">
             <% Company.all.order(created_at: :desc).each do |page_company| %>
               <li class="dropdown-submenu">
@@ -68,6 +60,14 @@
                 </ul>
               </li>
             <% end %>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Văn bản, biểu mẫu<b class="caret"></b></a>
+          <ul class="dropdown-menu multi-level">
+            <li>
+              <%= link_to "Tất cả văn bản, biểu mẫu", tat_ca_van_ban_path, class:"dropdown-toggle" %>
+            </li>
           </ul>
         </li>
       </ul>

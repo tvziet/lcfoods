@@ -15,7 +15,7 @@
     <div class="col-lg-3">
       <div class="contact-box center-version">
         <%= link_to edit_admin_user_path(user) do %>
-          <%= image_tag(user.avatar.url, class: "img-circle") %>
+          <%= image_tag(user.avatar, class: "img-circle") %>
           <h3 class="m-b-xs"><strong><%= user.full_name %></strong></h3>
           <div class="font-bold"><%= user.group_name %></div>
           <address class="m-t-md">
@@ -26,12 +26,14 @@
         <% end %>
         <div class="contact-box-footer">
           <div class="m-t-xs btn-group">
-            <a class="btn btn-xs btn-white"><i class="fa fa-fax" aria-hidden="true"></i> Fax: <%= user.fax %></a>
             <a class="btn btn-xs btn-white"><i class="fa fa-envelope"></i> SĐT: <%= user.cell_phone %></a>
+            <a class="btn btn-xs btn-white"><i class="fa fa-envelope"></i> Mã nhân viên: <%= user.employee_number %></a>
           </div>
         </div>
       </div>
     </div>
   <% end %>
 </div>
-<%= render 'shared/pages/pagy_navigation' %>
+<% if @users.any? %>
+  <%= render 'shared/pages/pagy_navigation' %>
+<% end %>

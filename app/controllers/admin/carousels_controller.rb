@@ -54,6 +54,6 @@ class Admin::CarouselsController < ApplicationController
   end
 
   def carousel_params
-    params.require(:carousel).permit(:image, :status)
+    params.require(:carousel).permit(:status, :image)
   end
 end

@@ -1,0 +1,37 @@
+<% if params[:controller] == 'administrators' %>
+  <%= form_tag(tim_kiem_path, method: :get, class: "navbar-form-custom") do %>
+    <div class="input-group">
+      <%= text_field_tag :search, params[:q], placeholder: "Từ khoá", class: "form-control" %>
+      <span class="input-group-btn">
+        <%= button_tag "Tìm kiếm", class:"btn btn-primary", name: nil %>
+      </span>
+    </div>
+  <% end %>
+<% elsif params[:controller] == 'groups'%>
+  <%= form_tag(tat_ca_nhan_vien_phong_ban_path(params[:id]), method: :get, class: "navbar-form-custom") do %>
+    <div class="input-group">
+      <%= text_field_tag :search, params[:q], placeholder: "Từ khoá", class: "form-control" %>
+      <span class="input-group-btn">
+        <%= button_tag "Tìm kiếm", class:"btn btn-primary", name: nil %>
+      </span>
+    </div>
+  <% end %>
+<% elsif params[:controller] == 'regulations'%>
+  <%= form_tag(tat_ca_quy_dinh_phong_ban_path(params[:id]), method: :get, class: "navbar-form-custom") do %>
+    <div class="input-group">
+      <%= text_field_tag :search, params[:q], placeholder: "Từ khoá", class: "form-control" %>
+      <span class="input-group-btn">
+        <%= button_tag "Tìm kiếm", class:"btn btn-primary", name: nil %>
+      </span>
+    </div>
+  <% end %>
+<% elsif params[:controller] == 'notifications'%>
+  <%= form_tag(tat_ca_thong_bao_phong_ban_path(params[:id]), method: :get, class: "navbar-form-custom") do %>
+    <div class="input-group">
+      <%= text_field_tag :search, params[:q], placeholder: "Từ khoá", class: "form-control" %>
+      <span class="input-group-btn">
+        <%= button_tag "Tìm kiếm", class:"btn btn-primary", name: nil %>
+      </span>
+    </div>
+  <% end %>
+<% end %>

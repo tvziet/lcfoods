@@ -1,6 +1,5 @@
 class Carousel < ApplicationRecord
-  mount_uploader :image, ImageUploader
-  serialize :image, JSON
+  has_one_attached :image
   enum status: { unactive: 0, active: 1 }
-  scope :active?, -> { where status: true}
+  scope :active?, -> { where status: true }
 end

@@ -1,5 +1,12 @@
 {
   "name": "lc-foods",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "@rails/actiontext": "^6.0.3-4",
+    "@rails/webpacker": "5.2.1",
+    "trix": "^1.2.0"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^3.11.0"
+  }
 }

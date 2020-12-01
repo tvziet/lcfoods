@@ -23,16 +23,16 @@
                 <div class="file-box">
                   <div class="file">
                     <div class="image">
-                      <%= image_tag(carousel.image.url, class:"img-responsive") %>
+                      <%= image_tag(carousel.image, class:"img-responsive") %>
                     </div>
                   </div>
                 </div>
               </td>
               <td>
                 <% if carousel.active? %>
-                  <span class="label label-primary"><%= t("views.statuses.active") %></span>
+                  <span class="label label-danger"><%= carousel.status_i18n %></span>
                 <% else %>
-                  <span class="label label-default"><%= t("views.statuses.unactive") %></span>
+                  <span class="label label-default"><%= carousel.status_i18n %></span>
                 <% end %>
               </td>
               <td>
@@ -47,7 +47,9 @@
           <% end %>
           </tbody>
         </table>
-        <%= render 'shared/pages/pagy_navigation' %>
+        <% if @carousels.any? %>
+          <%= render 'shared/pages/pagy_navigation' %>
+        <% end %>
       </div>
     </div>
   </div>

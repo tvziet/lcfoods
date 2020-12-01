@@ -1,0 +1,39 @@
+<%= form_for [:admin, @document], html: { multipart: true }, class: "form-horizontal" do |form| %>
+  <% if @document.errors.any? %>
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="panel panel-warning">
+          <div class="panel-heading">
+            <i class="fa fa-warning"></i> <%= pluralize(@document.errors.count, "lỗi") %> đã xảy ra:
+          </div>
+          <div class="panel-body">
+            <ul>
+              <% @document.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Tiêu đề</label>
+    <div class="col-sm-10 m-b">
+      <%= form.text_field :title, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Tệp</label>
+    <div class="col-sm-10 m-b">
+      <%= form.file_field :attachments %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-4 col-sm-offset-2 m-t-sm">
+      <%= link_to "Quay lại", admin_regulations_url, class: "btn btn-white m-r-xs" %>
+      <%= form.submit class:"btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

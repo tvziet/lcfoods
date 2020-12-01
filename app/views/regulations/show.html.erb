@@ -1,4 +1,5 @@
 <% provide(:title, 'Chi tiết quy chế, nội quy') %>
+<%= render 'shared/pages/navigation' %>
 <div class="wrapper wrapper-content  animated fadeInRight article">
   <div class="row">
     <div class="col-lg-10 col-lg-offset-1">
@@ -15,7 +16,7 @@
             </h1>
           </div>
           <p>
-            <%= sanitize @page_regulation.body %>
+            <%= @page_regulation.body %>
           </p>
           <% @page_regulation.attachments.each do |attachment| %>
             <strong>Tệp đính kèm: </strong><%= link_to "#{attachment.file.filename}", pdfjs.full_path(file: "#{attachment.url}") %>

@@ -1,0 +1,22 @@
+<div class="wrapper wrapper-content animated fadeInRight">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2">
+      <div class="ibox float-e-margins">
+        <div>
+          <h3>
+            <%= @search_regulations.count %> kết quả cho từ khoá: <span class="text-danger"><%= params["search"] %></span>
+          </h3>
+          <div class="hr-line-dashed"></div>
+          <div class="search-result">
+            <% @search_regulations.each do |search_regulation| %>
+              <h3><%= link_to search_regulation.title, chi_tiet_quy_dinh_path(search_regulation) %></h3>
+            <% end %>
+          </div>
+          <% if @search_regulations.count > 10 %>
+            <%= render 'shared/pages/pagy_navigation' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

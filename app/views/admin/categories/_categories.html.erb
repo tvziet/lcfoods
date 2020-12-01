@@ -22,7 +22,7 @@
             <tr class="gradeA">
               <td><%= category.name %></td>
               <td><%= category.created_at.strftime("%d-%m-%Y") %></td>
-              <td>Có <strong>12</strong> nhân viên</td>
+              <td>Có <strong><%= category.regulations.count %></strong> quy định, quy trình</td>
               <td>
                 <%= link_to edit_admin_category_path(category), class:"btn btn-white btn-sm" do %>
                   <i class="fa fa-pencil"></i> Cập nhật

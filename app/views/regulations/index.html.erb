@@ -1,6 +1,5 @@
 <% provide(:title, 'Quy định, nội quy') %>
 <%= render 'shared/pages/navigation' %>
-
 <div class="wrapper wrapper-content  animated fadeInRight blog">
   <div class="row">
     <% @page_regulations.each do |page_regulation| %>
@@ -12,7 +11,7 @@
               <strong>Admin</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> <%= page_regulation.created_at.strftime("%d-%m-%Y") %></span>
             </div>
             <p>
-              <%= sanitize page_regulation.body.truncate(200) %>
+              <%= page_regulation.body %>
             </p>
             <div class="row">
               <div class="col-md-6">
@@ -27,6 +26,8 @@
     <% end %>
   </div>
 </div>
-<%= render 'shared/pages/pagy_navigation' %>
+<% if @page_regulations.count > 10 %>
+  <%= render 'shared/pages/pagy_navigation' %>
+<% end %>
 <%= render 'shared/pages/footer' %>
 

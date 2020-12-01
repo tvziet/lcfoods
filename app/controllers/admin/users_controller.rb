@@ -54,6 +54,16 @@ class Admin::UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :birthday, :cell_phone, :address, :bio, :fax, :avatar, :email, :group_id, :company_id)
+    params.require(:user).permit(:first_name,
+                                 :last_name,
+                                 :birthday,
+                                 :cell_phone,
+                                 :address,
+                                 :bio,
+                                 :avatar,
+                                 :email,
+                                 :group_id,
+                                 :company_id,
+                                 :employee_number)
   end
 end

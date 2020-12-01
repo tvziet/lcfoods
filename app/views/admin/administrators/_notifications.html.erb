@@ -19,12 +19,12 @@
           <% @notifications.each do |notification| %>
             <tr class="gradeA">
               <td><%= notification.title %></td>
-              <td><%= sanitize notification.body %></td>
+              <td><%= notification.body %></td>
               <td class="project-status">
                 <% if notification.notable? %>
-                  <span class="label label-primary"><%= t("views.statuses.active") %></span>
+                  <span class="label label-danger"><%= notification.status_i18n %></span>
                 <% else %>
-                  <span class="label label-default"><%= t("views.statuses.unactive") %></span>
+                  <span class="label label-default"><%= notification.status_i18n %></span>
                 <% end %>
               </td>
               <td><%= notification.created_at.strftime("%d-%m-%Y") %></td>

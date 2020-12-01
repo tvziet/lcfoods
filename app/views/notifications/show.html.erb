@@ -14,7 +14,7 @@
             </h1>
           </div>
           <p>
-            <%= sanitize @page_notification.body %>
+            <%= @page_notification.body %>
           </p>
           <% @page_notification.attachments.each do |attachment| %>
             <strong>Tệp đính kèm: </strong><%= link_to "#{attachment.file.filename}", pdfjs.full_path(file: "#{attachment.url}") %>

@@ -23,7 +23,7 @@
           <% @regulations.each do |regulation| %>
             <tr class="gradeA">
               <td><%= regulation.title %></td>
-              <td><%= sanitize regulation.body.truncate(100) %></td>
+              <td><%= regulation.body %></td>
               <td><%= regulation.company_name %></td>
               <td><%= regulation.category_name %></td>
               <td><%= regulation.created_at.strftime("%d-%m-%Y") %></td>

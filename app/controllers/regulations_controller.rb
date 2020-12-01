@@ -8,7 +8,13 @@ class RegulationsController < ApplicationController
   end
 
   def company_regulations
-    @page_company               = Company.find_by(id: params[:id])
-    @pagy, @company_regulations = pagy(Regulation.where(company_id: @page_company&.id))
+    @page_company        = Company.find_by(id: params[:id])
+    @company_regulations = Regulation.where(company_id: @page_company&.id).order(created_at: :desc)
+    if params["search"]
+      @pagy, @search_regulations = pagy(@company_regulations.where('lower(title) LIKE ?', "%#{params["search"]}%"))
+    else
+      @pagy, @search_regulations = pagy(@company_regulations)
+    end
+
   end
 end
