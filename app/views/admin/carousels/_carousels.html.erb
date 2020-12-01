@@ -45,7 +45,7 @@
           <% end %>
           </tbody>
         </table>
-        <% if @carousels.any? %>
+        <% if @carousels.count > 10 %>
           <%= render 'shared/pages/pagy_navigation' %>
         <% end %>
       </div>

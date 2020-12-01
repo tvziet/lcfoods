@@ -26,5 +26,7 @@
     <% end %>
   </div>
 </div>
-<%= render 'shared/pages/pagy_navigation' %>
+<% if @page_users.count > 10 %>
+  <%= render 'shared/pages/pagy_navigation' %>
+<% end %>
 <%= render 'shared/pages/footer' %>
