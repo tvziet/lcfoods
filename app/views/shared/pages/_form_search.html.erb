@@ -16,7 +16,7 @@
       </span>
     </div>
   <% end %>
-<% elsif params[:controller] == 'regulations'%>
+<% elsif params[:controller] == 'regulations#company_regulations'%>
   <%= form_tag(tat_ca_quy_dinh_phong_ban_path(params[:id]), method: :get, class: "navbar-form-custom") do %>
     <div class="input-group">
       <%= text_field_tag :search, params[:q], placeholder: "Từ khoá", class: "form-control" %>
@@ -25,7 +25,7 @@
       </span>
     </div>
   <% end %>
-<% elsif params[:controller] == 'notifications'%>
+<% elsif params[:controller] == 'notifications#company_notifications'%>
   <%= form_tag(tat_ca_thong_bao_phong_ban_path(params[:id]), method: :get, class: "navbar-form-custom") do %>
     <div class="input-group">
       <%= text_field_tag :search, params[:q], placeholder: "Từ khoá", class: "form-control" %>
