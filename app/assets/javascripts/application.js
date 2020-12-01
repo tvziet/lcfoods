@@ -10,7 +10,7 @@
 //= require metisMenu/jquery.metisMenu.js
 //= require pace/pace.min.js
 //= require slimscroll/jquery.slimscroll.min.js
-//= require inspinia.js
+//= require lcfoods.js
 //= require jquery_ujs
 //= require activestorage
 //= require toastr
