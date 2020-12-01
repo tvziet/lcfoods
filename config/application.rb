@@ -37,5 +37,6 @@ module LcFoods
     config.i18n.default_locale = :vi
 
     config.exceptions_app = self.routes
+    config.assets.initialize_on_precompile = false
   end
 end
