@@ -229,7 +229,6 @@ GEM
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
     unicode-display_width (1.7.0)
-    viewerjs-rails (0.0.4)
     warden (1.2.9)
       rack (>= 2.0.9)
     websocket-driver (0.7.3)
@@ -265,7 +264,6 @@ DEPENDENCIES
   trix
   tzinfo-data
   uglifier
-  viewerjs-rails
 
 RUBY VERSION
    ruby 2.6.5p114
