@@ -1,6 +1,5 @@
 <% provide(:title, 'Chi tiết tin tức') %>
-<%= render 'shared/pages/navigation' %>
-<div class="wrapper wrapper-content animated fadeInRight article">
+<div class="wrapper wrapper-content  animated fadeInRight article">
   <div class="row">
     <div class="col-lg-10 col-lg-offset-1">
       <div class="ibox">
@@ -15,11 +14,8 @@
             </h1>
           </div>
           <p>
-            <%= raw @page_news.body %>
+            <%= @page_news.body %>
           </p>
-          <%# @page_news.attachments.each do |attachment| %>
-<!--            <strong>Tệp đính kèm: </strong><%#= link_to "#{attachment.file.filename}", pdfjs.full_path(file: "#{attachment.url}") %>-->
-          <%# end %>
         </div>
       </div>
     </div>

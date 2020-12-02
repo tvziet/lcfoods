@@ -9,7 +9,7 @@
           <div class="hr-line-dashed"></div>
           <div class="search-result">
             <% @search_notifications.each do |search_notification| %>
-              <h3><%= link_to search_notification.title, chi_tiet_thong_bao_path(search_notification) %></h3>
+              <h3><%= link_to search_notification.title, chi_tiet_thong_bao_path(search_notification), class: "text-danger" %></h3>
             <% end %>
           </div>
           <% if @search_notifications.count > 10 %>

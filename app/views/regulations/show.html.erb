@@ -1,4 +1,4 @@
-<% provide(:title, 'Chi tiết quy chế, nội quy') %>
+<% provide(:title, 'Chi tiết quy định, quy trình') %>
 <%= render 'shared/pages/navigation' %>
 <div class="wrapper wrapper-content  animated fadeInRight article">
   <div class="row">
@@ -21,6 +21,11 @@
           <% @page_regulation.attachments.each do |attachment| %>
             <strong>Tệp đính kèm: </strong><%= link_to "#{attachment.file.filename}", pdfjs.full_path(file: "#{attachment.url}") %>
           <% end %>
+          <span class="pull-right">
+              <%= link_to tat_ca_quy_dinh_cong_ty_path(@page_regulation.company_id), class: "btn btn-primary" do %>
+                <i class="fa fa-angle-double-left" aria-hidden="true"></i> Quay lại
+              <% end %>
+          </span>
         </div>
       </div>
     </div>

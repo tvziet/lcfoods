@@ -26,6 +26,9 @@
     <% end %>
   </div>
 </div>
+<% if params["search"] %>
+  <%= render 'users/search' %>
+<% end %>
 <% if @page_users.count > 10 %>
   <%= render 'shared/pages/pagy_navigation' %>
 <% end %>

@@ -11,21 +11,18 @@
               <strong>Admin</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> <%= page_document.created_at.strftime("%d-%m-%Y") %></span>
             </div>
             <p>
-              <%= page_document.attachment.url %>
+              Tải về: <i class="fa fa-download" aria-hidden="true"></i>
+              <%= link_to page_document.attachment.file.filename, page_document.attachment.url %>
             </p>
-            <div class="row">
-              <div class="col-md-6">
-                <%= link_to chi_tiet_van_ban_path(page_document), class: "btn btn-primary btn-xs" do %>
-                  Chi tiết <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                <% end %>
-              </div>
-            </div>
           </div>
         </div>
       </div>
     <% end %>
   </div>
 </div>
+<% if params["search"] %>
+  <%= render 'documents/search' %>
+<% end %>
 <% if @page_documents.count > 10 %>
   <%= render 'shared/pages/pagy_navigation' %>
 <% end %>

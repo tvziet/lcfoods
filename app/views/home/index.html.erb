@@ -2,8 +2,8 @@
 <%= render 'shared/pages/carousel' %>
 <section class="container services m-b-xl">
   <div class="row">
-    <div class="col-sm-4">
-      <h2 class="text-center"><strong>QUY CHẾ, NỘI QUY</strong></h2>
+    <div class="col-sm-3">
+      <h3 class="text-center"><strong>QUY ĐỊNH, QUY TRÌNH</strong></h3>
       <hr style="height:2px;border-width:0;color: #c22b32;background-color: #c22b32">
       <%= image_tag("thong-bao.jpg", alt: "Banner quy định, quy trình", class:"img-responsive") %>
       <h4><strong><%= link_to @first_notable_regulation.title, chi_tiet_quy_dinh_path(@first_notable_regulation) %></strong></h4>
@@ -22,28 +22,8 @@
         <% end %>
       </p>
     </div>
-    <div class="col-sm-4">
-      <h2 class="text-center"><strong>TIN NỔI BẬT</strong></h2>
-      <hr style="height:2px;border-width:0;color: #c22b32;background-color: #c22b32">
-      <%= image_tag("news.jpg", alt: "Banner tin tức", class:"img-responsive") %>
-      <h4><strong><%= link_to @first_notable_news.title, chi_tiet_tin_tuc_path(@first_notable_news) %></strong></h4>
-      <p><%= raw @first_notable_news.body %></p>
-      <hr>
-      <ul class="m-b-xs">
-        <% @recently_notable_news.each do |news| %>
-          <li>
-            <i class="fa fa-angle-right" aria-hidden="true"></i> <%= link_to news.title, chi_tiet_tin_tuc_path(news) %>
-          </li>
-        <% end %>
-      </ul>
-      <p>
-        <%= link_to thong_tin_chung_path, class:"navy-link" do %>
-          Xem thêm <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-        <% end %>
-      </p>
-    </div>
-    <div class="col-sm-4">
-      <h2 class="text-center"><strong>THÔNG TIN - THÔNG BÁO</strong></h2>
+    <div class="col-sm-3">
+      <h3 class="text-center"><strong>THÔNG BÁO</strong></h3>
       <hr style="height:2px;border-width:0;color: #c22b32;background-color: #c22b32">
       <%= image_tag("notifications.png", alt: "Banner thông báo", class:"img-responsive") %>
       <h4><strong><%= link_to @first_notable_notification.title, chi_tiet_thong_bao_path(@first_notable_notification) %></strong></h4>
@@ -58,6 +38,45 @@
       </ul>
       <p>
         <%= link_to tat_ca_thong_bao_path, class:"navy-link" do %>
+          Xem thêm <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+        <% end %>
+      </p>
+    </div>
+    <div class="col-sm-3">
+      <h3 class="text-center"><strong>BIỂU MẪU</strong></h3>
+      <hr style="height:2px;border-width:0;color: #c22b32;background-color: #c22b32">
+      <%= image_tag("document.png", alt: "Banner văn bản", class:"img-responsive") %>
+      <h4><strong><%= link_to @first_document.title, @first_document.attachment.url %></strong></h4>
+      <hr>
+      <ul class="m-b-xs">
+        <% @recently_documents.each do |recently_document| %>
+          <li>
+            <i class="fa fa-angle-right" aria-hidden="true"></i> <%= recently_document.title %>
+          </li>
+        <% end %>
+      </ul>
+      <p>
+        <%= link_to tat_ca_thong_bao_path, class:"navy-link" do %>
+          Xem thêm <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+        <% end %>
+      </p>
+    </div>
+    <div class="col-sm-3">
+      <h3 class="text-center"><strong>TIN NỔI BẬT</strong></h3>
+      <hr style="height:2px;border-width:0;color: #c22b32;background-color: #c22b32">
+      <%= image_tag("news.jpg", alt: "Banner tin tức", class:"img-responsive") %>
+      <h4><strong><%= link_to @first_notable_news.title, chi_tiet_tin_tuc_path(@first_notable_news) %></strong></h4>
+      <p><%= @first_notable_news.body.to_plain_text.truncate(100) %></p>
+      <hr>
+      <ul class="m-b-xs">
+        <% @recently_notable_news.each do |news| %>
+          <li>
+            <i class="fa fa-angle-right" aria-hidden="true"></i> <%= link_to news.title, chi_tiet_tin_tuc_path(news) %>
+          </li>
+        <% end %>
+      </ul>
+      <p>
+        <%= link_to thong_tin_chung_path, class:"navy-link" do %>
           Xem thêm <i class="fa fa-angle-double-right" aria-hidden="true"></i>
         <% end %>
       </p>

@@ -7,12 +7,12 @@
       <div class="col-lg-4">
         <div class="ibox">
           <div class="ibox-content">
-            <h3 class="text-danger"><%= company_notification.title %></h3>
+            <h3><%= link_to company_notification.title, chi_tiet_thong_bao_path(company_notification), class:"text-danger" %></h3>
             <div class="small m-b-xs">
               <strong>Admin</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> <%= company_notification.created_at.strftime("%d-%m-%Y") %></span>
             </div>
             <p>
-              <%= company_notification.body %>
+              <%= company_notification.body.to_plain_text.truncate(100) %>
             </p>
             <div class="row">
               <div class="col-md-6">

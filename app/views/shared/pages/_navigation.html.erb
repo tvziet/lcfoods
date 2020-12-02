@@ -24,7 +24,7 @@
                 <ul class="dropdown-menu">
                   <li>
                     <% page_company.groups.each do |group| %>
-                      <%= link_to group.name, tat_ca_nhan_vien_phong_ban_path(group) %>
+                      <%= link_to group.name, tat_ca_nhan_vien_cong_ty_path(group) %>
                     <% end %>
                   </li>
                 </ul>
@@ -40,7 +40,7 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= page_company.name %></a>
                 <ul class="dropdown-menu">
                   <li>
-                    <%= link_to "Tất cả nội dung, quy chế", tat_ca_quy_dinh_phong_ban_path(page_company), class:"dropdown-toggle" %>
+                    <%= link_to "Tất cả nội dung, quy chế", tat_ca_quy_dinh_cong_ty_path(page_company), class:"dropdown-toggle" %>
                   </li>
                 </ul>
               </li>
@@ -55,7 +55,7 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= page_company.name %></a>
                 <ul class="dropdown-menu">
                   <li>
-                    <%= link_to "Tất cả thông báo", tat_ca_thong_bao_phong_ban_path(page_company), class:"dropdown-toggle" %>
+                    <%= link_to "Tất cả thông báo", tat_ca_thong_bao_cong_ty_path(page_company), class:"dropdown-toggle" %>
                   </li>
                 </ul>
               </li>

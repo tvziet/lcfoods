@@ -5,13 +5,16 @@ class HomeController < ApplicationController
     @recently_active_carousel = Carousel.active.order(created_at: :desc).where.not(id: @first_carousel.id)
     # REGULATIONS
     @first_notable_regulation     = Regulation.notable.order(created_at: :desc).first
-    @recently_notable_regulations = Regulation.notable.order(created_at: :desc).where.not(id: @first_notable_regulation.id)
+    @recently_notable_regulations = Regulation.notable.order(created_at: :desc).where.not(id: @first_notable_regulation.id).limit(5)
     # NEWS
     @first_notable_news    = News.notable.order(created_at: :desc).first
-    @recently_notable_news = News.notable.order(created_at: :desc).where.not(id: @first_notable_news.id)
+    @recently_notable_news = News.notable.order(created_at: :desc).where.not(id: @first_notable_news.id).limit(5)
     # NOTIFICATIONS
     @first_notable_notification      = Notification.notable.order(created_at: :desc).first
-    @recently_notable_notificationss = Notification.notable.order(created_at: :desc).where.not(id: @first_notable_notification.id)
+    @recently_notable_notificationss = Notification.notable.order(created_at: :desc).where.not(id: @first_notable_notification.id).limit(5)
+    # DOCUMENTS
+    @first_document = Document.all.order(created_at: :desc).first
+    @recently_documents = Document.all.order(created_at: :desc).where.not(id: @first_document.id).limit(5)
   end
 
   def search

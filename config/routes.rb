@@ -24,21 +24,20 @@ Rails.application.routes.draw do
   devise_for :admins
   get 'tat-ca-nhan-vien', to: 'users#index'
   get 'chi-tiet-nhan-vien/:id', to: 'users#show', as: 'chi-tiet-nhan-vien'
-  get 'tat-ca-nhan-vien-phong-ban/:id', to: 'groups#show', as: 'tat-ca-nhan-vien-phong-ban'
+  get 'tat-ca-nhan-vien-cong-ty/:id', to: 'groups#show', as: 'tat-ca-nhan-vien-cong-ty'
 
   get 'tat-ca-quy-dinh', to: 'regulations#index'
   get 'chi-tiet-quy-dinh/:id', to: 'regulations#show', as: 'chi-tiet-quy-dinh'
-  get 'tat-ca-quy-dinh-phong-ban/:id', to: 'regulations#company_regulations', as: 'tat-ca-quy-dinh-phong-ban'
+  get 'tat-ca-quy-dinh-cong-ty/:id', to: 'regulations#company_regulations', as: 'tat-ca-quy-dinh-cong-ty'
 
   get 'tat-ca-thong-bao', to: 'notifications#index'
   get 'chi-tiet-thong-bao/:id', to: 'notifications#show', as: 'chi-tiet-thong-bao'
-  get 'tat-ca-thong-bao-phong-ban/:id', to: 'notifications#company_notifications', as: 'tat-ca-thong-bao-phong-ban'
+  get 'tat-ca-thong-bao-cong-ty/:id', to: 'notifications#company_notifications', as: 'tat-ca-thong-bao-cong-ty'
 
   get 'thong-tin-chung', to: 'news#index'
   get 'chi-tiet-tin-tuc/:id', to: 'news#show', as: 'chi-tiet-tin-tuc'
 
   get 'tat-ca-van-ban', to: 'documents#index'
-  get 'chi-tiet-van-ban/:id', to: 'documents#show', as: 'chi-tiet-van-ban'
 
   match '/404', to: 'errors#not_found', via: :all
   match '/422', to: 'errors#unprocessable', via: :all

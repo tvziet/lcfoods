@@ -9,7 +9,7 @@
           <div class="hr-line-dashed"></div>
           <div class="search-result">
             <% @search_results_users.each do |search_results_user| %>
-              <h3><%= link_to search_results_user.full_name, chi_tiet_nhan_vien_path(search_results_user) %></h3>
+              <h3><%= link_to search_results_user.full_name, chi_tiet_nhan_vien_path(search_results_user), class: "text-danger" %></h3>
             <% end %>
           </div>
           <% if @search_results_users.count > 10 %>

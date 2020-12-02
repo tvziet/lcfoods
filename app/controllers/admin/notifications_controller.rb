@@ -62,6 +62,6 @@ class Admin::NotificationsController < ApplicationController
   end
 
   def notification_params
-    params.require(:notification).permit(:title, :body, :status, :company_id, :category_id)
+    params.require(:notification).permit(:title, :body, :status, :company_id, :category_id, attachments:[])
   end
 end

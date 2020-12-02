@@ -1,0 +1,27 @@
+<div class="wrapper wrapper-content animated fadeInRight">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2">
+      <div class="ibox float-e-margins">
+        <div>
+          <h3>
+            <%= @page_documents.count %> kết quả cho từ khoá: <span class="text-danger"><%= params["search"] %></span>
+          </h3>
+          <div class="hr-line-dashed"></div>
+          <div class="search-result">
+            <% @page_documents.each do |page_document| %>
+              <h3 class="text-danger"><%= page_document.title %></h3>
+              <p>
+                Tải về: <i class="fa fa-download" aria-hidden="true"></i>
+                <%= link_to page_document.attachment.file.filename, page_document.attachment.url %>
+              </p>
+              </div>
+            <% end %>
+          </div>
+          <% if @page_documents.count > 10 %>
+            <%= render 'shared/pages/pagy_navigation' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
