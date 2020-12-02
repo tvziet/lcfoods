@@ -53,7 +53,7 @@
     </div>
   <% end %>
 <% elsif params[:controller] == 'news' %>
-  <%= form_tag(tat_ca_tin_tuc_path, method: :get, class: "navbar-form-custom") do %>
+  <%= form_tag(thong_tin_chung_path, method: :get, class: "navbar-form-custom") do %>
     <div class="input-group">
       <%= text_field_tag :search, params[:q], placeholder: "Từ khoá", class: "form-control" %>
       <span class="input-group-btn">

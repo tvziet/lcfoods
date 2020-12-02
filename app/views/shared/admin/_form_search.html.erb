@@ -1,5 +1,5 @@
-<% if params[:controller] == 'administrators' %>
-  <%= form_tag(tim_kiem_path, method: :get, class: "navbar-form-custom") do %>
+<% if params[:controller] == 'admin/administrators' || params[:controller] == 'admin/regulations' %>
+  <%= form_tag(tim_kiem_quan_tri_path, method: :get, class: "navbar-form-custom input-search") do %>
     <div class="input-group">
       <%= text_field_tag :search, params[:q], placeholder: "Từ khoá", class: "form-control" %>
       <span class="input-group-btn">
@@ -7,8 +7,17 @@
       </span>
     </div>
   <% end %>
-<% elsif params[:controller] == 'groups'%>
-  <%= form_tag(tat_ca_nhan_vien_phong_ban_path(params[:id]), method: :get, class: "navbar-form-custom") do %>
+  <% elsif params[:controller] == 'admin/notifications' %>
+    <%= form_tag(tim_kiem_thong_bao_path, method: :get, class: "navbar-form-custom input-search") do %>
+      <div class="input-group">
+        <%= text_field_tag :search, params[:q], placeholder: "Từ khoá", class: "form-control" %>
+        <span class="input-group-btn">
+        <%= button_tag "Tìm kiếm", class:"btn btn-primary", name: nil %>
+      </span>
+      </div>
+    <% end %>
+<% elsif params[:controller] == 'admin/news' %>
+  <%= form_tag(tim_kiem_tin_tuc_path, method: :get, class: "navbar-form-custom input-search") do %>
     <div class="input-group">
       <%= text_field_tag :search, params[:q], placeholder: "Từ khoá", class: "form-control" %>
       <span class="input-group-btn">
@@ -16,17 +25,8 @@
       </span>
     </div>
   <% end %>
-<% elsif params[:controller] == 'regulations'%>
-  <%= form_tag(tat_ca_quy_dinh_phong_ban_path(params[:id]), method: :get, class: "navbar-form-custom") do %>
-    <div class="input-group">
-      <%= text_field_tag :search, params[:q], placeholder: "Từ khoá", class: "form-control" %>
-      <span class="input-group-btn">
-        <%= button_tag "Tìm kiếm", class:"btn btn-primary", name: nil %>
-      </span>
-    </div>
-  <% end %>
-<% elsif params[:controller] == 'notifications'%>
-  <%= form_tag(tat_ca_thong_bao_phong_ban_path(params[:id]), method: :get, class: "navbar-form-custom") do %>
+<% elsif params[:controller] == 'admin/documents' %>
+  <%= form_tag(tim_kiem_van_ban_path, method: :get, class: "navbar-form-custom input-search") do %>
     <div class="input-group">
       <%= text_field_tag :search, params[:q], placeholder: "Từ khoá", class: "form-control" %>
       <span class="input-group-btn">

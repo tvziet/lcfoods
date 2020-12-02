@@ -19,7 +19,7 @@
           <% @regulations.each do |regulation| %>
             <tr class="gradeA">
               <td><%= regulation.title %></td>
-              <td><%= regulation.body %></td>
+              <td><%= raw regulation.body %></td>
               <td class="project-status">
                 <% if regulation.notable? %>
                   <span class="label label-danger"><%= regulation.status_i18n %></span>

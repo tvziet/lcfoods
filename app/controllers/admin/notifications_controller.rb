@@ -48,6 +48,14 @@ class Admin::NotificationsController < ApplicationController
     end
   end
 
+  def search
+    if params["search"]
+      @pagy, @search_results_notifications = pagy(Notification.where('lower(title) LIKE ?', "%#{params["search"]}%").order(created_at: :desc))
+    else
+      @pagy, @search_results_notifications = pagy(Notification.all.order(created_at: :desc))
+    end
+  end
+
   private
   def set_notification
     @notification = Notification.find(params[:id])

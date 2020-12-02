@@ -7,4 +7,12 @@ class Admin::AdministratorsController < ApplicationController
     @regulations    = Regulation.all.order(created_at: :desc).limit(10)
     @notifications  = Notification.all.order(created_at: :desc).limit(10)
   end
+
+  def search
+    if params["search"]
+      @pagy, @search_results_regulations = pagy(Regulation.where('lower(title) LIKE ?', "%#{params["search"]}%").order(created_at: :desc))
+    else
+      @pagy, @search_results_regulations = pagy(Regulation.all.order(created_at: :desc))
+    end
+  end
 end

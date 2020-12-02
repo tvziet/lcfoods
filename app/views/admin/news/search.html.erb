@@ -1,0 +1,43 @@
+<% provide(:title, 'Admin - Tìm kiếm') %>
+<%= render 'shared/admin/navigation' %>
+<%= render 'shared/admin/flash_messages' %>
+<div id="page-wrapper" class="gray-bg">
+  <%= render 'shared/admin/top_navbar' %>
+  <div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+      <h2>Tổng quan dữ liệu</h2>
+      <ol class="breadcrumb">
+        <li>
+          <%= link_to 'Trang chủ', admin_path %>
+        </li>
+        <li class="active">
+          <strong>Kết quả tìm kiếm</strong>
+        </li>
+      </ol>
+    </div>
+  </div>
+  <div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="ibox float-e-margins">
+          <div>
+            <h3>
+              <%= @search_results_news.count %> kết quả cho từ khoá: <span class="text-danger"><%= params["search"] %></span>
+            </h3>
+            <div class="hr-line-dashed"></div>
+            <div class="search-result">
+              <% @search_results_news.each do |search_result_news| %>
+                <h3><%= link_to search_result_news.title, edit_admin_news_path(search_result_news) %></h3>
+                <p><%= raw search_result_news.body %></p>
+              <% end %>
+            </div>
+            <% if @search_results_news.count > 10 %>
+              <%= render 'shared/pages/pagy_navigation' %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= render 'shared/admin/footer' %>
+</div>

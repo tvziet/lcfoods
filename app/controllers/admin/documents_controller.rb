@@ -48,6 +48,14 @@ class Admin::DocumentsController < ApplicationController
     end
   end
 
+  def search
+    if params["search"]
+      @pagy, @search_results_documents = pagy(Document.where('lower(title) LIKE ?', "%#{params["search"]}%").order(created_at: :desc))
+    else
+      @pagy, @search_results_documents = pagy(Document.all.order(created_at: :desc))
+    end
+  end
+
   private
   def set_document
     @document = Document.find(params[:id])

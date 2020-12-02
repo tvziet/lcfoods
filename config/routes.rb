@@ -12,10 +12,14 @@ Rails.application.routes.draw do
     resources :notifications, except: %i[show]
     resources :documents, except: %i[show]
     resources :carousels, except: %i[show]
-    resources :news, except: %i[index]
+    resources :news, except: %i[show]
   end
   get 'admin', to: 'admin/administrators#index'
-  get 'tat-ca-tin-tuc', to: 'news#index'
+  get 'tim-kiem', to: 'home#search'
+  get 'tim-kiem-quan-tri', to: 'admin/administrators#search'
+  get 'tim-kiem-thong-bao', to: 'admin/notifications#search'
+  get 'tim-kiem-tin-tuc', to: 'admin/news#search'
+  get 'tim-kiem-van-ban', to: 'admin/documents#search'
   root 'home#index'
   devise_for :admins
   get 'tat-ca-nhan-vien', to: 'users#index'
@@ -40,5 +44,4 @@ Rails.application.routes.draw do
   match '/422', to: 'errors#unprocessable', via: :all
   match '/500', to: 'errors#internal_server_error', via: :all
 
-  get 'tim-kiem', to: 'home#search'
 end
