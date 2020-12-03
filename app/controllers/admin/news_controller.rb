@@ -1,6 +1,7 @@
 class Admin::NewsController < ApplicationController
   before_action :authenticate_admin!
   before_action :set_news, only: %i[show edit update destroy]
+  before_action :check_admin, except: %i[index show]
 
   def index
     @all_news = News.all
@@ -63,5 +64,9 @@ class Admin::NewsController < ApplicationController
 
   def news_params
     params.require(:news).permit(:title, :body, :status)
+  end
+
+  def check_admin
+    return unless current_admin.is_super_admin?
   end
 end

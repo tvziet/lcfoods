@@ -1,6 +1,7 @@
 class Admin::DocumentsController < ApplicationController
   before_action :authenticate_admin!
   before_action :set_document, only: %i[show edit update destroy]
+  before_action :check_admin, except: %i[index show]
 
   def index
     @documents = Document.all
@@ -63,5 +64,9 @@ class Admin::DocumentsController < ApplicationController
 
   def document_params
     params.require(:document).permit(:title, :attachment)
+  end
+
+  def check_admin
+    return unless current_admin.is_super_admin?
   end
 end

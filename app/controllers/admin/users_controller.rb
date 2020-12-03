@@ -1,6 +1,7 @@
 class Admin::UsersController < ApplicationController
   before_action :authenticate_admin!
   before_action :set_user, only: %i[show edit update destroy]
+  before_action :check_admin, except: %i[index show]
 
   def index
     @pagy, @users = pagy(User.all.order(created_at: :desc))
@@ -65,5 +66,9 @@ class Admin::UsersController < ApplicationController
                                  :group_id,
                                  :company_id,
                                  :employee_number)
+  end
+
+  def check_admin
+    return if current_admin.is_super_admin == false && @user.company_id != current_admin&.company_id
   end
 end

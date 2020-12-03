@@ -1,6 +1,7 @@
 class Admin::GroupsController < ApplicationController
   before_action :authenticate_admin!
   before_action :set_group, only: %i[show edit update destroy]
+  before_action :check_admin, except: %i[index show]
 
   def index
     @groups = Group.all
@@ -55,5 +56,9 @@ class Admin::GroupsController < ApplicationController
 
   def group_params
     params.require(:group).permit(:name, :company_id)
+  end
+
+  def check_admin
+    return if current_admin.is_super_admin == false && @group.company_id != current_admin&.company_id
   end
 end

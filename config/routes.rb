@@ -21,7 +21,9 @@ Rails.application.routes.draw do
   get 'tim-kiem-tin-tuc', to: 'admin/news#search'
   get 'tim-kiem-van-ban', to: 'admin/documents#search'
   root 'home#index'
-  devise_for :admins
+  devise_for :admins, controller: {
+    registrations: 'admin/registrations'
+  }
   get 'tat-ca-nhan-vien', to: 'users#index'
   get 'chi-tiet-nhan-vien/:id', to: 'users#show', as: 'chi-tiet-nhan-vien'
   get 'tat-ca-nhan-vien-cong-ty/:id', to: 'groups#show', as: 'tat-ca-nhan-vien-cong-ty'

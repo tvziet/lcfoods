@@ -1,6 +1,7 @@
 class Admin::RegulationsController < ApplicationController
   before_action :authenticate_admin!
   before_action :set_regulation, only: %i[show edit update destroy]
+  before_action :check_admin, only: %i[index show]
 
   def index
     @regulations = Regulation.all
@@ -55,5 +56,9 @@ class Admin::RegulationsController < ApplicationController
 
   def regulation_params
     params.require(:regulation).permit(:title, :body, :status, :company_id, :category_id, attachments: [])
+  end
+
+  def check_admin
+    return if current_admin.is_super_admin == false && @regulation.company_id != current_admin&.company_id
   end
 end

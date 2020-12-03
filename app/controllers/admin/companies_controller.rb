@@ -1,6 +1,7 @@
 class Admin::CompaniesController < ApplicationController
   before_action :authenticate_admin!
   before_action :set_company, only: %i[show edit update destroy]
+  before_action :check_admin, except: %i[index show]
 
   def index
     @companies = Company.all
@@ -55,5 +56,9 @@ class Admin::CompaniesController < ApplicationController
 
   def company_params
     params.require(:company).permit(:name, groups_attributes: [:id, :name])
+  end
+
+  def check_admin
+    return unless current_admin.is_super_admin?
   end
 end

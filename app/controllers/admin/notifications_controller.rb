@@ -1,6 +1,7 @@
 class Admin::NotificationsController < ApplicationController
   before_action :authenticate_admin!
   before_action :set_notification, only: %i[show edit update destroy]
+  before_action :check_admin, only: %i[index show]
 
   def index
     @notifications = Notification.all
@@ -63,5 +64,9 @@ class Admin::NotificationsController < ApplicationController
 
   def notification_params
     params.require(:notification).permit(:title, :body, :status, :company_id, :category_id, attachments:[])
+  end
+
+  def check_admin
+    return if current_admin.is_super_admin == false && @notification.company_id != current_admin&.company_id
   end
 end

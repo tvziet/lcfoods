@@ -1,6 +1,7 @@
 class Admin::CategoriesController < ApplicationController
   before_action :authenticate_admin!
   before_action :set_category, only: %i[show edit update destroy]
+  before_action :check_admin, except: %i[index show]
 
   def index
     @categories = Category.all
@@ -55,5 +56,9 @@ class Admin::CategoriesController < ApplicationController
 
   def category_params
     params.require(:category).permit(:name)
+  end
+
+  def check_admin
+    return unless current_admin.is_super_admin?
   end
 end
