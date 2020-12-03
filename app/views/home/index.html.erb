@@ -30,7 +30,7 @@
       <p><%= @first_notable_notification.body.to_plain_text.truncate(100) %></p>
       <hr>
       <ul class="m-b-xs">
-        <% @recently_notable_regulations.each do |notification| %>
+        <% @recently_notable_notifications.each do |notification| %>
           <li>
             <i class="fa fa-angle-right" aria-hidden="true"></i> <%= link_to notification.title, chi_tiet_thong_bao_path(notification) %>
           </li>

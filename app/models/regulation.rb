@@ -9,12 +9,7 @@ class Regulation < ApplicationRecord
   delegate :name, to: :category, prefix: :category
   delegate :name, to: :company, prefix: :company
   enum status: { normal: 0, notable: 1 }
-
-  def self.search(search)
-    if search
-      Regulation.where("title LIKE '%#{search}%'")
-    else
-      Regulation.all
-    end
-  end
+  scope :search_regulation, lambda { |search|
+    where('lower(title) LIKE ?', "%#{search}%")
+  }
 end

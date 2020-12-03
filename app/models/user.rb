@@ -14,4 +14,8 @@ class User < ApplicationRecord
   def full_name
     first_name + ' ' + last_name
   end
+
+  scope :search_user, lambda { |search|
+    where('lower(first_name) LIKE ?', "%#{search}%").or(where('lower(last_name) LIKE ?', "%#{search}%")).or(where('lower(employee_number) LIKE ?', "%#{search}%"))
+  }
 end

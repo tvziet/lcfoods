@@ -9,8 +9,8 @@ class Admin::AdministratorsController < ApplicationController
   end
 
   def search
-    if params["search"]
-      @pagy, @search_results_regulations = pagy(Regulation.where('lower(title) LIKE ?', "%#{params["search"]}%").order(created_at: :desc))
+    if params['search']
+      @pagy, @search_results_regulations = pagy(Regulation.search_regulation(params['search']).order(created_at: :desc))
     else
       @pagy, @search_results_regulations = pagy(Regulation.all.order(created_at: :desc))
     end

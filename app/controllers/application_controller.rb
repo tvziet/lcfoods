@@ -3,14 +3,14 @@ class ApplicationController < ActionController::Base
   after_action :return_errors, only: %i[page_not_found server_error]
 
   def page_not_found
-    @status = 404
-    @layout = 'application'
+    @status   = 404
+    @layout   = 'application'
     @template = 'not_found_error'
   end
 
   def server_error
-    @status = 500
-    @layout = 'error'
+    @status   = 500
+    @layout   = 'error'
     @template = 'internal_server_error'
   end
 
