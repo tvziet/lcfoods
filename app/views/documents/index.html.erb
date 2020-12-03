@@ -23,8 +23,6 @@
 <% if params["search"] %>
   <%= render 'documents/search' %>
 <% end %>
-<#% if @page_documents.count > 10 %>
-  <%= render 'shared/pages/pagy_navigation' %>
-<#% end %>
+<%= render 'shared/pages/pagy_navigation' %>
 <%= render 'shared/pages/footer' %>
 
