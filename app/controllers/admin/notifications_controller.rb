@@ -1,7 +1,7 @@
 class Admin::NotificationsController < ApplicationController
   before_action :authenticate_admin!
   before_action :set_notification, only: %i[show edit update destroy]
-  before_action :check_admin, only: %i[index show]
+  # before_action :check_admin, only: %i[index show]
 
   def index
     @notifications = Notification.all

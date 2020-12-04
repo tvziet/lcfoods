@@ -1,7 +1,7 @@
 class Admin::CompaniesController < ApplicationController
   before_action :authenticate_admin!
   before_action :set_company, only: %i[show edit update destroy]
-  before_action :check_admin, except: %i[index show]
+  # before_action :check_admin, except: %i[index show]
 
   def index
     @companies = Company.all
