@@ -1,5 +1,4 @@
 class Notification < ApplicationRecord
-  has_rich_text :body
   mount_uploaders :attachments, AttachmentUploader
   serialize :attachments, JSON
   belongs_to :category

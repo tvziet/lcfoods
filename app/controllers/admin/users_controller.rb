@@ -1,7 +1,7 @@
 class Admin::UsersController < ApplicationController
   before_action :authenticate_admin!
   before_action :set_user, only: %i[show edit update destroy]
-  before_action :check_admin, except: %i[index show]
+  # before_action :check_admin, except: %i[index show]
 
   def index
     @pagy, @users = pagy(User.all.order(created_at: :desc))

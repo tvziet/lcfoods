@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
   get 'errors/not_found'
   get 'errors/unprocessable'
   get 'errors/internal_server_error'

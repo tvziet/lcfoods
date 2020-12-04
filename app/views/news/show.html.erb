@@ -14,7 +14,7 @@
             </h1>
           </div>
           <p>
-            <%= @page_news.body %>
+            <%= @page_news.body.to_s.html_safe %>
           </p>
         </div>
       </div>

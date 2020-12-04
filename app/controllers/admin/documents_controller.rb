@@ -1,7 +1,7 @@
 class Admin::DocumentsController < ApplicationController
   before_action :authenticate_admin!
   before_action :set_document, only: %i[show edit update destroy]
-  before_action :check_admin, except: %i[index show]
+  # before_action :check_admin, except: %i[index show]
 
   def index
     @documents = Document.all

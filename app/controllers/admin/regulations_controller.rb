@@ -1,7 +1,7 @@
 class Admin::RegulationsController < ApplicationController
   before_action :authenticate_admin!
   before_action :set_regulation, only: %i[show edit update destroy]
-  before_action :check_admin, only: %i[index show]
+  # before_action :check_admin, only: %i[index show]
 
   def index
     @regulations = Regulation.all
