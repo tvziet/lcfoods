@@ -1,5 +1,4 @@
 class Regulation < ApplicationRecord
-  has_rich_text :body
   mount_uploaders :attachments, AttachmentUploader
   serialize :attachments, JSON
   validates :title, presence: true, length: { in: 10..100 }

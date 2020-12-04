@@ -16,7 +16,7 @@
             </h1>
           </div>
           <p>
-            <%= @page_regulation.body %>
+            <%= @page_regulation.body.to_s.html_safe %>
           </p>
           <% @page_regulation.attachments.each do |attachment| %>
             <strong>Tệp đính kèm: </strong><%= link_to "#{attachment.file.filename}", pdfjs.full_path(file: "#{attachment.url}") %>

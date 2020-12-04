@@ -135,3 +135,11 @@ vi:
       notable: "Mới"
       unactive: "Không hoạt động"
       active: "Hoạt động"
+  ckeditor:
+    page_title: 'CKEditor Files Manager'
+    confirm_delete: 'Bạn chắc chắn muốn xoá tệp?'
+    buttons:
+      cancel: 'Huỷ'
+      upload: 'Tải lên'
+      delete: 'Xoá'
+      next: 'Kế tiếp'

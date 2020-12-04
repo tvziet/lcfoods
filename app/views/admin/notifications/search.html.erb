@@ -28,7 +28,7 @@
             <div class="search-result">
               <% @search_results_notifications.each do |search_result_notification| %>
                 <h3><%= link_to search_result_notification.title, edit_admin_notification_path(search_result_notification) %></h3>
-                <p><%= raw search_result_notification.body %></p>
+                <p><%= search_result_notification.body.to_s.html_safe %></p>
               <% end %>
             </div>
             <% if @search_results_notifications.count > 10 %>

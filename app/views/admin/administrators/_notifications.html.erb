@@ -19,7 +19,7 @@
           <% @notifications.each do |notification| %>
             <tr class="gradeA">
               <td><%= notification.title %></td>
-              <td><%= raw notification.body %></td>
+              <td><%= notification.body.to_s.html_safe %></td>
               <td class="project-status">
                 <% if notification.notable? %>
                   <span class="label label-danger"><%= notification.status_i18n %></span>
