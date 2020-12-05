@@ -37,10 +37,6 @@
     display: block;
   }
 
-  .lock-word {
-    display: none;
-  }
-
   .navbar-form-custom {
     display: none;
   }
@@ -93,32 +89,6 @@
 }
 
 @media (max-width: 350px) {
-
-  .timeline-item .date {
-    text-align: left;
-    width: 110px;
-    position: relative;
-    padding-top: 30px;
-  }
-
-  .timeline-item .date i {
-    position: absolute;
-    top: 0;
-    left: 15px;
-    padding: 5px;
-    width: 30px;
-    text-align: center;
-    border: 1px solid $border-color;
-    background: #f8f8f8;
-  }
-
-  .timeline-item .content {
-    border-left: none;
-    border-top: 1px solid $border-color;
-    padding-top: 10px;
-    min-height: 100px;
-  }
-
   .nav.navbar-top-links li.dropdown {
     display: none;
   }
