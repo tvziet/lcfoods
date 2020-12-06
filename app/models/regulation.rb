@@ -1,3 +1,4 @@
+require 'babosa'
 class Regulation < ApplicationRecord
   mount_uploaders :attachments, AttachmentUploader
   serialize :attachments, JSON
@@ -7,8 +8,13 @@ class Regulation < ApplicationRecord
   belongs_to :company
   delegate :name, to: :category, prefix: :category
   delegate :name, to: :company, prefix: :company
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+  def normalize_friendly_id(input)
+    input.to_slug.normalize(transliterations: :vietnamese).to_s
+  end
   enum status: { normal: 0, notable: 1 }
-  scope :search_regulation, lambda { |search|
-    where('lower(title) LIKE ?', "%#{search}%")
+  scope :search_by_title, lambda { |query|
+    where('lower(title) LIKE ?', "%#{query}%")
   }
 end

@@ -20,7 +20,7 @@ class Admin::CategoriesController < ApplicationController
 
     respond_to do |format|
       if @category.save
-        format.html { redirect_to admin_categories_url, notice: 'Danh mục đã được tạo thành công.' }
+        format.html { redirect_to tat_ca_danh_muc_path, notice: 'Danh mục đã được tạo thành công.' }
         format.json { render :show, status: :created, location: @category }
       else
         format.html { render :new }
@@ -32,7 +32,7 @@ class Admin::CategoriesController < ApplicationController
   def update
     respond_to do |format|
       if @category.update(category_params)
-        format.html { redirect_to admin_categories_url, notice: 'Danh mục đã được cập nhật thành công.' }
+        format.html { redirect_to tat_ca_danh_muc_path, notice: 'Danh mục đã được cập nhật thành công.' }
         format.json { render :show, status: :ok, location: @category }
       else
         format.html { render :edit }
@@ -44,14 +44,14 @@ class Admin::CategoriesController < ApplicationController
   def destroy
     @category.destroy
     respond_to do |format|
-      format.html { redirect_to admin_categories_url, notice: 'Danh mục đã được xoá thành công.' }
+      format.html { redirect_to tat_ca_danh_muc_path, notice: 'Danh mục đã được xoá thành công.' }
       format.json { head :no_content }
     end
   end
 
   private
   def set_category
-    @category = Category.find(params[:id])
+    @category = Category.friendly.find(params[:id])
   end
 
   def category_params

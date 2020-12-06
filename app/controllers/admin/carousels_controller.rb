@@ -19,7 +19,7 @@ class Admin::CarouselsController < ApplicationController
 
     respond_to do |format|
       if @carousel.save
-        format.html { redirect_to admin_carousels_url, notice: 'Băng rôn đã được tạo thành công.' }
+        format.html { redirect_to tat_ca_bang_ron_path, notice: 'Băng rôn đã được tạo thành công.' }
         format.json { render :show, status: :created, location: @carousel }
       else
         format.html { render :new }
@@ -31,7 +31,7 @@ class Admin::CarouselsController < ApplicationController
   def update
     respond_to do |format|
       if @carousel.update(carousel_params)
-        format.html { redirect_to admin_carousels_url, notice: 'Băng rôn đã được cập nhật.' }
+        format.html { redirect_to tat_ca_bang_ron_path, notice: 'Băng rôn đã được cập nhật.' }
         format.json { render :show, status: :ok, location: @carousel }
       else
         format.html { render :edit }
@@ -43,7 +43,7 @@ class Admin::CarouselsController < ApplicationController
   def destroy
     @carousel.destroy
     respond_to do |format|
-      format.html { redirect_to admin_carousels_url, notice: 'Băng rôn đã được xoá.' }
+      format.html { redirect_to tat_ca_bang_ron_path, notice: 'Băng rôn đã được xoá.' }
       format.json { head :no_content }
     end
   end

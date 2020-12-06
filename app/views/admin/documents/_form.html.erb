@@ -26,13 +26,13 @@
   <div class="form-group">
     <label class="col-sm-2 control-label">Tệp</label>
     <div class="col-sm-10 m-b">
-      <%= form.file_field :attachment %>
+      <%= form.file_field :attachment, class:'filestyle', 'data-icon' => false, 'data-classButton' => 'btn btn-primary', 'data-classInput' => 'form-control inline input-s', 'data-buttonText' => 'Chọn tệp' %>
     </div>
   </div>
 
   <div class="form-group">
     <div class="col-sm-4 col-sm-offset-2 m-t-sm">
-      <%= link_to "Quay lại", admin_regulations_url, class: "btn btn-white m-r-xs" %>
+      <%= link_to "Quay lại", van_ban_bieu_mau_path, class: "btn btn-white m-r-xs" %>
       <%= form.submit class:"btn btn-primary" %>
     </div>
   </div>

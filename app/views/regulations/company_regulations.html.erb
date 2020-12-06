@@ -27,9 +27,6 @@
     <% end %>
   </div>
 </div>
-<% if params["search"] %>
-  <%= render 'regulations/search' %>
-<% end %>
 <% if @company_regulations.count > 10 %>
   <%= render 'shared/pages/pagy_navigation' %>
 <% end %>

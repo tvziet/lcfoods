@@ -20,7 +20,7 @@ class Admin::UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to admin_users_path, notice: 'Nhân viên đã được tạo thành công.' }
+        format.html { redirect_to tat_ca_nhan_vien_path, notice: 'Nhân viên đã được tạo thành công.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -32,7 +32,7 @@ class Admin::UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to admin_users_path, notice: 'Nhân viên đã được cập nhật thành công.' }
+        format.html { redirect_to tat_ca_nhan_vien_path, notice: 'Nhân viên đã được cập nhật thành công.' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -44,14 +44,14 @@ class Admin::UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to admin_users_url, notice: 'Nhân viên đã được xoá thành công.' }
+      format.html { redirect_to tat_ca_nhan_vien_path, notice: 'Nhân viên đã được xoá thành công.' }
       format.json { head :no_content }
     end
   end
 
   private
   def set_user
-    @user = User.find(params[:id])
+    @user = User.friendly.find(params[:id])
   end
 
   def user_params

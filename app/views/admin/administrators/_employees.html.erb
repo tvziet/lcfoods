@@ -22,7 +22,7 @@
           <tbody>
           <% @users.each do |user| %>
             <tr class="gradeA">
-              <td><%= user.full_name %></td>
+              <td><%= user.name.full %></td>
               <td><%= user.email %></td>
               <td><%= user.address %></td>
               <td><%= user.cell_phone %></td>
@@ -31,7 +31,7 @@
               <td><%= user.company.name %></td>
               <td><%= user.bio %></td>
               <td>
-                <%= link_to edit_admin_user_path(user), class:"btn btn-white btn-sm" do %>
+                <%= link_to cap_nhat_nhan_vien_path(user), class:"btn btn-white btn-sm" do %>
                   <i class="fa fa-pencil"></i> Cập nhật
                 <% end %>
                 <%= link_to admin_user_path(user), method: :delete, data: { confirm: "Bạn có chắc chắc muốn xoá nhân viên này?" }, class:"btn btn-white btn-sm" do %>

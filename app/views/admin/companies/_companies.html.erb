@@ -4,7 +4,7 @@
       <div class="ibox-title">
         <h5>CÔNG TY</h5>
         <div class="ibox-tools">
-          <%= link_to "Thêm mới", new_admin_company_url, class:"btn btn-primary btn-xs" %>
+          <%= link_to "Thêm mới", them_moi_cong_ty_path, class:"btn btn-primary btn-xs" %>
         </div>
       </div>
       <div class="ibox-content">
@@ -24,10 +24,10 @@
               <td><%= company.created_at.strftime("%d-%m-%Y") %></td>
               <td>Có <strong><%= company.users.count %></strong> nhân viên</td>
               <td>
-                <%= link_to edit_admin_company_path(company), class:"btn btn-white btn-sm" do %>
+                <%= link_to cap_nhat_cong_ty_path(company), class:"btn btn-white btn-sm" do %>
                   <i class="fa fa-pencil"></i> Cập nhật
                 <% end %>
-                <%= link_to admin_company_path(company), method: :delete, data: { confirm: "Bạn có chắc chắc muốn xoá công ty này?" }, class:"btn btn-white btn-sm" do %>
+                <%= link_to xoa_cong_ty_path(company), method: :delete, data: { confirm: "Bạn có chắc chắc muốn xoá công ty này?" }, class:"btn btn-white btn-sm" do %>
                   <i class="fa fa-trash"></i> Xoá
                 <% end %>
               </td>

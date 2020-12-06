@@ -1,23 +1,18 @@
 <%= render 'shared/pages/navigation' %>
-<%= render 'shared/pages/carousel' %>
 <div class="wrapper wrapper-content animated fadeInRight">
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2">
       <div class="ibox float-e-margins">
         <div>
           <h3>
-            <%= @search_results_regulations.count %> kết quả cho từ khoá: <span class="text-danger"><%= params["search"] %></span>
+            <%= @array_of_result_objects.flatten.count %> kết quả cho từ khoá: <span class="text-danger"><%= params["search"] %></span>
           </h3>
-          <%= link_to 'Trang chủ', root_path, class: "btn btn-primary" %>
           <div class="hr-line-dashed"></div>
-          <div class="search-result">
-            <% @search_results_regulations.each do |search_result_regulation| %>
-              <h3><%= link_to search_result_regulation.title, chi_tiet_quy_dinh_path(search_result_regulation) %></h3>
-              <p><%= raw search_result_regulation.body %></p>
-            <% end %>
-          </div>
-          <% if @search_results_regulations.count > 10 %>
-            <%= render 'shared/pages/pagy_navigation' %>
+          <% @array_of_result_objects.flatten.each do |array_of_result_object| %>
+            <div class="search-result">
+              <%= render 'home/result', object: array_of_result_object %>
+              <div class="hr-line-dashed"></div>
+            </div>
           <% end %>
         </div>
       </div>

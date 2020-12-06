@@ -29,15 +29,15 @@
         <li class="<%#= is_active_controller('dashboards') %>">
           <a href=""><i class="fa fa-th-large"></i> <span class="nav-label" data-i18n="nav.dashboard">Danh sách quản lý</span> <span class="fa arrow"></span></a>
           <ul class="nav nav-second-level collapse <%#= is_active_controller('dashboards', 'in') %>">
-            <li><%= link_to "Công ty", admin_companies_path %></li>
-            <li><%= link_to "Phòng ban", admin_groups_path %></li>
-            <li><%= link_to "Danh mục", admin_categories_path %></li>
-            <li><%= link_to "Nhân viên", admin_users_path %></li>
-            <li><%= link_to "Quy định, quy trình", admin_regulations_path %></li>
-            <li><%= link_to "Thông báo", admin_notifications_path %></li>
-            <li><%= link_to "Tin tức", admin_news_index_path %></li>
-            <li><%= link_to "Văn bản mẫu", admin_documents_path %></li>
-            <li><%= link_to "Băng rôn", admin_carousels_path %></li>
+            <li><%= link_to "Công ty", tat_ca_cong_ty_path %></li>
+            <li><%= link_to "Phòng ban", tat_ca_phong_ban_path %></li>
+            <li><%= link_to "Danh mục", tat_ca_danh_muc_path %></li>
+            <li><%= link_to "Nhân viên", tat_ca_nhan_vien_path %></li>
+            <li><%= link_to "Quy định, quy trình", quy_dinh_quy_trinh_path %></li>
+            <li><%= link_to "Thông báo", thong_bao_path %></li>
+            <li><%= link_to "Tin tức", tat_ca_tin_tuc_path %></li>
+            <li><%= link_to "Văn bản mẫu", van_ban_bieu_mau_path %></li>
+            <li><%= link_to "Băng rôn", tat_ca_bang_ron_path %></li>
           </ul>
         </li>
         <li class="landing_link">

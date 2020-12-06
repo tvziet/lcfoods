@@ -1,11 +1,7 @@
 class NewsController < ApplicationController
   def index
-    @page_all_news = News.all.order(created_at: :desc)
-    if params["search"]
-      @pagy, @page_all_news = pagy(@page_all_news.search_news(params['search']))
-    else
-      @pagy, @page_all_news = pagy(@page_all_news)
-    end
+    @page_all_news        = News.all.order(created_at: :desc)
+    @pagy, @page_all_news = pagy(@page_all_news)
   end
 
   def show

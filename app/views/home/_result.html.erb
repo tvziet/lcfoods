@@ -1,0 +1,11 @@
+<% if object.is_a? User %>
+  <h3><%= link_to object.name.full, chi_tiet_nhan_vien_path(object) %></h3>
+<% elsif object.is_a? Regulation %>
+  <h3><%= link_to object.title, chi_tiet_quy_dinh_path(object) %></h3>
+<% elsif object.is_a? Notification %>
+  <h3><%= link_to object.title, chi_tiet_thong_bao_path(object) %></h3>
+<% elsif object.is_a? Document %>
+  <h3><%= link_to object.title, chi_tiet_quy_dinh_path(object) %></h3>
+<% elsif object.is_a? News %>
+  <h3><%= link_to object.title, chi_tiet_tin_tuc_path(object) %></h3>
+<% end %>

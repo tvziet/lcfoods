@@ -4,7 +4,7 @@
       <div class="ibox-title">
         <h5>NHÂN VIÊN</h5>
         <div class="ibox-tools">
-          <%= link_to "Thêm mới", new_admin_user_path, class:"btn btn-primary btn-xs" %>
+          <%= link_to "Thêm mới", them_moi_nhan_vien_path, class:"btn btn-primary btn-xs" %>
         </div>
       </div>
     </div>
@@ -14,9 +14,9 @@
   <% @users.each do |user| %>
     <div class="col-lg-3">
       <div class="contact-box center-version">
-        <%= link_to edit_admin_user_path(user) do %>
+        <%= link_to cap_nhat_nhan_vien_path(user) do %>
           <%= image_tag(user.avatar, class: "img-circle") %>
-          <h3 class="m-b-xs"><strong><%= user.full_name %></strong></h3>
+          <h3 class="m-b-xs"><strong><%= user.name.full %></strong></h3>
           <div class="font-bold"><%= user.group_name %></div>
           <address class="m-t-md">
             <strong><%= user.company_name %></strong><br>

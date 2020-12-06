@@ -20,7 +20,7 @@ class Admin::NotificationsController < ApplicationController
 
     respond_to do |format|
       if @notification.save
-        format.html { redirect_to admin_notifications_url, notice: 'Thông báo đã được tạo thành công.' }
+        format.html { redirect_to thong_bao_path, notice: 'Thông báo đã được tạo thành công.' }
         format.json { render :show, status: :created, location: @notification }
       else
         format.html { render :new }
@@ -32,7 +32,7 @@ class Admin::NotificationsController < ApplicationController
   def update
     respond_to do |format|
       if @notification.update(notification_params)
-        format.html { redirect_to admin_notifications_url, notice: 'Thông báo đã được cập nhật thành công.' }
+        format.html { redirect_to thong_bao_path, notice: 'Thông báo đã được cập nhật thành công.' }
         format.json { render :show, status: :ok, location: @notification }
       else
         format.html { render :edit }
@@ -44,7 +44,7 @@ class Admin::NotificationsController < ApplicationController
   def destroy
     @notification.destroy
     respond_to do |format|
-      format.html { redirect_to admin_notifications_url, notice: 'Thông báo đã được xoá thành công.' }
+      format.html { redirect_to thong_bao_path, notice: 'Thông báo đã được xoá thành công.' }
       format.json { head :no_content }
     end
   end
@@ -59,7 +59,7 @@ class Admin::NotificationsController < ApplicationController
 
   private
   def set_notification
-    @notification = Notification.find(params[:id])
+    @notification = Notification.friendly.find(params[:id])
   end
 
   def notification_params

@@ -20,7 +20,7 @@ class Admin::CompaniesController < ApplicationController
 
     respond_to do |format|
       if @company.save
-        format.html { redirect_to admin_companies_url, notice: 'Công ty đã được tạo thành công.' }
+        format.html { redirect_to tat_ca_cong_ty_path, notice: 'Công ty đã được tạo thành công.' }
         format.json { render :show, status: :created, location: @company }
       else
         format.html { render :new }
@@ -32,7 +32,7 @@ class Admin::CompaniesController < ApplicationController
   def update
     respond_to do |format|
       if @company.update(company_params)
-        format.html { redirect_to admin_companies_url, notice: 'Công ty đã được cập nhật thành công.' }
+        format.html { redirect_to tat_ca_cong_ty_path, notice: 'Công ty đã được cập nhật thành công.' }
         format.json { render :show, status: :ok, location: @company }
       else
         format.html { render :edit }
@@ -44,18 +44,18 @@ class Admin::CompaniesController < ApplicationController
   def destroy
     @company.destroy
     respond_to do |format|
-      format.html { redirect_to admin_companies_url, notice: 'Công ty đã được xoá thành công.' }
+      format.html { redirect_to tat_ca_cong_ty_path, notice: 'Công ty đã được xoá thành công.' }
       format.json { head :no_content }
     end
   end
 
   private
   def set_company
-    @company = Company.find(params[:id])
+    @company = Company.friendly.find(params[:id])
   end
 
   def company_params
-    params.require(:company).permit(:name, groups_attributes: [:id, :name])
+    params.require(:company).permit(:name)
   end
 
   def check_admin

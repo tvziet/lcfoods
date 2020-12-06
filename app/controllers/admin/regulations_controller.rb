@@ -20,7 +20,7 @@ class Admin::RegulationsController < ApplicationController
 
     respond_to do |format|
       if @regulation.save
-        format.html { redirect_to admin_regulations_url, notice: 'Quy định, quy trình đã được tạo thành công.' }
+        format.html { redirect_to quy_dinh_quy_trinh_path, notice: 'Quy định, quy trình đã được tạo thành công.' }
         format.json { render :show, status: :created, location: @regulation }
       else
         format.html { render :new }
@@ -32,7 +32,7 @@ class Admin::RegulationsController < ApplicationController
   def update
     respond_to do |format|
       if @regulation.update(regulation_params)
-        format.html { redirect_to admin_regulations_url, notice: 'Quy định, quy trình đã được cập nhật thành công.' }
+        format.html { redirect_to quy_dinh_quy_trinh_path, notice: 'Quy định, quy trình đã được cập nhật thành công.' }
         format.json { render :show, status: :ok, location: @regulation }
       else
         format.html { render :edit }
@@ -44,14 +44,14 @@ class Admin::RegulationsController < ApplicationController
   def destroy
     @regulation.destroy
     respond_to do |format|
-      format.html { redirect_to admin_regulations_url, notice: 'Quy định, quy trình đã được xoá thành công.' }
+      format.html { redirect_to quy_dinh_quy_trinh_path, notice: 'Quy định, quy trình đã được xoá thành công.' }
       format.json { head :no_content }
     end
   end
 
   private
   def set_regulation
-    @regulation = Regulation.find(params[:id])
+    @regulation = Regulation.friendly.find(params[:id])
   end
 
   def regulation_params

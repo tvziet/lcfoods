@@ -4,7 +4,7 @@
       <div class="ibox-title">
         <h5>THÔNG BÁO</h5>
         <div class="ibox-tools">
-          <%= link_to "Thêm mới", new_admin_notification_path, class:"btn btn-primary btn-xs" %>
+          <%= link_to "Thêm mới", them_moi_thong_bao_path, class:"btn btn-primary btn-xs" %>
         </div>
       </div>
       <div class="ibox-content">
@@ -26,10 +26,10 @@
               <td><%= notification.name %></td>
               <td><%= notification.created_at.strftime("%d-%m-%Y") %></td>
               <td>
-                <%= link_to edit_admin_notification_path(notification), class:"btn btn-white btn-sm" do %>
+                <%= link_to cap_nhat_thong_bao_path(notification), class:"btn btn-white btn-sm" do %>
                   <i class="fa fa-pencil"></i> Cập nhật
                 <% end %>
-                <%= link_to admin_notification_path(notification), method: :delete, data: { confirm: "Bạn có chắc chắc muốn xoá thông báo này?" }, class:"btn btn-white btn-sm" do %>
+                <%= link_to xoa_thong_bao_path(notification), method: :delete, data: { confirm: "Bạn có chắc chắc muốn xoá thông báo này?" }, class:"btn btn-white btn-sm" do %>
                   <i class="fa fa-trash"></i> Xoá
                 <% end %>
               </td>

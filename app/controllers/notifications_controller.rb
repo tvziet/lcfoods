@@ -1,11 +1,7 @@
 class NotificationsController < ApplicationController
   def index
-    @page_notifications = Notification.all.order(created_at: :desc)
-    if params['search']
-      @pagy, @page_notifications = pagy(@page_notifications.search_notification(params['search']))
-    else
-      @pagy, @page_notifications = pagy(@page_notifications)
-    end
+    @page_notifications        = Notification.all.order(created_at: :desc)
+    @pagy, @page_notifications = pagy(@page_notifications)
   end
 
   def show
@@ -13,12 +9,8 @@ class NotificationsController < ApplicationController
   end
 
   def company_notifications
-    @page_company          = Company.find_by(id: params[:id])
-    @company_notifications = Notification.where(company_id: @page_company&.id).order(created_at: :desc)
-    if params['search']
-      @pagy, @search_notifications = pagy(@company_notifications.search_notification(params['search']))
-    else
-      @pagy, @search_notifications = pagy(@company_notifications)
-    end
+    @page_company                = Company.find_by(id: params[:id])
+    @company_notifications       = Notification.where(company_id: @page_company&.id).order(created_at: :desc)
+    @pagy, @search_notifications = pagy(@company_notifications)
   end
 end

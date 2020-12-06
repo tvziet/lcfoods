@@ -20,7 +20,7 @@ class Admin::NewsController < ApplicationController
 
     respond_to do |format|
       if @news.save
-        format.html { redirect_to admin_news_index_path, notice: 'Tin tức đã được tạo thành công.' }
+        format.html { redirect_to tat_ca_tin_tuc_path, notice: 'Tin tức đã được tạo thành công.' }
         format.json { render :show, status: :created, location: @news }
       else
         format.html { render :new }
@@ -32,7 +32,7 @@ class Admin::NewsController < ApplicationController
   def update
     respond_to do |format|
       if @news.update(news_params)
-        format.html { redirect_to admin_news_index_path, notice: 'Tin tức đã được cập nhật thành công.' }
+        format.html { redirect_to tat_ca_tin_tuc_path, notice: 'Tin tức đã được cập nhật thành công.' }
         format.json { render :show, status: :ok, location: @news }
       else
         format.html { render :edit }
@@ -44,7 +44,7 @@ class Admin::NewsController < ApplicationController
   def destroy
     @news.destroy
     respond_to do |format|
-      format.html { redirect_to admin_news_index_path, notice: 'Tin tức đã được xoá thành công.' }
+      format.html { redirect_to tat_ca_tin_tuc_path, notice: 'Tin tức đã được xoá thành công.' }
       format.json { head :no_content }
     end
   end
@@ -59,7 +59,7 @@ class Admin::NewsController < ApplicationController
 
   private
   def set_news
-    @news = News.find(params[:id])
+    @news = News.friendly.find(params[:id])
   end
 
   def news_params

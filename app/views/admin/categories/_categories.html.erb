@@ -4,7 +4,7 @@
       <div class="ibox-title">
         <h5>DANH MỤC</h5>
         <div class="ibox-tools">
-          <%= link_to "Thêm mới", new_admin_category_path, class:"btn btn-primary btn-xs" %>
+          <%= link_to "Thêm mới", them_moi_danh_muc_path, class:"btn btn-primary btn-xs" %>
         </div>
       </div>
       <div class="ibox-content">
@@ -24,10 +24,10 @@
               <td><%= category.created_at.strftime("%d-%m-%Y") %></td>
               <td>Có <strong><%= category.regulations.count %></strong> quy định, quy trình</td>
               <td>
-                <%= link_to edit_admin_category_path(category), class:"btn btn-white btn-sm" do %>
+                <%= link_to cap_nhat_danh_muc_path(category), class:"btn btn-white btn-sm" do %>
                   <i class="fa fa-pencil"></i> Cập nhật
                 <% end %>
-                <%= link_to admin_category_path(category), method: :delete, data: { confirm: "Bạn có chắc chắc muốn xoá danh mục này?" }, class:"btn btn-white btn-sm" do %>
+                <%= link_to xoa_danh_muc_path(category), method: :delete, data: { confirm: "Bạn có chắc chắc muốn xoá danh mục này?" }, class:"btn btn-white btn-sm" do %>
                   <i class="fa fa-trash"></i> Xoá
                 <% end %>
               </td>

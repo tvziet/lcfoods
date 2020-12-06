@@ -20,7 +20,7 @@ class Admin::GroupsController < ApplicationController
 
     respond_to do |format|
       if @group.save
-        format.html { redirect_to admin_groups_url, notice: 'Phòng ban đã được tạo thành công.' }
+        format.html { redirect_to tat_ca_phong_ban_path, notice: 'Phòng ban đã được tạo thành công.' }
         format.json { render :show, status: :created, location: @company }
       else
         format.html { render :new }
@@ -32,7 +32,7 @@ class Admin::GroupsController < ApplicationController
   def update
     respond_to do |format|
       if @group.update(group_params)
-        format.html { redirect_to admin_groups_url, notice: 'Phòng ban đã được cập nhật thành công.' }
+        format.html { redirect_to tat_ca_phong_ban_path, notice: 'Phòng ban đã được cập nhật thành công.' }
         format.json { render :show, status: :ok, location: @group }
       else
         format.html { render :edit }
@@ -44,14 +44,14 @@ class Admin::GroupsController < ApplicationController
   def destroy
     @group.destroy
     respond_to do |format|
-      format.html { redirect_to admin_groups_url, notice: 'Phòng ban đã được xoá thành công.' }
+      format.html { redirect_to tat_ca_phong_ban_path, notice: 'Phòng ban đã được xoá thành công.' }
       format.json { head :no_content }
     end
   end
 
   private
   def set_group
-    @group = Group.find(params[:id])
+    @group = Group.friendly.find(params[:id])
   end
 
   def group_params

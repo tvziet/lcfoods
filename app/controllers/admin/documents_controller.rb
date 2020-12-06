@@ -20,7 +20,7 @@ class Admin::DocumentsController < ApplicationController
 
     respond_to do |format|
       if @document.save
-        format.html { redirect_to admin_documents_url, notice: 'Biểu mẫu đã được tạo thành công.' }
+        format.html { redirect_to van_ban_bieu_mau_path, notice: 'Biểu mẫu đã được tạo thành công.' }
         format.json { render :show, status: :created, location: @document }
       else
         format.html { render :new }
@@ -32,7 +32,7 @@ class Admin::DocumentsController < ApplicationController
   def update
     respond_to do |format|
       if @document.update(document_params)
-        format.html { redirect_to admin_documents_url, notice: 'Biểu mẫu đã được cập nhật thành công.' }
+        format.html { redirect_to van_ban_bieu_mau_path, notice: 'Biểu mẫu đã được cập nhật thành công.' }
         format.json { render :show, status: :ok, location: @document }
       else
         format.html { render :edit }
@@ -44,7 +44,7 @@ class Admin::DocumentsController < ApplicationController
   def destroy
     @document.destroy
     respond_to do |format|
-      format.html { redirect_to admin_documents_url, notice: 'Biểu mẫu đã được xoá thành công.' }
+      format.html { redirect_to van_ban_bieu_mau_path, notice: 'Biểu mẫu đã được xoá thành công.' }
       format.json { head :no_content }
     end
   end
@@ -59,7 +59,7 @@ class Admin::DocumentsController < ApplicationController
 
   private
   def set_document
-    @document = Document.find(params[:id])
+    @document = Document.friendly.find(params[:id])
   end
 
   def document_params

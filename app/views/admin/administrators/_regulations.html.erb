@@ -29,10 +29,10 @@
               </td>
               <td><%= regulation.created_at.strftime("%d-%m-%Y") %></td>
               <td>
-                <%= link_to edit_admin_regulation_path(regulation), class:"btn btn-white btn-sm" do %>
+                <%= link_to cap_nhat_quy_dinh_quy_trinh_path(regulation), class:"btn btn-white btn-sm" do %>
                   <i class="fa fa-pencil"></i> Cập nhật
                 <% end %>
-                <%= link_to admin_regulation_path(regulation), method: :delete, data: { confirm: "Bạn có chắc chắc muốn xoá quy định này?" }, class:"btn btn-white btn-sm" do %>
+                <%= link_to xoa_quy_dinh_quy_trinh_path(regulation), method: :delete, data: { confirm: "Bạn có chắc chắc muốn xoá quy định này?" }, class:"btn btn-white btn-sm" do %>
                   <i class="fa fa-trash"></i> Xoá
                 <% end %>
               </td>

@@ -7,7 +7,7 @@
         <div class="contact-box center-version">
           <%= link_to chi_tiet_nhan_vien_path(user_of_group) do %>
             <%= image_tag(user_of_group.avatar, class: "img-circle") %>
-            <h3 class="m-b-xs"><strong><%= user_of_group.full_name %></strong></h3>
+            <h3 class="m-b-xs"><strong><%= user_of_group.name.full %></strong></h3>
             <div class="font-bold"><%= user_of_group.group_name %></div>
             <address class="m-t-md">
               <strong><%= user_of_group.company_name %></strong><br>
@@ -25,9 +25,6 @@
     <% end %>
   </div>
 </div>
-<% if params["search"] %>
-  <%= render 'groups/search' %>
-<% end %>
 <% if @users_of_group.count > 10 %>
   <%= render 'shared/pages/pagy_navigation' %>
 <% end %>

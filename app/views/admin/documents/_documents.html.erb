@@ -4,7 +4,7 @@
       <div class="ibox-title">
         <h5>VĂN BẢN, BIỂU MẪU</h5>
         <div class="ibox-tools">
-          <%= link_to "Thêm mới", new_admin_document_path , class:"btn btn-primary btn-xs" %>
+          <%= link_to "Thêm mới", them_moi_van_ban_bieu_mau_path , class:"btn btn-primary btn-xs" %>
         </div>
       </div>
       <div class="ibox-content">
@@ -22,10 +22,10 @@
               <td><%= document.title %></td>
               <td><%= document.created_at.strftime("%d-%m-%Y") %></td>
               <td>
-                <%= link_to edit_admin_document_path(document), class:"btn btn-white btn-sm" do %>
+                <%= link_to cap_nhat_van_ban_bieu_mau_path(document), class:"btn btn-white btn-sm" do %>
                   <i class="fa fa-pencil"></i> Cập nhật
                 <% end %>
-                <%= link_to admin_document_path(document), method: :delete, data: { confirm: "Bạn có chắc chắc muốn xoá biểu mẫu này?" }, class:"btn btn-white btn-sm" do %>
+                <%= link_to xoa_van_ban_bieu_mau_path(document), method: :delete, data: { confirm: "Bạn có chắc chắc muốn xoá biểu mẫu này?" }, class:"btn btn-white btn-sm" do %>
                   <i class="fa fa-trash"></i> Xoá
                 <% end %>
               </td>
