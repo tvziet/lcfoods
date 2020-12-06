@@ -11,7 +11,7 @@
               <strong>Admin</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> <%= page_regulation.created_at.strftime("%d-%m-%Y") %></span>
             </div>
             <p>
-              <%= page_regulation.body.to_s.html_safe %>
+              <%= page_regulation.body.truncate(200).html_safe %>
             </p>
             <div class="row">
               <div class="col-md-6">

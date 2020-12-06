@@ -21,7 +21,7 @@
           <% @all_news.each do |news| %>
             <tr class="gradeA">
               <td><%= news.title %></td>
-              <td><%= news.body.to_s.html_safe %></td>
+              <td><%= news.body.truncate(200).html_safe %></td>
               <td><%= news.created_at.strftime("%d-%m-%Y") %></td>
               <td>
                 <%= link_to cap_nhat_tin_tuc_path(news), class:"btn btn-white btn-sm" do %>

@@ -98,7 +98,8 @@ vi:
           attributes:
             name:
               blank: "không được để trống"
-              too_short: "quá ngắn, tối thiểu 3 ký tự"
+              too_short: "quá ngắn, tối thiểu 2 ký tự"
+              too_long: "quá dài, tối đa 30 ký tự"
             company:
               required: "không được để trống"
         company:
@@ -106,6 +107,7 @@ vi:
             name:
               blank: "không được để trống"
               too_short: "quá ngắn, tối thiểu 3 ký tự"
+              too_long: "quá dài, tối đa 30 ký tự"
         category:
           attributes:
             name:

@@ -29,12 +29,12 @@
               <td><%= user.birthday %></td>
               <td><%= user&.group&.name %></td>
               <td><%= user.company.name %></td>
-              <td><%= user.bio %></td>
+              <td><%= user.bio.truncate(100) %></td>
               <td>
                 <%= link_to cap_nhat_nhan_vien_path(user), class:"btn btn-white btn-sm" do %>
                   <i class="fa fa-pencil"></i> Cập nhật
                 <% end %>
-                <%= link_to admin_user_path(user), method: :delete, data: { confirm: "Bạn có chắc chắc muốn xoá nhân viên này?" }, class:"btn btn-white btn-sm" do %>
+                <%= link_to xoa_nhan_vien_path(user), method: :delete, data: { confirm: "Bạn có chắc chắc muốn xoá nhân viên này?" }, class:"btn btn-white btn-sm" do %>
                   <i class="fa fa-trash"></i> Xoá
                 <% end %>
               </td>

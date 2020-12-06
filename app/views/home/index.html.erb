@@ -7,7 +7,7 @@
       <hr style="height:2px;border-width:0;color: #c22b32;background-color: #c22b32">
       <%= image_tag("thong-bao.jpg", alt: "Banner quy định, quy trình", class:"img-responsive") %>
       <h4><strong><%= link_to @first_notable_regulation.title, chi_tiet_quy_dinh_path(@first_notable_regulation) %></strong></h4>
-      <p><%= @first_notable_regulation.body %></p>
+      <p><%= @first_notable_regulation.body.truncate(100).html_safe %></p>
       <hr>
       <ul class="m-b-xs">
         <% @recently_notable_regulations.each do |regulation| %>
@@ -27,7 +27,7 @@
       <hr style="height:2px;border-width:0;color: #c22b32;background-color: #c22b32">
       <%= image_tag("notifications.png", alt: "Banner thông báo", class:"img-responsive") %>
       <h4><strong><%= link_to @first_notable_notification.title, chi_tiet_thong_bao_path(@first_notable_notification) %></strong></h4>
-      <p><%= @first_notable_notification.body.to_s.html_safe %></p>
+      <p><%= @first_notable_notification.body.truncate(100).html_safe %></p>
       <hr>
       <ul class="m-b-xs">
         <% @recently_notable_notifications.each do |notification| %>
@@ -66,7 +66,7 @@
       <hr style="height:2px;border-width:0;color: #c22b32;background-color: #c22b32">
       <%= image_tag("news.jpg", alt: "Banner tin tức", class:"img-responsive") %>
       <h4><strong><%= link_to @first_notable_news.title, chi_tiet_tin_tuc_path(@first_notable_news) %></strong></h4>
-      <p><%= @first_notable_news.body.to_s.html_safe %></p>
+      <p><%= @first_notable_news.body.truncate(100).html_safe %></p>
       <hr>
       <ul class="m-b-xs">
         <% @recently_notable_news.each do |news| %>

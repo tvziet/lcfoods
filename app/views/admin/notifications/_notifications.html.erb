@@ -22,7 +22,7 @@
           <% @notifications.each do |notification| %>
             <tr class="gradeA">
               <td><%= notification.title %></td>
-              <td><%= notification.body.to_s.html_safe %></td>
+              <td><%= notification.body.truncate(200).html_safe %></td>
               <td><%= notification.name %></td>
               <td><%= notification.created_at.strftime("%d-%m-%Y") %></td>
               <td>
