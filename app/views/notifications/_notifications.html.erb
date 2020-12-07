@@ -4,7 +4,11 @@
     <td>
       <%= object.body.truncate(200).html_safe %>
     </td>
-    <td>Win 95+</td>
+    <td>
+      <% object.attachments.each do |attachment| %>
+        <strong>Tệp đính kèm: </strong><%= link_to "#{attachment.file.filename}", pdfjs.full_path(file: "#{attachment.url}") %>
+      <% end %>
+    </td>
     <td class="center"><%= object.created_at.strftime("%d-%m-%Y") %></td>
   </tr>
 <% end %>

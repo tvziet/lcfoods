@@ -1,0 +1,11 @@
+<% objects.each do |object| %>
+  <tr class="gradeX">
+    <td><p class="text-danger"><%= object.title %></p></td>
+    <td>
+      <p>
+        Tải về: <i class="fa fa-download" aria-hidden="true"></i>
+        <%= link_to object.attachment.file.filename, object.attachment.url %>
+      </p>
+    </td>
+  </tr>
+<% end %>
