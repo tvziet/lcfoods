@@ -5,11 +5,11 @@ class NotificationsController < ApplicationController
   end
 
   def show
-    @page_notification = Notification.find(params[:id])
+    @page_notification = Notification.friendly.find(params["id"])
   end
 
   def company_notifications
-    @page_company                = Company.find_by(id: params[:id])
+    @page_company                = Company.friendly.find(params["id"])
     @company_notifications       = Notification.where(company_id: @page_company&.id).order(created_at: :desc)
     @pagy, @search_notifications = pagy(@company_notifications)
   end

@@ -9,10 +9,9 @@
           <div class="ibox-content">
             <h3 class="text-danger"><%= page_news.title %></h3>
             <div class="small m-b-xs">
-              <strong>Admin</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> <%= page_news.created_at.strftime("%d-%m-%Y") %></span>
             </div>
             <p>
-              <%= page_news.body.to_s.html_safe %>
+              <%= page_news.body.truncate(200).html_safe %>
             </p>
             <div class="row">
               <div class="col-md-6">

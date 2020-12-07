@@ -5,6 +5,6 @@ class NewsController < ApplicationController
   end
 
   def show
-    @page_news = News.find(params[:id])
+    @page_news = News.friendly.find(params[:id])
   end
 end

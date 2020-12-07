@@ -5,6 +5,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    @page_user = User.find(params[:id])
+    @page_user = User.friendly.find(params["id"])
   end
 end

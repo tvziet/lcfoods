@@ -4,6 +4,6 @@ class DocumentsController < ApplicationController
   end
 
   def show
-    @page_document          = Document.find(params[:id])
+    @page_document = Document.friendly.find(params["id"])
   end
 end

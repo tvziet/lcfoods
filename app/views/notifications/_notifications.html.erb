@@ -1,0 +1,10 @@
+<% objects.each do |object| %>
+  <tr class="gradeX">
+    <td><p class="text-danger"><%= object.title %></p></td>
+    <td>
+      <%= object.body.truncate(200).html_safe %>
+    </td>
+    <td>Win 95+</td>
+    <td class="center"><%= object.created_at.strftime("%d-%m-%Y") %></td>
+  </tr>
+<% end %>

@@ -19,9 +19,6 @@ Rails.application.routes.draw do
   # ADMIN
   get 'admin', to: 'admin/administrators#index'
   get 'tim-kiem-quan-tri', to: 'admin/administrators#search'
-  get 'tim-kiem-thong-bao', to: 'admin/notifications#search'
-  get 'tim-kiem-tin-tuc', to: 'admin/news#search'
-  get 'tim-kiem-van-ban', to: 'admin/documents#search'
   #=================================CÔNG TY================================================
   get 'admin/tat-ca-cong-ty', to: 'admin/companies#index', as: 'tat-ca-cong-ty'
   get 'admin/them-moi-cong-ty', to: 'admin/companies#new', as: 'them-moi-cong-ty'
@@ -38,7 +35,7 @@ Rails.application.routes.draw do
   get 'admin/cap-nhat-danh-muc/:id', to: 'admin/categories#edit', as: 'cap-nhat-danh-muc'
   delete 'admin/xoa-danh-muc/:id', to: 'admin/categories#destroy', as: 'xoa-danh-muc'
   #================================NHÂN VIÊN================================================
-  get 'admin/tat-ca-nhan-vien', to: 'admin/users#index', as: 'tat-ca-nhan-vien'
+  get 'admin/nhan-vien', to: 'admin/users#index', as: 'nhan-vien'
   get 'admin/them-moi-nhan-vien', to: 'admin/users#new', as: 'them-moi-nhan-vien'
   get 'admin/cap-nhat-nhan-vien/:id', to: 'admin/users#edit', as: 'cap-nhat-nhan-vien'
   delete 'admin/xoa-nhan-vien/:id', to: 'admin/users#destroy', as: 'xoa-nhan-vien'
