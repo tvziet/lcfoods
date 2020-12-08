@@ -60,4 +60,18 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   config.consider_all_requests_local = false
+
+  config.after_initialize do
+    Bullet.enable = true
+    Bullet.alert = true
+    Bullet.bullet_logger = true
+    Bullet.console = true
+    Bullet.rails_logger = true
+    Bullet.add_footer = true
+    Bullet.skip_html_injection = false
+    Bullet.n_plus_one_query_enable = true
+    Bullet.unused_eager_loading_enable = false
+    Bullet.counter_cache_enable = false
+
+  end
 end

@@ -15,7 +15,7 @@
     <div class="col-lg-3">
       <div class="contact-box center-version">
         <%= link_to cap_nhat_nhan_vien_path(user) do %>
-          <%= image_tag(user.avatar, class: "img-circle") %>
+          <%= image_tag(user&.avatar, class: "img-circle") %>
           <h3 class="m-b-xs"><strong><%= user.name.full %></strong></h3>
           <div class="font-bold"><%= user.group_name %></div>
           <address class="m-t-md">
@@ -34,6 +34,4 @@
     </div>
   <% end %>
 </div>
-<% if @users.count > 10 %>
-  <%= render 'shared/pages/pagy_navigation' %>
-<% end %>
+<%= render 'shared/pages/pagy_navigation' %>

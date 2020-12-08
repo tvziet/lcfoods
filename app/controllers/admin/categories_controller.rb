@@ -4,7 +4,7 @@ class Admin::CategoriesController < ApplicationController
   # before_action :check_admin, except: %i[index show]
 
   def index
-    @categories = Category.all
+    @pagy, @categories = pagy(Category.all.order(created_at: :desc))
   end
 
   def show; end

@@ -4,7 +4,7 @@ class Admin::RegulationsController < ApplicationController
   # before_action :check_admin, only: %i[index show]
 
   def index
-    @regulations = Regulation.all
+    @pagy, @regulations = pagy(Regulation.all)
   end
 
   def show; end

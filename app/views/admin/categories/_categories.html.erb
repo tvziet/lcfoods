@@ -18,23 +18,24 @@
           </tr>
           </thead>
           <tbody>
-          <% @categories.each do |category| %>
-            <tr class="gradeA">
-              <td><%= category.name %></td>
-              <td><%= category.created_at.strftime("%d-%m-%Y") %></td>
-              <td>Có <strong><%= category.regulations.count %></strong> quy định, quy trình</td>
-              <td>
-                <%= link_to cap_nhat_danh_muc_path(category), class:"btn btn-white btn-sm" do %>
-                  <i class="fa fa-pencil"></i> Cập nhật
-                <% end %>
-                <%= link_to xoa_danh_muc_path(category), method: :delete, data: { confirm: "Bạn có chắc chắc muốn xoá danh mục này?" }, class:"btn btn-white btn-sm" do %>
-                  <i class="fa fa-trash"></i> Xoá
-                <% end %>
-              </td>
-            </tr>
-          <% end %>
+            <% @categories.each do |category| %>
+              <tr class="gradeA">
+                <td><%= category.name %></td>
+                <td><%= category.created_at.strftime("%d-%m-%Y") %></td>
+                <td>Có <strong><%= category.regulations.count %></strong> quy định, quy trình</td>
+                <td>
+                  <%= link_to cap_nhat_danh_muc_path(category), class:"btn btn-white btn-sm" do %>
+                    <i class="fa fa-pencil"></i> Cập nhật
+                  <% end %>
+                  <%= link_to xoa_danh_muc_path(category), method: :delete, data: { confirm: "Bạn có chắc chắc muốn xoá danh mục này?" }, class:"btn btn-white btn-sm" do %>
+                    <i class="fa fa-trash"></i> Xoá
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
           </tbody>
         </table>
+        <%= render 'shared/pages/pagy_navigation' %>
       </div>
     </div>
   </div>

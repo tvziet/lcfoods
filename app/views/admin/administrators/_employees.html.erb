@@ -20,14 +20,14 @@
           </tr>
           </thead>
           <tbody>
-          <% @users.each do |user| %>
+          <% @users.includes([:group, :company]).each do |user| %>
             <tr class="gradeA">
               <td><%= user.name.full %></td>
               <td><%= user.email %></td>
               <td><%= user.address %></td>
               <td><%= user.cell_phone %></td>
               <td><%= user.birthday %></td>
-              <td><%= user&.group&.name %></td>
+              <td><%= user.group.name %></td>
               <td><%= user.company.name %></td>
               <td><%= user.bio.truncate(100) %></td>
               <td>

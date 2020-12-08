@@ -35,10 +35,10 @@ vi:
         cell_phone: "Số điện thoại"
         address: "Địa chỉ"
         bio: "Thông tin thêm"
-        fax: "Số fax"
         avatar: "Ảnh đại diện"
         company: "Tên công ty"
         group: "Tên phòng ban"
+        employee_number: "Mã nhân viên"
       company:
         name: "Tên công ty"
         status:
@@ -90,6 +90,9 @@ vi:
             email:
               blank: "không được để trống"
               invalid: "không hợp lệ"
+              taken: "đã tồn tại"
+            employee_number:
+              blank: "không được để trống"
             company:
               required: "không được để trống"
             group:

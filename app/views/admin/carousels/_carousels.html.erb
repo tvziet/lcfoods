@@ -17,7 +17,7 @@
           </tr>
           </thead>
           <tbody>
-          <% @carousels.each do |carousel| %>
+          <% @carousels.includes([image_attachment: :blob]).each do |carousel| %>
             <tr class="gradeA">
               <td>
                 <div class="file-box">
@@ -45,9 +45,7 @@
           <% end %>
           </tbody>
         </table>
-        <% if @carousels.count > 10 %>
-          <%= render 'shared/pages/pagy_navigation' %>
-        <% end %>
+        <%= render 'shared/pages/pagy_navigation' %>
       </div>
     </div>
   </div>

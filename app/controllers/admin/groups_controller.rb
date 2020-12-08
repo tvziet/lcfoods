@@ -4,7 +4,7 @@ class Admin::GroupsController < ApplicationController
   # before_action :check_admin, except: %i[index show]
 
   def index
-    @groups = Group.all
+    @pagy, @groups = pagy(Group.all.includes([:company]).order(created_at: :desc))
   end
 
   def show; end

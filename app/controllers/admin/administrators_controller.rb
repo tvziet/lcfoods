@@ -4,7 +4,7 @@ class Admin::AdministratorsController < ApplicationController
     @companies      = Company.all.order(created_at: :desc)
     @groups         = Group.all.order(created_at: :desc).limit(10)
     @users          = User.all.order(created_at: :desc).limit(10)
-    @categories     = Category.all.order(created_at: :desc)
+    @categories     = Category.all.order(created_at: :desc).limit(10)
     @regulations    = Regulation.all.order(created_at: :desc).limit(10)
     @notifications  = Notification.all.order(created_at: :desc).limit(10)
   end

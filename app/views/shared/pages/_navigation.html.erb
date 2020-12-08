@@ -18,7 +18,7 @@
         <li>
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Nhân viên<b class="caret"></b></a>
           <ul class="dropdown-menu multi-level">
-            <% Company.all.order(created_at: :desc).each do |page_company| %>
+            <% Company.all.includes([:groups]).order(created_at: :desc).each do |page_company| %>
               <li class="dropdown-submenu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= page_company.name %></a>
                 <ul class="dropdown-menu">
@@ -67,6 +67,14 @@
           <ul class="dropdown-menu multi-level">
             <li>
               <%= link_to "Tất cả văn bản, biểu mẫu", tat_ca_van_ban_path, class:"dropdown-toggle" %>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tin tức<b class="caret"></b></a>
+          <ul class="dropdown-menu multi-level">
+            <li>
+              <%= link_to "Tất cả tin tức", thong_tin_chung_path, class:"dropdown-toggle" %>
             </li>
           </ul>
         </li>

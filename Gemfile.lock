@@ -65,6 +65,9 @@ GEM
       autoprefixer-rails (>= 5.2.1)
       sassc (>= 2.0.0)
     builder (3.2.4)
+    bullet (6.1.0)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.11)
     byebug (11.1.3)
     carrierwave (2.1.0)
       activemodel (>= 5.0.0)
@@ -226,6 +229,7 @@ GEM
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
     unicode-display_width (1.7.0)
+    uniform_notifier (1.13.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     websocket-driver (0.7.3)
@@ -241,6 +245,7 @@ DEPENDENCIES
   bootsnap (>= 1.1.0)
   bootstrap-filestyle-rails (~> 1.2, >= 1.2.1)
   bootstrap-sass (~> 3.4, >= 3.4.1)
+  bullet (~> 6.1)
   byebug
   carrierwave (~> 2.1)
   carrierwave-i18n
