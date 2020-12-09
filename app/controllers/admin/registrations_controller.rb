@@ -1,6 +1,6 @@
 class Admin::RegistrationsController < Devise::RegistrationsController
   private
   def sign_up_params
-    params.require(:admin).permit(:email, :password, :full_name)
+    params.require(:admin).permit(:email, :password, :full_name, :company_id)
   end
 end

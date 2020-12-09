@@ -13,8 +13,12 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  password: ltviet
+  host: db
+  port: 3306
+  username: <%= ENV.fetch('MYSQL_USER') { 'root' } %>
+  password: <%= ENV.fetch('MYSQL_PASSWORD') { 'password' } %>
+#  username: root
+#  password: ltviet
   socket: /tmp/mysql.sock
 
 development:
@@ -50,5 +54,3 @@ test:
 production:
   <<: *default
   database: lc-foods_production
-  username: lc-foods
-  password: <%= ENV['LC-FOODS_DATABASE_PASSWORD'] %>

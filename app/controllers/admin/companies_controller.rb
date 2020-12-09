@@ -33,9 +33,8 @@ class Admin::CompaniesController < ApplicationController
     respond_to do |format|
       if @company.update(company_params)
         format.html { redirect_to tat_ca_cong_ty_path, notice: 'Công ty đã được cập nhật thành công.' }
-        format.json { render :show, status: :ok, location: @company }
       else
-        format.html { render :edit }
+        format.js   { render :js => "window.location='#{ cap_nhat_cong_ty_path(@company) }'" }
         format.json { render json: @company.errors, status: :unprocessable_entity }
       end
     end

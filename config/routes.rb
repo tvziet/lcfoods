@@ -68,9 +68,17 @@ Rails.application.routes.draw do
   # HOMEPAGE
   root 'home#index'
   get 'tim-kiem', to: 'home#search'
-  devise_for :admins, controller: {
-    registrations: 'admin/registrations'
-  }
+  devise_for :admins,
+             controller: {
+                registrations: 'admin/registrations'
+             },
+             path: '',
+             path_names: {
+               sign_in: 'dang-nhap',
+               sign_out: 'dang-xuat',
+               sign_up: 'dang-ky',
+               edit: 'cap-nhat'
+             }
   get 'tat-ca-nhan-vien', to: 'users#index'
   get 'chi-tiet-nhan-vien/:id', to: 'users#show', as: 'chi-tiet-nhan-vien'
   get 'tat-ca-nhan-vien-cong-ty/:id', to: 'groups#show', as: 'tat-ca-nhan-vien-cong-ty'
