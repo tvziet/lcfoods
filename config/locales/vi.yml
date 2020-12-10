@@ -141,14 +141,14 @@ vi:
           attributes:
             title:
               blank: "không được để trống"
-              too_short: "quá ngắn, tối thiểu 10 ký tự"
+              too_short: "quá ngắn, tối thiểu 3 ký tự"
             body:
               blank: "không được để trống"
         document:
           attributes:
             title:
               blank: "không được để trống"
-              too_short: "quá ngắn, tối thiểu 10 ký tự"
+              too_short: "quá ngắn, tối thiểu 3 ký tự"
             attachment:
               blank: "không được để trống"
   helpers:
