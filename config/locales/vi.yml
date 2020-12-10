@@ -71,6 +71,9 @@ vi:
         status:
           notable: "Mới"
           normal: "Gần đây"
+      document:
+        title: "Tiêu đề"
+        attachment: "Tệp"
     errors:
       models:
         user:
@@ -129,23 +132,23 @@ vi:
           attributes:
             title:
               blank: "không được để trống"
-              too_short: : "quá ngắn, tối thiểu 10 ký tự"
-            category:
-              required: "không được để trống"
+              too_short: "quá ngắn, tối thiểu 10 ký tự"
             company:
+              required: "không được để trống"
+            category:
               required: "không được để trống"
         news:
           attributes:
             title:
               blank: "không được để trống"
-              too_short: : "quá ngắn, tối thiểu 3 ký tự"
+              too_short: "quá ngắn, tối thiểu 10 ký tự"
             body:
               blank: "không được để trống"
-        documents:
+        document:
           attributes:
             title:
               blank: "không được để trống"
-              too_short: : "quá ngắn, tối thiểu 3 ký tự"
+              too_short: "quá ngắn, tối thiểu 10 ký tự"
             attachment:
               blank: "không được để trống"
   helpers:
