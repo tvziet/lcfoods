@@ -125,6 +125,29 @@ vi:
               required: "không được để trống"
             category:
               required: "không được để trống"
+        notification:
+          attributes:
+            title:
+              blank: "không được để trống"
+              too_short: : "quá ngắn, tối thiểu 10 ký tự"
+            category:
+              required: "không được để trống"
+            company:
+              required: "không được để trống"
+        news:
+          attributes:
+            title:
+              blank: "không được để trống"
+              too_short: : "quá ngắn, tối thiểu 3 ký tự"
+            body:
+              blank: "không được để trống"
+        documents:
+          attributes:
+            title:
+              blank: "không được để trống"
+              too_short: : "quá ngắn, tối thiểu 3 ký tự"
+            attachment:
+              blank: "không được để trống"
   helpers:
     submit:
       create: "Tạo %{model}"

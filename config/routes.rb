@@ -76,8 +76,8 @@ Rails.application.routes.draw do
              path_names: {
                sign_in: 'dang-nhap',
                sign_out: 'dang-xuat',
-               sign_up: 'dang-ky',
-               edit: 'cap-nhat'
+               sign_up: 'them-moi-quan-tri-vien',
+               edit: 'cap-nhat-thong-tin'
              }
   get 'tat-ca-nhan-vien', to: 'users#index'
   get 'chi-tiet-nhan-vien/:id', to: 'users#show', as: 'chi-tiet-nhan-vien'
