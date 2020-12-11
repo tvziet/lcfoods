@@ -48,7 +48,6 @@ Rails.application.routes.draw do
   get 'admin/thong-bao', to: 'admin/notifications#index', as: 'thong-bao'
   get 'admin/them-moi-thong-bao', to: 'admin/notifications#new', as: 'them-moi-thong-bao'
   get 'admin/cap-nhat-thong-bao/:id', to: 'admin/notifications#edit', as: 'cap-nhat-thong-bao'
-  post 'xxx', to: 'admin/notifications#create', as: 'xxx'
   delete 'admin/xoa-thong-bao/:id', to: 'admin/notifications#destroy', as: 'xoa-thong-bao'
   #=================================VĂN BẢN, BIỂU MẪU=======================================
   get 'admin/van-ban-bieu-mau', to: 'admin/documents#index', as: 'van-ban-bieu-mau'
