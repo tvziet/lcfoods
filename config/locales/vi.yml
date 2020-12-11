@@ -133,9 +133,9 @@ vi:
             title:
               blank: "không được để trống"
               too_short: "quá ngắn, tối thiểu 10 ký tự"
-            company:
-              required: "không được để trống"
             category:
+              required: "không được để trống"
+            company:
               required: "không được để trống"
         news:
           attributes:
@@ -149,8 +149,6 @@ vi:
             title:
               blank: "không được để trống"
               too_short: "quá ngắn, tối thiểu 3 ký tự"
-            attachment:
-              blank: "không được để trống"
   helpers:
     submit:
       create: "Tạo %{model}"
