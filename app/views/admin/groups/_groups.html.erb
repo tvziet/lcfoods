@@ -20,7 +20,7 @@
           <tbody>
           <% @groups.each do |group| %>
             <tr class="gradeA">
-              <td><%= group.name %></td>
+              <td><%= link_to group.name, chi_tiet_phong_ban_path(group) %></td>
               <td><%= group.created_at.strftime("%d-%m-%Y") %></td>
               <td>Có <strong><%= group.users.count %></strong> nhân viên</td>
               <td>

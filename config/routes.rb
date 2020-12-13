@@ -23,11 +23,13 @@ Rails.application.routes.draw do
   get 'admin/them-moi-phong-ban', to: 'admin/groups#new', as: 'them-moi-phong-ban'
   get 'admin/cap-nhat-phong-ban/:id', to: 'admin/groups#edit', as: 'cap-nhat-phong-ban'
   delete 'admin/xoa-phong-ban/:id', to: 'admin/groups#destroy', as: 'xoa-phong-ban'
+  get 'admin/chi-tiet-phong-ban/:id', to: 'admin/groups#show', as: 'chi-tiet-phong-ban'
   #================================DANH MỤC=================================================
   get 'admin/tat-ca-danh-muc', to: 'admin/categories#index', as: 'tat-ca-danh-muc'
   get 'admin/them-moi-danh-muc', to: 'admin/categories#new', as: 'them-moi-danh-muc'
   get 'admin/cap-nhat-danh-muc/:id', to: 'admin/categories#edit', as: 'cap-nhat-danh-muc'
   delete 'admin/xoa-danh-muc/:id', to: 'admin/categories#destroy', as: 'xoa-danh-muc'
+  get 'admin/chi-tiet-danh-muc/:id', to: 'admin/categories#show', as: 'chi-tiet-danh-muc'
   #================================NHÂN VIÊN================================================
   get 'admin/nhan-vien', to: 'admin/users#index', as: 'nhan-vien'
   get 'admin/them-moi-nhan-vien', to: 'admin/users#new', as: 'them-moi-nhan-vien'

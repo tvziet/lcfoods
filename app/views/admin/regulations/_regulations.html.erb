@@ -20,18 +20,18 @@
           </tr>
           </thead>
           <tbody>
-          <% @regulations.each do |regulation| %>
+          <% objects.each do |object| %>
             <tr class="gradeA">
-              <td><%= regulation.title %></td>
-              <td><%= regulation.body.truncate(200).html_safe %></td>
-              <td><%= regulation.group_name %></td>
-              <td><%= regulation.category_name %></td>
-              <td><%= regulation.created_at.strftime("%d-%m-%Y") %></td>
+              <td><%= object.title %></td>
+              <td><%= object.body.truncate(200).html_safe %></td>
+              <td><%= object.group_name %></td>
+              <td><%= object.category_name %></td>
+              <td><%= object.created_at.strftime("%d-%m-%Y") %></td>
               <td>
-                <%= link_to cap_nhat_quy_dinh_quy_trinh_path(regulation), class:"btn btn-white btn-sm" do %>
+                <%= link_to cap_nhat_quy_dinh_quy_trinh_path(object), class:"btn btn-white btn-sm" do %>
                   <i class="fa fa-pencil"></i> Cập nhật
                 <% end %>
-                <%= link_to xoa_quy_dinh_quy_trinh_path(regulation), method: :delete, data: { confirm: "Bạn có chắc chắc muốn xoá quy định, quy trình này?" }, class:"btn btn-white btn-sm" do %>
+                <%= link_to xoa_quy_dinh_quy_trinh_path(object), method: :delete, data: { confirm: "Bạn có chắc chắc muốn xoá quy định, quy trình này?" }, class:"btn btn-white btn-sm" do %>
                   <i class="fa fa-trash"></i> Xoá
                 <% end %>
               </td>

@@ -6,7 +6,10 @@ class Admin::GroupsController < ApplicationController
     @pagy, @groups = pagy(Group.all.order(created_at: :desc))
   end
 
-  def show; end
+  def show
+    @pagy, @users_of_group       = pagy(User.includes([:group]).where(group_id: @group.id).order(created_at: :desc))
+    @pagy, @regulations_of_group = pagy(Regulation.includes([:group, :category]).where(group_id: @group.id).order(created_at: :desc))
+  end
 
   def new
     @group = Group.new

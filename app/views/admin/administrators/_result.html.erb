@@ -8,4 +8,6 @@
   <h3><%= link_to object.title, chi_tiet_quy_dinh_path(object), class:"text-danger" %></h3>
 <% elsif object.is_a? News %>
   <h3><%= link_to object.title, chi_tiet_tin_tuc_path(object), class:"text-danger" %></h3>
+<% elsif object.is_a? Group %>
+<h3><%= link_to object.name, chi_tiet_phong_ban_path(object), class: "text-danger" %></h3>
 <% end %>

@@ -101,6 +101,7 @@ vi:
             name:
               blank: "không được để trống"
               too_short: "quá ngắn, tối thiểu 3 ký tự"
+              too_long: "quá dài, tối đa 100 ký tự"
             group:
               required: "không được để trống"
         regulation:

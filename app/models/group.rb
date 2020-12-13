@@ -10,4 +10,8 @@ class Group < ApplicationRecord
   def normalize_friendly_id(input)
     input.to_slug.normalize(transliterations: :vietnamese).to_s
   end
+
+  scope :search_by_name, lambda { |query|
+    where('lower(name) LIKE ?', "%#{query}%")
+  }
 end

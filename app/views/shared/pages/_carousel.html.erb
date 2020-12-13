@@ -12,8 +12,8 @@
             </ol>
             <div class="carousel-inner">
               <div class="item active">
-                <% if array_carousels %>
-                  <%= image_tag(array_carousels.last.image, class:"img-responsive") %>
+                <% if array_carousels.last&.image %>
+                  <%= image_tag(array_carousels.last.image, class:"img-responsive", alt: "Băng rôn") %>
                 <% end %>
               </div>
               <% recently_active_carousel.each do |carousel| %>

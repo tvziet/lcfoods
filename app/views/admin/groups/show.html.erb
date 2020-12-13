@@ -1,6 +1,6 @@
-<% provide(:title, 'Admin - Băng rôn') %>
-<%= render 'shared/admin/flash_messages' %>
+<% provide(:title, 'Admin - Chi tiết phòng ban') %>
 <%= render 'shared/admin/navigation' %>
+<%= render 'shared/admin/flash_messages' %>
 <div id="page-wrapper" class="gray-bg">
   <%= render 'shared/admin/top_navbar' %>
   <div class="row wrapper border-bottom white-bg page-heading">
@@ -10,14 +10,16 @@
         <li>
           <%= link_to 'Trang chủ', admin_path %>
         </li>
+        <li><%= link_to 'Tất cả phòng ban', tat_ca_phong_ban_path %></li>
         <li class="active">
-          <strong>Tất cả băng rôn</strong>
+          <strong><%= @group.name %></strong>
         </li>
       </ol>
     </div>
   </div>
   <div class="wrapper wrapper-content animated fadeInRight">
-    <%= render 'admin/carousels/carousels' %>
+    <%= render 'admin/groups/employees' %>
+    <%= render 'admin/groups/regulations' %>
   </div>
 </div>
 <%= render 'shared/admin/footer' %>

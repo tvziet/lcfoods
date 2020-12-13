@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5>NHÂN VIÊN PHÒNG BAN</h5>
+      </div>
+      <div class="ibox-content">
+        <table class="table table-striped table-bordered table-hover dataTables-example">
+          <thead>
+          <tr>
+            <th>Họ tên</th>
+            <th>Email</th>
+            <th>Địa chỉ</th>
+            <th>Điện thoại</th>
+            <th>Năm sinh</th>
+            <th>Phòng ban</th>
+            <th>Thông tin</th>
+            <th>Tác vụ</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @users_of_group.each do |user| %>
+            <tr class="gradeA">
+              <td><%= user.name.full %></td>
+              <td><%= user.email %></td>
+              <td><%= user.address %></td>
+              <td><%= user.cell_phone %></td>
+              <td><%= user.birthday %></td>
+              <td><%= user.group_name %></td>
+              <td><%= user.bio.truncate(100) %></td>
+              <td>
+                <%= link_to cap_nhat_nhan_vien_path(user), class:"btn btn-white btn-sm" do %>
+                  <i class="fa fa-pencil"></i> Cập nhật
+                <% end %>
+                <%= link_to xoa_nhan_vien_path(user), method: :delete, data: { confirm: "Bạn có chắc chắc muốn xoá nhân viên này?" }, class:"btn btn-white btn-sm" do %>
+                  <i class="fa fa-trash"></i> Xoá
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+        <%= render 'shared/pages/pagy_navigation' %>
+      </div>
+    </div>
+  </div>
+</div>

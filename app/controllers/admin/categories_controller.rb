@@ -6,7 +6,9 @@ class Admin::CategoriesController < ApplicationController
     @pagy, @categories = pagy(Category.all.includes([:group]).order(created_at: :desc))
   end
 
-  def show; end
+  def show
+    @pagy, @regulations_of_category = pagy(Regulation.includes([:group, :category]).where(category_id: @category.id).order(created_at: :desc))
+  end
 
   def new
     @category = Category.new

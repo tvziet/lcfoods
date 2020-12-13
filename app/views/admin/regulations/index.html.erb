@@ -11,13 +11,13 @@
           <%= link_to 'Trang chủ', admin_path %>
         </li>
         <li class="active">
-          <strong>Tổng quan</strong>
+          <strong>Tất cả quy định, quy trình</strong>
         </li>
       </ol>
     </div>
   </div>
   <div class="wrapper wrapper-content animated fadeInRight">
-    <%= render 'admin/regulations/regulations' %>
+    <%= render 'admin/regulations/regulations', objects: @regulations %>
   </div>
 </div>
 <%= render 'shared/admin/footer' %>

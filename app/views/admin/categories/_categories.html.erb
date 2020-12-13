@@ -21,7 +21,7 @@
           <tbody>
             <% @categories.each do |category| %>
               <tr class="gradeA">
-                <td><%= category.name %></td>
+                <td><%= link_to category.name, chi_tiet_danh_muc_path(category) %></td>
                 <td><%= category.created_at.strftime("%d-%m-%Y") %></td>
                 <td><%= category&.group_name %></td>
                 <td>Có <strong><%= category.regulations.count %></strong> quy định, quy trình</td>
