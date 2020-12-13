@@ -39,11 +39,6 @@
             <div class="feed-activity-list">
               <div class="feed-element">
                 <div class="pull-left">
-                  <span><i class="fa fa-building" aria-hidden="true"></i> <%= @page_user.company_name %></span>
-                </div>
-              </div>
-              <div class="feed-element">
-                <div class="pull-left">
                   <span><i class="fa fa-users" aria-hidden="true"></i> <%= @page_user.group_name %></span>
                 </div>
               </div>
@@ -61,7 +56,7 @@
   <div class="row">
     <div class="text-center">
       <span>
-        <%= link_to tat_ca_nhan_vien_cong_ty_path(@page_user.company_id), class: "btn btn-primary" do %>
+        <%= link_to tat_ca_nhan_vien_phong_ban_path(@page_user.group_id), class: "btn btn-primary" do %>
           <i class="fa fa-angle-double-left" aria-hidden="true"></i> Quay lại
         <% end %>
       </span>

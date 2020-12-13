@@ -20,10 +20,8 @@ class Admin::CarouselsController < ApplicationController
     respond_to do |format|
       if @carousel.save
         format.html { redirect_to tat_ca_bang_ron_path, notice: 'Băng rôn đã được tạo thành công.' }
-        format.json { render :show, status: :created, location: @carousel }
       else
-        format.html { render :new }
-        format.json { render json: @carousel.errors, status: :unprocessable_entity }
+        format.html { redirect_to them_moi_bang_ron_path, alert: "#{@carousel.errors.full_messages.join('\n').html_safe}" }
       end
     end
   end
@@ -32,10 +30,8 @@ class Admin::CarouselsController < ApplicationController
     respond_to do |format|
       if @carousel.update(carousel_params)
         format.html { redirect_to tat_ca_bang_ron_path, notice: 'Băng rôn đã được cập nhật.' }
-        format.json { render :show, status: :ok, location: @carousel }
       else
-        format.html { render :edit }
-        format.json { render json: @carousel.errors, status: :unprocessable_entity }
+        format.html { redirect_to cap_nhat_bang_ron_path, alert: "#{@carousel.errors.full_messages.join('\n').html_safe}" }
       end
     end
   end
@@ -44,7 +40,6 @@ class Admin::CarouselsController < ApplicationController
     @carousel.destroy
     respond_to do |format|
       format.html { redirect_to tat_ca_bang_ron_path, notice: 'Băng rôn đã được xoá.' }
-      format.json { head :no_content }
     end
   end
 

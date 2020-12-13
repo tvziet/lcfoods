@@ -13,6 +13,7 @@
           <tr>
             <th>Tiêu đề</th>
             <th>Nội dung</th>
+            <th>Trạng thái</th>
             <th>Ngày tạo</th>
             <th>Tác vụ</th>
           </tr>
@@ -22,6 +23,13 @@
             <tr class="gradeA">
               <td><%= news.title %></td>
               <td><%= news.body.truncate(200).html_safe %></td>
+              <td>
+                <% if news.notable? %>
+                  <span class="label label-danger"><%= news.status_i18n %></span>
+                <% else %>
+                  <span class="label label-default"><%= news.status_i18n %></span>
+                <% end %>
+              </td>
               <td><%= news.created_at.strftime("%d-%m-%Y") %></td>
               <td>
                 <%= link_to cap_nhat_tin_tuc_path(news), class:"btn btn-white btn-sm" do %>
@@ -35,6 +43,7 @@
           <% end %>
           </tbody>
         </table>
+        <%= render 'shared/pages/pagy_navigation' %>
       </div>
     </div>
   </div>

@@ -32,7 +32,4 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
-
-/public/uploads/notification/attachments
-/public/uploads/regulation/attachments
-/public/uploads/ckeditor
+/public/uploads/*

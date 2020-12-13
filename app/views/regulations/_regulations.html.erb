@@ -1,6 +1,6 @@
 <% objects.each do |object| %>
   <tr class="gradeX">
-    <td><p class="text-danger"><%= object.title %></p></td>
+    <td><p><%= link_to object.title, chi_tiet_quy_dinh_path(object) %></p></td>
     <td>
       <%= object.body.truncate(200).html_safe %>
     </td>

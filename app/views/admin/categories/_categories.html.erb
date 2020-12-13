@@ -13,6 +13,7 @@
           <tr>
             <th>Tên</th>
             <th>Ngày tạo</th>
+            <th>Phòng ban</th>
             <th>Thông tin</th>
             <th>Tác vụ</th>
           </tr>
@@ -22,6 +23,7 @@
               <tr class="gradeA">
                 <td><%= category.name %></td>
                 <td><%= category.created_at.strftime("%d-%m-%Y") %></td>
+                <td><%= category&.group_name %></td>
                 <td>Có <strong><%= category.regulations.count %></strong> quy định, quy trình</td>
                 <td>
                   <%= link_to cap_nhat_danh_muc_path(category), class:"btn btn-white btn-sm" do %>

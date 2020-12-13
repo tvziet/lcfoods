@@ -1,10 +1,9 @@
 class Admin::NewsController < ApplicationController
   before_action :authenticate_admin!
   before_action :set_news, only: %i[show edit update destroy]
-  # before_action :check_admin, except: %i[index show]
 
   def index
-    @all_news = News.all
+    @pagy, @all_news = pagy(News.all.order(created_at: :desc))
   end
 
   def show; end
@@ -21,10 +20,8 @@ class Admin::NewsController < ApplicationController
     respond_to do |format|
       if @news.save
         format.html { redirect_to tat_ca_tin_tuc_path, notice: 'Tin tức đã được tạo thành công.' }
-        format.json { render :show, status: :created, location: @news }
       else
-        format.html { render :new }
-        format.json { render json: @news.errors, status: :unprocessable_entity }
+        format.html { redirect_to them_moi_tin_tuc_path, alert: "#{@news.errors.full_messages.join('\n').html_safe}" }
       end
     end
   end
@@ -33,10 +30,8 @@ class Admin::NewsController < ApplicationController
     respond_to do |format|
       if @news.update(news_params)
         format.html { redirect_to tat_ca_tin_tuc_path, notice: 'Tin tức đã được cập nhật thành công.' }
-        format.json { render :show, status: :ok, location: @news }
       else
-        format.html { render :edit }
-        format.json { render json: @news.errors, status: :unprocessable_entity }
+        format.html { redirect_to cap_nhat_tin_tuc_path, alert: "#{@news.errors.full_messages.join('\n').html_safe}" }
       end
     end
   end
@@ -45,7 +40,6 @@ class Admin::NewsController < ApplicationController
     @news.destroy
     respond_to do |format|
       format.html { redirect_to tat_ca_tin_tuc_path, notice: 'Tin tức đã được xoá thành công.' }
-      format.json { head :no_content }
     end
   end
 
@@ -64,9 +58,5 @@ class Admin::NewsController < ApplicationController
 
   def news_params
     params.require(:news).permit(:title, :body, :status)
-  end
-
-  def check_admin
-    return unless current_admin.is_super_admin?
   end
 end

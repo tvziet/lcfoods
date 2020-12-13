@@ -1,9 +1,8 @@
 class Admin::AdministratorsController < ApplicationController
   before_action :authenticate_admin!
   def index
-    @companies      = Company.all.order(created_at: :desc)
-    @groups         = Group.all.includes([:company]).order(created_at: :desc).limit(10)
-    @users          = User.all.includes([:group, :company]).order(created_at: :desc).limit(10)
+    @groups         = Group.all.order(created_at: :desc).limit(10)
+    @users          = User.all.includes([:group]).order(created_at: :desc).limit(10)
     @categories     = Category.all.order(created_at: :desc).limit(10)
     @regulations    = Regulation.all.order(created_at: :desc).limit(10)
     @notifications  = Notification.all.order(created_at: :desc).limit(10)
@@ -16,7 +15,6 @@ class Admin::AdministratorsController < ApplicationController
     array_of_result_notifications = []
     array_of_result_documents     = []
     array_of_result_news          = []
-    @count_result                 = 0
     if params['search']
       array_of_result_users = search_user(params['search'], array_of_result_users)
       search_regulation(params['search'], array_of_result_regulations)
@@ -54,21 +52,18 @@ class Admin::AdministratorsController < ApplicationController
   def search_notification(query, array_of_result_notifications)
     notifications_by_title        = Notification.search_by_title(query)
     array_of_result_notifications << notifications_by_title if notifications_by_title.any?
-    # array_of_result_notifications = Notification.where(id: array_of_result_notifications.map(&:ids).flatten.uniq)
-    array_of_result_notifications
+    array_of_result_notifications = Notification.where(id: array_of_result_notifications.map(&:ids).flatten.uniq)
   end
 
   def search_document(query, array_of_result_documents)
     documents_by_title        = Document.search_by_title(query)
     array_of_result_documents << documents_by_title if documents_by_title.any?
-    # array_of_result_documents = Document.where(id: array_of_result_documents.map(&:ids).flatten.uniq)
-    array_of_result_documents
+    array_of_result_documents = Document.where(id: array_of_result_documents.map(&:ids).flatten.uniq)
   end
 
   def search_news(query, array_of_result_news)
     news_by_title        = News.search_by_title(query)
     array_of_result_news << news_by_title if news_by_title.any?
-    # array_of_result_news = News.where(id: array_of_result_news.map(&:ids).flatten.uniq)
-    array_of_result_news
+    array_of_result_news = News.where(id: array_of_result_news.map(&:ids).flatten.uniq)
   end
 end

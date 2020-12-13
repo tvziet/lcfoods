@@ -18,53 +18,58 @@
         <li>
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Nhân viên<b class="caret"></b></a>
           <ul class="dropdown-menu multi-level">
-            <% Company.all.includes([:groups]).order(created_at: :desc).each do |page_company| %>
-              <li class="dropdown-submenu">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= page_company.name %></a>
-                <ul class="dropdown-menu">
-                  <li>
-                    <% page_company.groups.each do |group| %>
-                      <%= link_to group.name, tat_ca_nhan_vien_cong_ty_path(group) %>
-                    <% end %>
-                  </li>
-                </ul>
+            <% Group.all.order(created_at: :desc).each do |group| %>
+              <li>
+                <%= link_to group.name, tat_ca_nhan_vien_phong_ban_path(group), class: "dropdown-toggle" %>
+                </a>
               </li>
             <% end %>
+            <li>
+              <%= link_to 'Tất cả nhân viên', tat_ca_nhan_vien_path %>
+            </li>
           </ul>
         </li>
         <li>
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Quy định, quy trình<b class="caret"></b></a>
           <ul class="dropdown-menu multi-level">
-            <% Company.all.order(created_at: :desc).each do |page_company| %>
-              <li class="dropdown-submenu">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= page_company.name %></a>
-                <ul class="dropdown-menu">
-                  <li>
-                    <%= link_to "Tất cả nội dung, quy chế", tat_ca_quy_dinh_cong_ty_path(page_company), class:"dropdown-toggle" %>
-                  </li>
-                </ul>
+            <% Group.all.order(created_at: :desc).each do |group| %>
+              <li>
+                <%= link_to group.name, tat_ca_quy_dinh_phong_ban_path(group), class:"dropdown-toggle" %>
               </li>
             <% end %>
+            <li>
+              <%= link_to "Tất cả quy trình, quy định", tat_ca_quy_dinh_path, class:"dropdown-toggle" %>
+            </li>
           </ul>
         </li>
         <li>
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Thông báo<b class="caret"></b></a>
           <ul class="dropdown-menu multi-level">
-            <% Company.all.order(created_at: :desc).each do |page_company| %>
-              <li class="dropdown-submenu">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= page_company.name %></a>
-                <ul class="dropdown-menu">
-                  <li>
-                    <%= link_to "Tất cả thông báo", tat_ca_thong_bao_cong_ty_path(page_company), class:"dropdown-toggle" %>
-                  </li>
-                </ul>
-              </li>
-            <% end %>
+            <li class="dropdown-submenu">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Thông báo gần đây</a>
+              <ul class="dropdown-menu">
+                <% if five_notable_notifications %>
+                  <% five_notable_notifications.each do |notification| %>
+                    <li>
+                      <%= link_to notification.title, chi_tiet_thong_bao_path(notification), class:"dropdown-toggle" %>
+                    </li>
+                  <% end %>
+                <% end %>
+              </ul>
+            </li>
+            <li>
+              <%= link_to 'Tất cả thông báo', tat_ca_thong_bao_path %>
+            </li>
           </ul>
         </li>
         <li>
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Văn bản, biểu mẫu<b class="caret"></b></a>
           <ul class="dropdown-menu multi-level">
+            <% Group.all.order(created_at: :desc).each do |group| %>
+              <li>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= link_to group.name, tat_ca_van_ban_phong_ban_path(group) %></a>
+              </li>
+            <% end %>
             <li>
               <%= link_to "Tất cả văn bản, biểu mẫu", tat_ca_van_ban_path, class:"dropdown-toggle" %>
             </li>
@@ -73,6 +78,18 @@
         <li>
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tin tức<b class="caret"></b></a>
           <ul class="dropdown-menu multi-level">
+            <li class="dropdown-submenu">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tin tức gần đây</a>
+              <ul class="dropdown-menu">
+                <% if five_notable_news %>
+                  <% five_notable_news.each do |news| %>
+                    <li>
+                      <%= link_to news.title.truncate(20), chi_tiet_tin_tuc_path(news), class:"dropdown-toggle" %>
+                    </li>
+                  <% end %>
+                <% end %>
+              </ul>
+            </li>
             <li>
               <%= link_to "Tất cả tin tức", thong_tin_chung_path, class:"dropdown-toggle" %>
             </li>

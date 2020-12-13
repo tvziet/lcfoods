@@ -10,7 +10,7 @@
             <h3 class="m-b-xs"><strong><%= user_of_group.name.full %></strong></h3>
             <div class="font-bold"><%= user_of_group.group_name %></div>
             <address class="m-t-md">
-              <strong><%= user_of_group.company_name %></strong><br>
+              <strong><%= user_of_group.group_name %></strong><br>
               <%= user_of_group.address %><br>
               <span>Email:</span> <%= user_of_group.email %>
             </address>
@@ -25,7 +25,5 @@
     <% end %>
   </div>
 </div>
-<% if @users_of_group.count > 10 %>
-  <%= render 'shared/pages/pagy_navigation' %>
-<% end %>
+<%= render 'shared/pages/pagy_navigation' %>
 <%= render 'shared/pages/footer' %>

@@ -1,22 +1,4 @@
 <%= form_for [:admin, @regulation], html: { multipart: true }, class: "form-horizontal" do |form| %>
-  <% if @regulation.errors.any? %>
-    <div class="row">
-      <div class="col-lg-4">
-        <div class="panel panel-warning">
-          <div class="panel-heading">
-            <i class="fa fa-warning"></i> <%= pluralize(@regulation.errors.count, "lỗi") %> đã xảy ra:
-          </div>
-          <div class="panel-body">
-            <ul>
-              <% @regulation.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-              <% end %>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  <% end %>
   <div class="form-group">
     <label class="col-sm-2 control-label">Tiêu đề</label>
     <div class="col-sm-10 m-b">
@@ -37,9 +19,9 @@
   </div>
 
   <div class="form-group">
-    <label class="col-sm-2 control-label">Công ty</label>
+    <label class="col-sm-2 control-label">Phòng ban</label>
     <div class="col-sm-10 m-b">
-      <%= form.collection_select(:company_id, Company.all, :id, :name, {:include_blank => ("Vui lòng chọn công ty"), hide_label: true}, class: "form-control m-b") %>
+      <%= form.collection_select(:group_id, Group.all, :id, :name, {:include_blank => ("Vui lòng chọn phòng ban"), hide_label: true}, class: "form-control m-b") %>
     </div>
   </div>
 

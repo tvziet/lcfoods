@@ -17,11 +17,11 @@ class Regulation < ApplicationRecord
 
   # Associations
   belongs_to :category
-  belongs_to :company
+  belongs_to :group
 
-  # Delegate name for company, category
-  delegate :name, to: :category, prefix: :category
-  delegate :name, to: :company, prefix: :company
+  # Delegate name for category, group
+  delegate :name, to: :category, prefix: :category, allow_nil: true
+  delegate :name, to: :group, prefix: :group, allow_nil: true
 
   enum status: { normal: 0, notable: 1 }
 

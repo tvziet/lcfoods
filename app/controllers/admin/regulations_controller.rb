@@ -1,10 +1,9 @@
 class Admin::RegulationsController < ApplicationController
   before_action :authenticate_admin!
   before_action :set_regulation, only: %i[show edit update destroy]
-  # before_action :check_admin, only: %i[index show]
 
   def index
-    @pagy, @regulations = pagy(Regulation.all)
+    @pagy, @regulations = pagy(Regulation.all.includes([:group, :category]).order(created_at: :desc))
   end
 
   def show; end
@@ -21,10 +20,8 @@ class Admin::RegulationsController < ApplicationController
     respond_to do |format|
       if @regulation.save
         format.html { redirect_to quy_dinh_quy_trinh_path, notice: 'Quy định, quy trình đã được tạo thành công.' }
-        format.json { render :show, status: :created, location: @regulation }
       else
-        format.html { render :new }
-        format.json { render json: @regulation.errors, status: :unprocessable_entity }
+        format.html { redirect_to quy_dinh_quy_trinh_path, alert: "#{@regulation.errors.full_messages.join('\n').html_safe}" }
       end
     end
   end
@@ -33,10 +30,8 @@ class Admin::RegulationsController < ApplicationController
     respond_to do |format|
       if @regulation.update(regulation_params)
         format.html { redirect_to quy_dinh_quy_trinh_path, notice: 'Quy định, quy trình đã được cập nhật thành công.' }
-        format.json { render :show, status: :ok, location: @regulation }
       else
-        format.html { render :edit }
-        format.json { render json: @regulation.errors, status: :unprocessable_entity }
+        format.html { redirect_to cap_nhat_quy_dinh_quy_trinh_path(@regulation), alert: "#{@regulation.errors.full_messages.join('\n').html_safe}" }
       end
     end
   end
@@ -45,7 +40,6 @@ class Admin::RegulationsController < ApplicationController
     @regulation.destroy
     respond_to do |format|
       format.html { redirect_to quy_dinh_quy_trinh_path, notice: 'Quy định, quy trình đã được xoá thành công.' }
-      format.json { head :no_content }
     end
   end
 
@@ -55,10 +49,6 @@ class Admin::RegulationsController < ApplicationController
   end
 
   def regulation_params
-    params.require(:regulation).permit(:title, :body, :status, :company_id, :category_id, attachments: [])
-  end
-
-  def check_admin
-    return if current_admin.is_super_admin == false && @regulation.company_id != current_admin&.company_id
+    params.require(:regulation).permit(:title, :body, :status, :category_id, :group_id, attachments: [])
   end
 end

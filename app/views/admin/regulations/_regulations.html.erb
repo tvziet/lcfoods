@@ -13,7 +13,7 @@
           <tr>
             <th>Tiêu đề</th>
             <th>Nội dung</th>
-            <th>Công ty</th>
+            <th>Phòng ban</th>
             <th>Danh mục</th>
             <th>Ngày tạo</th>
             <th>Tác vụ</th>
@@ -24,7 +24,7 @@
             <tr class="gradeA">
               <td><%= regulation.title %></td>
               <td><%= regulation.body.truncate(200).html_safe %></td>
-              <td><%= regulation.company_name %></td>
+              <td><%= regulation.group_name %></td>
               <td><%= regulation.category_name %></td>
               <td><%= regulation.created_at.strftime("%d-%m-%Y") %></td>
               <td>
@@ -39,6 +39,7 @@
           <% end %>
           </tbody>
         </table>
+        <%= render 'shared/pages/pagy_navigation' %>
       </div>
     </div>
   </div>

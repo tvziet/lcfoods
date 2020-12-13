@@ -5,17 +5,14 @@
     <div class="col-sm-3">
       <h3 class="text-center"><strong>QUY ĐỊNH, QUY TRÌNH</strong></h3>
       <hr style="height:2px;border-width:0;color: #c22b32;background-color: #c22b32">
-      <%= image_tag("thong-bao.jpg", alt: "Banner quy định, quy trình", class:"img-responsive") %>
-      <h4><strong><%= link_to @first_notable_regulation.title, chi_tiet_quy_dinh_path(@first_notable_regulation) %></strong></h4>
-      <p><%= @first_notable_regulation.body.truncate(100).html_safe %></p>
-      <hr>
-      <ul class="m-b-xs">
-        <% @recently_notable_regulations.each do |regulation| %>
-          <li>
-            <i class="fa fa-angle-right" aria-hidden="true"></i> <%= link_to regulation.title, chi_tiet_quy_dinh_path(regulation) %>
-          </li>
+        <%= image_tag("thong-bao.jpg", alt: "Banner quy định, quy trình", class:"img-responsive") %>
+      <% if five_notable_regulations %>
+        <% five_notable_regulations.each do |regulation| %>
+          <h4><strong><%= link_to regulation.title, chi_tiet_quy_dinh_path(regulation) %></strong></h4>
+          <p><%= regulation.body.truncate(100).html_safe %></p>
         <% end %>
-      </ul>
+      <% end %>
+      <hr>
       <p>
         <%= link_to tat_ca_quy_dinh_path, class:"navy-link" do %>
           Xem thêm <i class="fa fa-angle-double-right" aria-hidden="true"></i>
@@ -26,16 +23,13 @@
       <h3 class="text-center"><strong>THÔNG BÁO</strong></h3>
       <hr style="height:2px;border-width:0;color: #c22b32;background-color: #c22b32">
       <%= image_tag("notifications.png", alt: "Banner thông báo", class:"img-responsive") %>
-      <h4><strong><%= link_to @first_notable_notification.title, chi_tiet_thong_bao_path(@first_notable_notification) %></strong></h4>
-      <p><%= @first_notable_notification.body.truncate(100).html_safe %></p>
-      <hr>
-      <ul class="m-b-xs">
-        <% @recently_notable_notifications.each do |notification| %>
-          <li>
-            <i class="fa fa-angle-right" aria-hidden="true"></i> <%= link_to notification.title, chi_tiet_thong_bao_path(notification) %>
-          </li>
+      <% if five_notable_notifications %>
+        <% five_notable_notifications.each do |notification| %>
+          <h4><strong><%= link_to notification.title, chi_tiet_thong_bao_path(notification) %></strong></h4>
+          <p><%= notification.body.truncate(100).html_safe %></p>
         <% end %>
-      </ul>
+      <% end %>
+      <hr>
       <p>
         <%= link_to tat_ca_thong_bao_path, class:"navy-link" do %>
           Xem thêm <i class="fa fa-angle-double-right" aria-hidden="true"></i>
@@ -46,17 +40,14 @@
       <h3 class="text-center"><strong>BIỂU MẪU</strong></h3>
       <hr style="height:2px;border-width:0;color: #c22b32;background-color: #c22b32">
       <%= image_tag("document.png", alt: "Banner văn bản", class:"img-responsive") %>
-      <h4><strong><%= link_to @first_document.title, @first_document.attachment.url %></strong></h4>
-      <hr>
-      <ul class="m-b-xs">
-        <% @recently_documents.each do |recently_document| %>
-          <li>
-            <i class="fa fa-angle-right" aria-hidden="true"></i> <%= link_to recently_document.title, recently_document.attachment.url %>
-          </li>
+      <% if five_documents %>
+        <% five_documents.each do |document| %>
+          <h4><strong><%= link_to document&.title, document.attachment.url %></strong></h4>
         <% end %>
-      </ul>
+      <% end %>
+      <hr>
       <p>
-        <%= link_to tat_ca_thong_bao_path, class:"navy-link" do %>
+        <%= link_to tat_ca_van_ban_path, class:"navy-link" do %>
           Xem thêm <i class="fa fa-angle-double-right" aria-hidden="true"></i>
         <% end %>
       </p>
@@ -65,16 +56,13 @@
       <h3 class="text-center"><strong>TIN NỔI BẬT</strong></h3>
       <hr style="height:2px;border-width:0;color: #c22b32;background-color: #c22b32">
       <%= image_tag("news.jpg", alt: "Banner tin tức", class:"img-responsive") %>
-      <h4><strong><%= link_to @first_notable_news.title, chi_tiet_tin_tuc_path(@first_notable_news) %></strong></h4>
-      <p><%= @first_notable_news.body.truncate(100).html_safe %></p>
-      <hr>
-      <ul class="m-b-xs">
-        <% @recently_notable_news.each do |news| %>
-          <li>
-            <i class="fa fa-angle-right" aria-hidden="true"></i> <%= link_to news.title, chi_tiet_tin_tuc_path(news) %>
-          </li>
+      <% if five_notable_news %>
+        <% five_notable_news.each do |news| %>
+          <h4><strong><%= link_to news.title, chi_tiet_tin_tuc_path(news) %></strong></h4>
+          <p><%= news&.body.truncate(100).html_safe %></p>
         <% end %>
-      </ul>
+      <% end %>
+      <hr>
       <p>
         <%= link_to thong_tin_chung_path, class:"navy-link" do %>
           Xem thêm <i class="fa fa-angle-double-right" aria-hidden="true"></i>

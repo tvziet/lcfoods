@@ -13,7 +13,7 @@
           <tr>
             <th>Tiêu đề</th>
             <th>Nội dung</th>
-            <th>Danh mục</th>
+            <th>Trạng thái</th>
             <th>Ngày tạo</th>
             <th>Tác vụ</th>
           </tr>
@@ -23,7 +23,13 @@
             <tr class="gradeA">
               <td><%= notification.title %></td>
               <td><%= notification.body.truncate(200).html_safe %></td>
-              <td><%= notification.name %></td>
+              <td>
+                <% if notification.notable? %>
+                  <span class="label label-danger"><%= notification.status_i18n %></span>
+                <% else %>
+                  <span class="label label-default"><%= notification.status_i18n %></span>
+                <% end %>
+              </td>
               <td><%= notification.created_at.strftime("%d-%m-%Y") %></td>
               <td>
                 <%= link_to cap_nhat_thong_bao_path(notification), class:"btn btn-white btn-sm" do %>
@@ -37,6 +43,7 @@
           <% end %>
           </tbody>
         </table>
+        <%= render 'shared/pages/pagy_navigation' %>
       </div>
     </div>
   </div>

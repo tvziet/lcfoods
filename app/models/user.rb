@@ -28,12 +28,10 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
 
   # Associations
-  belongs_to :company
   belongs_to :group
 
-  # Delegate name for company, group
-  delegate :name, to: :group, prefix: :group
-  delegate :name, to: :company, prefix: :company
+  # Delegate name for group
+  delegate :name, to: :group, prefix: :group, allow_nil: true
 
   scope :search_by_full_name, lambda { |query|
     where("CONCAT_WS(' ', first_name, last_name) LIKE ?", "%#{query}%")

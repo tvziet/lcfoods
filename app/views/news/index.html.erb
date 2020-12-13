@@ -7,7 +7,7 @@
       <div class="col-lg-4">
         <div class="ibox">
           <div class="ibox-content">
-            <h3><%= link_to page_news.title, chi_tiet_tin_tuc_path(page_news), class: "text-danger" %></h3>
+            <h3><%= link_to page_news.title, chi_tiet_tin_tuc_path(page_news) %></h3>
             <div class="small m-b-xs">
             </div>
             <p>
@@ -26,8 +26,6 @@
     <% end %>
   </div>
 </div>
-<% if @page_all_news.count > 10 %>
-  <%= render 'shared/pages/pagy_navigation' %>
-<% end %>
+<%= render 'shared/pages/pagy_navigation' %>
 <%= render 'shared/pages/footer' %>
 

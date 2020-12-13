@@ -5,16 +5,18 @@
         <div class="ibox-content ">
           <div class="carousel slide" id="carousel2">
             <ol class="carousel-indicators">
-              <li data-slide-to="<%= @first_carousel.id %>" data-target="#carousel2" class="active"></li>
-              <% @recently_active_carousel.each do |carousel| %>
-                <li data-slide-to="<%= carousel.id %>" data-target="#carousel2"></li>
+              <li data-slide-to="<%= array_carousels.last&.id %>" data-target="#carousel2" class="active"></li>
+              <% recently_active_carousel.each do |carousel| %>
+                <li data-slide-to="<%= carousel&.id %>" data-target="#carousel2"></li>
               <% end %>
             </ol>
             <div class="carousel-inner">
               <div class="item active">
-                <%= image_tag(@first_carousel.image, class:"img-responsive") %>
+                <% if array_carousels %>
+                  <%= image_tag(array_carousels.last.image, class:"img-responsive") %>
+                <% end %>
               </div>
-              <% @recently_active_carousel.each do |carousel| %>
+              <% recently_active_carousel.each do |carousel| %>
                 <div class="item ">
                   <%= image_tag(carousel.image, class:"img-responsive") %>
                 </div>

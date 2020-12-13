@@ -15,14 +15,6 @@ class Notification < ApplicationRecord
   validates :title, presence: true, length: { in: 10..100 }
   validates :status, presence: true
 
-  # Associations
-  belongs_to :category
-  belongs_to :company
-
-  # Delegate name for company, category
-  delegate :name, to: :category
-  delegate :name, to: :company, prefix: :company
-
   enum status: { normal: 0, notable: 1 }
 
   scope :search_by_title, lambda { |query|

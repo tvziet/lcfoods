@@ -6,7 +6,7 @@
       <div class="ibox">
         <div class="ibox-content">
           <div class="pull-right">
-            <button class="btn btn-primary btn-xs" type="button"><%= @page_regulation.company_name %></button>
+            <button class="btn btn-primary btn-xs" type="button"><%= @page_regulation.group_name %></button>
             <button class="btn btn-info btn-xs" type="button"><%= @page_regulation.category_name %></button>
           </div>
           <div class="text-center article-title">
@@ -22,7 +22,7 @@
             <strong>Tệp đính kèm: </strong><%= link_to "#{attachment.file.filename}", pdfjs.full_path(file: "#{attachment.url}") %>
           <% end %>
           <span class="pull-right">
-              <%= link_to tat_ca_quy_dinh_cong_ty_path(@page_regulation.company_id), class: "btn btn-primary" do %>
+              <%= link_to tat_ca_quy_dinh_phong_ban_path(@page_regulation.group_id), class: "btn btn-primary" do %>
                 <i class="fa fa-angle-double-left" aria-hidden="true"></i> Quay lại
               <% end %>
           </span>

@@ -8,9 +8,8 @@ class RegulationsController < ApplicationController
     @page_regulation = Regulation.friendly.find(params["id"])
   end
 
-  def company_regulations
-    @page_company              = Company.friendly.find(params["id"])
-    @company_regulations       = Regulation.where(company_id: @page_company&.id).order(created_at: :desc)
-    @pagy, @search_regulations = pagy(@company_regulations)
+  def group_regulations
+    @page_group                = Group.friendly.find(params["id"])
+    @pagy, @group_regulations  = pagy(Regulation.where(group_id: @page_group&.id).order(created_at: :desc))
   end
 end

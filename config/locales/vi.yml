@@ -18,7 +18,6 @@ vi:
         notable: "Mới"
   activerecord:
     models:
-      company: "công ty"
       group: "phòng ban"
       category: "danh mục"
       regulation: "quy định, quy trình"
@@ -36,21 +35,15 @@ vi:
         address: "Địa chỉ"
         bio: "Thông tin thêm"
         avatar: "Ảnh đại diện"
-        company: "Tên công ty"
         group: "Tên phòng ban"
         employee_number: "Mã nhân viên"
-      company:
-        name: "Tên công ty"
-        status:
-          notable: "Mới"
-          normal: "Gần đây"
       group:
         name: "Tên phòng ban"
-        company: "Tên công ty"
       category:
         name: "Tên danh mục"
+        group: "Tên phòng ban"
       regulation:
-        company: "Tên công ty"
+        group: "Tên phòng ban"
         category: "Tên danh mục"
         title: "Tiêu đề"
         body: "Nội dung"
@@ -58,8 +51,6 @@ vi:
           notable: "Mới"
           normal: "Gần đây"
       notification:
-        company: "Tên công ty"
-        category: "Tên danh mục"
         title: "Tiêu đề"
         body: "Nội dung"
         status:
@@ -73,6 +64,7 @@ vi:
           normal: "Gần đây"
       document:
         title: "Tiêu đề"
+        group: "Tên phòng ban"
         attachment: "Tệp"
     errors:
       models:
@@ -96,8 +88,6 @@ vi:
               taken: "đã tồn tại"
             employee_number:
               blank: "không được để trống"
-            company:
-              required: "không được để trống"
             group:
               required: "không được để trống"
         group:
@@ -106,25 +96,19 @@ vi:
               blank: "không được để trống"
               too_short: "quá ngắn, tối thiểu 2 ký tự"
               too_long: "quá dài, tối đa 30 ký tự"
-            company:
-              required: "không được để trống"
-        company:
-          attributes:
-            name:
-              blank: "không được để trống"
-              too_short: "quá ngắn, tối thiểu 3 ký tự"
-              too_long: "quá dài, tối đa 30 ký tự"
         category:
           attributes:
             name:
               blank: "không được để trống"
               too_short: "quá ngắn, tối thiểu 3 ký tự"
+            group:
+              required: "không được để trống"
         regulation:
           attributes:
             title:
               blank: "không được để trống"
               too_short: "quá ngắn, tối thiểu 10 ký tự"
-            company:
+            group:
               required: "không được để trống"
             category:
               required: "không được để trống"
@@ -134,8 +118,6 @@ vi:
               blank: "không được để trống"
               too_short: "quá ngắn, tối thiểu 10 ký tự"
             category:
-              required: "không được để trống"
-            company:
               required: "không được để trống"
         news:
           attributes:

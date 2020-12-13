@@ -12,7 +12,6 @@
           <thead>
           <tr>
             <th>Tên</th>
-            <th>Công ty</th>
             <th>Ngày tạo</th>
             <th>Thông tin</th>
             <th>Tác vụ</th>
@@ -22,7 +21,6 @@
           <% @groups.each do |group| %>
             <tr class="gradeA">
               <td><%= group.name %></td>
-              <td><%= group.company.name %></td>
               <td><%= group.created_at.strftime("%d-%m-%Y") %></td>
               <td>Có <strong><%= group.users.count %></strong> nhân viên</td>
               <td>

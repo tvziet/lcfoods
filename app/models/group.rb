@@ -1,9 +1,9 @@
 require 'babosa'
 class Group < ApplicationRecord
   validates :name, presence: true, length: { in: 2..30 }
-  belongs_to :company
-  delegate :name, to: :company, prefix: :company
   has_many :users
+  has_many :categories
+  has_many :regulations
   extend FriendlyId
   friendly_id :name, use: :slugged
 

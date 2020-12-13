@@ -6,7 +6,7 @@
       <div class="ibox">
         <div class="ibox-content">
           <div class="pull-right">
-            <button class="btn btn-primary btn-xs" type="button"><%= @page_notification.company_name %></button>
+            <button class="btn btn-primary btn-xs" type="button"><%= @page_notification.status_i18n %></button>
           </div>
           <div class="text-center article-title">
             <span class="text-muted"><i class="fa fa-clock-o"></i> <%= @page_notification.created_at.strftime("%d-%m-%Y") %></span>
@@ -20,7 +20,7 @@
           <% @page_notification.attachments.each do |attachment| %>
             <strong>Tệp đính kèm: </strong><%= link_to "#{attachment.file.filename}", pdfjs.full_path(file: "#{attachment.url}") %>
             <span class="pull-right">
-              <%= link_to tat_ca_thong_bao_cong_ty_path(@page_notification.company_id), class: "btn btn-primary" do %>
+              <%= link_to root_path, class: "btn btn-primary" do %>
                 <i class="fa fa-angle-double-left" aria-hidden="true"></i> Quay lại
               <% end %>
             </span>

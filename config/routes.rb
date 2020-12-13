@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   get 'errors/internal_server_error'
   mount PdfjsViewer::Rails::Engine => '/pdfjs', as: 'pdfjs'
   namespace :admin do
-    resources :companies, except: %i[index new edit destroy]
     resources :groups, except: %i[index new edit destroy]
     resources :categories, except: %i[index new edit destroy]
     resources :users, except: %i[index new edit destroy]
@@ -19,11 +18,6 @@ Rails.application.routes.draw do
   # ADMIN
   get 'admin', to: 'admin/administrators#index'
   get 'tim-kiem-quan-tri', to: 'admin/administrators#search'
-  #=================================CÔNG TY================================================
-  get 'admin/tat-ca-cong-ty', to: 'admin/companies#index', as: 'tat-ca-cong-ty'
-  get 'admin/them-moi-cong-ty', to: 'admin/companies#new', as: 'them-moi-cong-ty'
-  get 'admin/cap-nhat-cong-ty/:id', to: 'admin/companies#edit', as: 'cap-nhat-cong-ty'
-  delete 'admin/xoa-cong-ty/:id', to: 'admin/companies#destroy', as: 'xoa-cong-ty'
   #===============================PHÒNG BAN=================================================
   get 'admin/tat-ca-phong-ban', to: 'admin/groups#index', as: 'tat-ca-phong-ban'
   get 'admin/them-moi-phong-ban', to: 'admin/groups#new', as: 'them-moi-phong-ban'
@@ -81,20 +75,20 @@ Rails.application.routes.draw do
              }
   get 'tat-ca-nhan-vien', to: 'users#index'
   get 'chi-tiet-nhan-vien/:id', to: 'users#show', as: 'chi-tiet-nhan-vien'
-  get 'tat-ca-nhan-vien-cong-ty/:id', to: 'groups#show', as: 'tat-ca-nhan-vien-cong-ty'
+  get 'tat-ca-nhan-vien-phong-ban/:id', to: 'groups#show', as: 'tat-ca-nhan-vien-phong-ban'
 
   get 'tat-ca-quy-dinh', to: 'regulations#index'
   get 'chi-tiet-quy-dinh/:id', to: 'regulations#show', as: 'chi-tiet-quy-dinh'
-  get 'tat-ca-quy-dinh-cong-ty/:id', to: 'regulations#company_regulations', as: 'tat-ca-quy-dinh-cong-ty'
+  get 'tat-ca-quy-dinh-phong-ban/:id', to: 'regulations#group_regulations', as: 'tat-ca-quy-dinh-phong-ban'
 
   get 'tat-ca-thong-bao', to: 'notifications#index'
   get 'chi-tiet-thong-bao/:id', to: 'notifications#show', as: 'chi-tiet-thong-bao'
-  get 'tat-ca-thong-bao-cong-ty/:id', to: 'notifications#company_notifications', as: 'tat-ca-thong-bao-cong-ty'
 
   get 'thong-tin-chung', to: 'news#index'
   get 'chi-tiet-tin-tuc/:id', to: 'news#show', as: 'chi-tiet-tin-tuc'
 
   get 'tat-ca-van-ban', to: 'documents#index'
+  get 'tat-ca-van-ban-phong-ban/:id', to: 'documents#group_documents', as: 'tat-ca-van-ban-phong-ban'
 
   match '/404', to: 'errors#not_found', via: :all
   match '/422', to: 'errors#unprocessable', via: :all
