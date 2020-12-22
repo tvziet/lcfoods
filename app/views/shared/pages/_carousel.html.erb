@@ -12,14 +12,12 @@
             </ol>
             <div class="carousel-inner">
               <div class="item active">
-                <% if array_carousels %>
-                  <%= image_tag(array_carousels&.last&.image_url, class:"img-responsive", alt: "Băng rôn") %>
-                <% end %>
+                <%= image_tag(array_carousels&.last&.image_url, class:"img-responsive", alt: "Băng rôn") if array_carousels&.last&.image? %>
               </div>
               <% if recently_active_carousel %>
                 <% recently_active_carousel.each do |carousel| %>
                   <div class="item ">
-                    <%= image_tag(carousel&.image_url, class:"img-responsive") %>
+                    <%= image_tag(carousel&.image_url, class:"img-responsive") if carousel&.image? %>
                   </div>
                 <% end %>
               <% end %>

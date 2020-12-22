@@ -33,6 +33,7 @@ COPY Gemfile* $APP_PATH/
 # Run bundle
 RUN gem install bundler:2.1.4
 RUN bundle install --jobs 20 --retry 5 --without development test --path vendor/bundle
+RUN bundle exec rails db:setup
 
 # Adding project files
 COPY . $APP_PATH/
@@ -41,6 +42,7 @@ COPY . $APP_PATH/
 RUN RAILS_ENV=$RAILS_ENV bundle exec rake assets:precompile
 
 ENV RAILS_SERVE_STATIC_FILES true
+
 
 EXPOSE 3000
 
