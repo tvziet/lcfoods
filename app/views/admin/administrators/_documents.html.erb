@@ -18,8 +18,12 @@
             <tr class="gradeA">
               <td><%= document.title %></td>
               <td>
-                Tải về: <i class="fa fa-download" aria-hidden="true"></i>
-                <%= link_to document.attachment.file.filename, document.attachment.url %>
+                <% if document.attachment.url.split("/").last.include?("pdf") %>
+                  Tệp đính kèm: </strong><%= link_to "#{document.attachment.file.filename}", pdfjs.full_path(file: "#{document.attachment.url}") %>
+                <% else %>
+                  Tải về: <i class="fa fa-download" aria-hidden="true"></i>
+                  <%= link_to document.attachment.file.filename, document.attachment.url %>
+                <% end %>
               </td>
               <td>
                 <%= link_to cap_nhat_van_ban_bieu_mau_path(document), class:"btn btn-white btn-sm" do %>

@@ -1,5 +1,5 @@
 current directory: /usr/src/app/vendor/bundle/ruby/2.6.0/gems/json-2.3.1/ext/json
-/usr/local/bin/ruby -I /usr/local/lib/ruby/2.6.0 -r ./siteconf20201208-1-1tra0uz.rb extconf.rb
+/usr/local/bin/ruby -I /usr/local/lib/ruby/2.6.0 -r ./siteconf20201216-1-7olhg1.rb extconf.rb
 creating Makefile
 
 current directory: /usr/src/app/vendor/bundle/ruby/2.6.0/gems/json-2.3.1/ext/json

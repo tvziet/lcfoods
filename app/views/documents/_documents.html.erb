@@ -2,10 +2,16 @@
   <tr class="gradeX">
     <td><%= object.title %></td>
     <td>
-      <p>
-        Tải về: <i class="fa fa-download" aria-hidden="true"></i>
-        <%= link_to object.attachment.file.filename, object.attachment.url %>
-      </p>
+      <% if object.attachment.url.split("/").last.include?("pdf") %>
+        <p>
+          <strong>Tệp đính kèm: </strong><%= link_to "#{object.attachment.file.filename}", pdfjs.full_path(file: "#{object.attachment.url}") %>
+        </p>
+      <% else %>
+        <p>
+          Tải về: <i class="fa fa-download" aria-hidden="true"></i>
+          <%= link_to object.attachment.file.filename, object.attachment.url %>
+        </p>
+      <% end %>
     </td>
     <td class="center"><%= object.created_at.strftime("%d-%m-%Y") %></td>
   </tr>

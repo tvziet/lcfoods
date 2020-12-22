@@ -40,6 +40,8 @@ COPY . $APP_PATH/
 # Build Frond-End
 RUN RAILS_ENV=$RAILS_ENV bundle exec rake assets:precompile
 
+ENV RAILS_SERVE_STATIC_FILES true
+
 EXPOSE 3000
 
-ENTRYPOINT ["../../entrypoint/entrypoint.sh"]
+CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]

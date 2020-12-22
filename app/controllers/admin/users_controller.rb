@@ -3,7 +3,8 @@ class Admin::UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
 
   def index
-    @pagy, @users = pagy(User.all.includes([avatar_attachment: :blob]).includes(:group).order(created_at: :desc))
+    # @pagy, @users = pagy(User.all.includes([avatar_attachment: :blob]).includes(:group).order(created_at: :desc))
+    @pagy, @users = pagy(User.all.includes(:group).order(created_at: :desc))
   end
 
   def show; end

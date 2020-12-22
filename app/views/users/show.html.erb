@@ -9,7 +9,7 @@
         </div>
         <div>
           <div class="ibox-content no-padding border-left-right">
-            <%= image_tag(@page_user.avatar, class:"img-responsive", style: "height: 250px; widht: 250px") %>
+            <%= image_tag(@page_user.avatar_url, class:"img-responsive", style: "height: 250px; widht: 250px") %>
           </div>
           <div class="ibox-content profile-content">
             <h4><strong><%= @page_user.name.full %></strong></h4>
@@ -39,12 +39,12 @@
             <div class="feed-activity-list">
               <div class="feed-element">
                 <div class="pull-left">
-                  <span><i class="fa fa-users" aria-hidden="true"></i> <%= @page_user.group_name %></span>
+                  <span><i class="fa fa-users" aria-hidden="true"></i> Phòng ban:  <%= @page_user.group_name %></span>
                 </div>
               </div>
               <div class="feed-element">
                 <div class="pull-left">
-                  <span><i class="fa fa-info-circle" aria-hidden="true"></i> <%= @page_user.bio %></span>
+                  <span><i class="fa fa-info-circle" aria-hidden="true"></i> Chức vụ: <%= @page_user.bio %></span>
                 </div>
               </div>
             </div>

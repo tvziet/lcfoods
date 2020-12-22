@@ -25,6 +25,7 @@
               </li>
             <% end %>
             <li>
+              <hr>
               <%= link_to 'Tất cả nhân viên', tat_ca_nhan_vien_path %>
             </li>
           </ul>
@@ -32,12 +33,21 @@
         <li>
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Quy định, quy trình<b class="caret"></b></a>
           <ul class="dropdown-menu multi-level">
-            <% Group.all.order(created_at: :desc).each do |group| %>
-              <li>
-                <%= link_to group.name, tat_ca_quy_dinh_phong_ban_path(group), class:"dropdown-toggle" %>
+            <% Group.all.includes([:categories]).order(created_at: :desc).each do |group| %>
+              <li class="dropdown-submenu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= group.name %></a>
+                <ul class="dropdown-menu">
+                  <% group.categories.each do |category|  %>
+                    <li>
+                      <hr>
+                      <%= link_to category.name, tat_ca_quy_dinh_danh_muc_path(category), class: "dropdown-toggle" %>
+                    </li>
+                  <% end %>
+                </ul>
               </li>
             <% end %>
             <li>
+              <hr>
               <%= link_to "Tất cả quy trình, quy định", tat_ca_quy_dinh_path, class:"dropdown-toggle" %>
             </li>
           </ul>
@@ -58,6 +68,7 @@
               </ul>
             </li>
             <li>
+              <hr>
               <%= link_to 'Tất cả thông báo', tat_ca_thong_bao_path %>
             </li>
           </ul>
@@ -71,6 +82,7 @@
               </li>
             <% end %>
             <li>
+              <hr>
               <%= link_to "Tất cả văn bản, biểu mẫu", tat_ca_van_ban_path, class:"dropdown-toggle" %>
             </li>
           </ul>
@@ -91,6 +103,7 @@
               </ul>
             </li>
             <li>
+              <hr>
               <%= link_to "Tất cả tin tức", thong_tin_chung_path, class:"dropdown-toggle" %>
             </li>
           </ul>

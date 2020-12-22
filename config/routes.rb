@@ -81,7 +81,7 @@ Rails.application.routes.draw do
 
   get 'tat-ca-quy-dinh', to: 'regulations#index'
   get 'chi-tiet-quy-dinh/:id', to: 'regulations#show', as: 'chi-tiet-quy-dinh'
-  get 'tat-ca-quy-dinh-phong-ban/:id', to: 'regulations#group_regulations', as: 'tat-ca-quy-dinh-phong-ban'
+  get 'tat-ca-quy-dinh-danh-muc/:id', to: 'regulations#category_regulations', as: 'tat-ca-quy-dinh-danh-muc'
 
   get 'tat-ca-thong-bao', to: 'notifications#index'
   get 'chi-tiet-thong-bao/:id', to: 'notifications#show', as: 'chi-tiet-thong-bao'

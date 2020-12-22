@@ -53,7 +53,6 @@ ActiveRecord::Schema.define(version: 2020_12_12_084644) do
     t.datetime "updated_at", null: false
     t.boolean "is_super_admin", default: false
     t.string "full_name"
-    t.integer "company_id"
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
@@ -82,14 +81,6 @@ ActiveRecord::Schema.define(version: 2020_12_12_084644) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["type"], name: "index_ckeditor_assets_on_type"
-  end
-
-  create_table "companies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "slug"
-    t.index ["slug"], name: "index_companies_on_slug", unique: true
   end
 
   create_table "documents", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -151,13 +142,11 @@ ActiveRecord::Schema.define(version: 2020_12_12_084644) do
     t.string "attachments"
     t.integer "status"
     t.bigint "category_id"
-    t.bigint "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
     t.integer "group_id"
     t.index ["category_id"], name: "index_regulations_on_category_id"
-    t.index ["company_id"], name: "index_regulations_on_company_id"
     t.index ["slug"], name: "index_regulations_on_slug", unique: true
   end
 
@@ -172,7 +161,6 @@ ActiveRecord::Schema.define(version: 2020_12_12_084644) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email"
-    t.integer "company_id"
     t.integer "group_id"
     t.string "employee_number"
     t.string "slug"
@@ -182,5 +170,4 @@ ActiveRecord::Schema.define(version: 2020_12_12_084644) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "notifications", "categories"
   add_foreign_key "regulations", "categories"
-  add_foreign_key "regulations", "companies"
 end

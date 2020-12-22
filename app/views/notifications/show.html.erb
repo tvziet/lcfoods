@@ -10,15 +10,20 @@
           </div>
           <div class="text-center article-title">
             <span class="text-muted"><i class="fa fa-clock-o"></i> <%= @page_notification.created_at.strftime("%d-%m-%Y") %></span>
-            <h1>
+            <h3>
               <%= @page_notification.title %>
-            </h1>
+            </h3>
           </div>
           <p>
             <%= @page_notification.body.to_s.html_safe %>
           </p>
           <% @page_notification.attachments.each do |attachment| %>
-            <strong>Tệp đính kèm: </strong><%= link_to "#{attachment.file.filename}", pdfjs.full_path(file: "#{attachment.url}") %>
+            <% if attachment.url.split("/").last.include?("pdf") %>
+              <strong>Tệp đính kèm: </strong><%= link_to "#{attachment.file.filename}", pdfjs.full_path(file: "#{attachment.url}") %>
+            <% else %>
+              <strong>Tải về:</strong> <i class="fa fa-download" aria-hidden="true"></i>
+              <%= link_to attachment.file.filename, "#{attachment.url}" %>
+            <% end %>
             <span class="pull-right">
               <%= link_to root_path, class: "btn btn-primary" do %>
                 <i class="fa fa-angle-double-left" aria-hidden="true"></i> Quay lại

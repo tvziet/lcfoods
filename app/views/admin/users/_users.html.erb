@@ -15,11 +15,11 @@
     <div class="col-lg-3">
       <div class="contact-box center-version">
         <%= link_to cap_nhat_nhan_vien_path(user) do %>
-          <%= image_tag(user&.avatar, class: "img-circle") %>
+          <%= image_tag(user&.avatar_url, class: "img-circle") %>
           <h3 class="m-b-xs"><strong><%= user.name.full %></strong></h3>
-          <div class="font-bold"><%= user.group_name %></div>
+          <div class="font-bold"><%= user.bio %></div>
           <address class="m-t-md">
-            <strong><%= user.group_name %></strong><br>
+            Phòng ban: <strong><%= user.group_name %></strong><br>
             <%= user.address %><br>
             <span>Email:</span> <%= user.email %>
           </address>

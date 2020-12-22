@@ -22,8 +22,12 @@
             <tr class="gradeA">
               <td><%= document.title %></td>
               <td>
-                Tải về: <i class="fa fa-download" aria-hidden="true"></i>
-                <%= link_to document.attachment.file.filename, document.attachment.url %>
+                <% if document.attachment.url.split("/").last.include?("pdf") %>
+                  Tệp đính kèm: <%= link_to "#{document.attachment.file.filename}", pdfjs.full_path(file: "#{document.attachment.url}") %>
+                <% else %>
+                  Tải về: <i class="fa fa-download" aria-hidden="true"></i>
+                  <%= link_to document.attachment.file.filename, document.attachment.url %>
+                <% end %>
               </td>
               <td><%= document.created_at.strftime("%d-%m-%Y") %></td>
               <td>

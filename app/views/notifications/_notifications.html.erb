@@ -6,7 +6,12 @@
     </td>
     <td>
       <% object.attachments.each do |attachment| %>
-        <strong>Tệp đính kèm: </strong><%= link_to "#{attachment.file.filename}", pdfjs.full_path(file: "#{attachment.url}") %>
+        <% if attachment.url.split("/").last.include?("pdf") %>
+          <strong>Tệp đính kèm: </strong><%= link_to "#{attachment.file.filename}", pdfjs.full_path(file: "#{attachment.url}") %>
+        <% else %>
+          <strong>Tải về:</strong> <i class="fa fa-download" aria-hidden="true"></i>
+          <%= link_to attachment.file.filename, "#{attachment.url}" %>
+        <% end %>
       <% end %>
     </td>
     <td class="center"><%= object.created_at.strftime("%d-%m-%Y") %></td>

@@ -1,15 +1,19 @@
 class RegulationsController < ApplicationController
+  before_action :set_page_regulation, only: %i[show]
   def index
     @page_regulations        = Regulation.all.order(created_at: :desc)
     @pagy, @page_regulations = pagy(@page_regulations)
   end
 
-  def show
-    @page_regulation = Regulation.friendly.find(params["id"])
+  def show; end
+
+  def category_regulations
+    @page_category                = Category.friendly.find(params["id"])
+    @pagy, @category_regulations  = pagy(Regulation.where(category_id: @page_category&.id).order(created_at: :desc))
   end
 
-  def group_regulations
-    @page_group                = Group.friendly.find(params["id"])
-    @pagy, @group_regulations  = pagy(Regulation.where(group_id: @page_group&.id).order(created_at: :desc))
+  private
+  def set_page_regulation
+    @page_regulation = Regulation.friendly.find(params["id"])
   end
 end

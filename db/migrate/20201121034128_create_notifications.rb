@@ -7,7 +7,6 @@ class CreateNotifications < ActiveRecord::Migration[5.2]
       t.string :attachments
       t.integer :status
       t.references :category, foreign_key: true
-      t.references :company, foreign_key: true
 
       t.timestamps
     end

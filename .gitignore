@@ -33,3 +33,8 @@
 yarn-debug.log*
 .yarn-integrity
 /public/uploads/*
+
+/tmp/pids/*
+!/tmp/.keep
+!/tmp/pids
+!/tmp/pids/.keep

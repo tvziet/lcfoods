@@ -10,9 +10,9 @@
           </div>
           <div class="text-center article-title">
             <span class="text-muted"><i class="fa fa-clock-o"></i> <%= @page_news.created_at.strftime("%d-%m-%Y") %></span>
-            <h1>
+            <h3>
               <%= @page_news.title %>
-            </h1>
+            </h3>
           </div>
           <p>
             <%= @page_news.body.to_s.html_safe %>

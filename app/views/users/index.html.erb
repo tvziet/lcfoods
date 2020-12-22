@@ -8,9 +8,9 @@
           <%= link_to chi_tiet_nhan_vien_path(page_user) do %>
             <%= image_tag(page_user.avatar, class: "img-circle") %>
             <h3 class="m-b-xs"><strong><%= page_user.name.full %></strong></h3>
-            <div class="font-bold"><%= page_user.group_name %></div>
+            <div class="font-bold"><%= page_user.bio %></div>
             <address class="m-t-md">
-              <strong><%= page_user.group_name %></strong><br>
+              Phòng ban: <strong><%= page_user.group_name %></strong><br>
               <%= page_user.address %><br>
               <span>Email:</span> <%= page_user.email %>
             </address>

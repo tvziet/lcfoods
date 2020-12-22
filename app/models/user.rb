@@ -1,7 +1,8 @@
 require 'babosa'
 class User < ApplicationRecord
-  # Upload avatar with ActiveStorage
-  has_one_attached :avatar
+  # Upload avatar with Carrierwave
+  mount_uploader :avatar, ImageUploader
+  serialize :avatar, JSON
 
   # URL Friendly
   extend FriendlyId
