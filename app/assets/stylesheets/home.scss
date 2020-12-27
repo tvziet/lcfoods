@@ -64,29 +64,3 @@ ul, ol {
 .pagy-navigation {
   float: right !important;
 }
-
-.lc-admin-search,
-.lc-home-search {
-  border: 1px solid #c2c2c2 !important;
-  height: 80% !important;
-  border-radius: 10px !important;
-}
-
-.lc-home-search {
-  margin-left: -10px !important;
-  margin-top: 5px !important;
-}
-
-.lc-admin-search {
-  width: 98% !important;
-  margin-top: 14px !important;
-}
-
-.lc-admin-button-search {
-  margin-top: 10px !important;
-}
-
-.zoom:hover {
-  transform: scale(1.6);
-  transition: all 0.3s ease;
-}

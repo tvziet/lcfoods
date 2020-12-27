@@ -1,6 +1,6 @@
 <%= form_tag(tim_kiem_path, method: :get, class: "navbar-form-custom") do %>
   <div class="input-group">
-    <%= text_field_tag :search, params[:q], placeholder: "Từ khoá ...", class: "form-control lc-home-search" %>
+    <%= text_field_tag :search, params[:q], placeholder: "Từ khoá ...", class: "form-control", style: "border: 1px solid #c2c2c2 !important; height: 80% !important; border-radius: 10px !important;  margin-left: -10px !important; margin-top: 5px !important;" %>
     <span class="input-group-btn">
       <%= button_tag "Tìm kiếm", class:"btn btn-primary", name: nil %>
     </span>

@@ -6,7 +6,7 @@
       <div class="col-lg-3">
         <div class="contact-box center-version">
           <%= link_to chi_tiet_nhan_vien_path(page_user) do %>
-            <%= image_tag(page_user.avatar_url, class: "img-circle") if page_user.avatar? %>
+            <%= image_tag(page_user.avatar_url, class: "img-circle zoom") if page_user.avatar? %>
             <h3 class="m-b-xs"><strong><%= page_user.name&.full %></strong></h3>
             Chức vụ: <div class="font-bold"><%= page_user.bio.split("\n")&.first %></div>
             <address class="m-t-md">
@@ -28,3 +28,10 @@
 </div>
 <%= render 'shared/pages/pagy_navigation' %>
 <%= render 'shared/pages/footer' %>
+
+<style>
+    .zoom:hover {
+        transform: scale(1.6);
+        transition: all 0.3s ease;
+    }
+</style>

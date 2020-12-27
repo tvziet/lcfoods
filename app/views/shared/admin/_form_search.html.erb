@@ -1,8 +1,8 @@
 <%= form_tag(tim_kiem_quan_tri_path, method: :get, class: "navbar-form-custom input-search") do %>
   <div class="input-group">
-    <%= text_field_tag :search, params[:q], placeholder: "Từ khoá ...", class: "form-control lc-admin-search" %>
+    <%= text_field_tag :search, params[:q], placeholder: "Từ khoá ...", class: "form-control", style: "border: 1px solid #c2c2c2 !important; height: 80% !important; border-radius: 10px !important;  width: 98% !important; margin-top: 14px !important;" %>
     <span class="input-group-btn">
-      <%= button_tag "Tìm kiếm", class:"btn btn-primary lc-admin-button-search", name: nil %>
+      <%= button_tag "Tìm kiếm", class:"btn btn-primary", name: nil, style: "margin-top: 10px !important;" %>
     </span>
   </div>
 <% end %>
