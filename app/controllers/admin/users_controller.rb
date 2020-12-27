@@ -22,7 +22,8 @@ class Admin::UsersController < ApplicationController
       if @user.save
         format.html { redirect_to nhan_vien_path, notice: 'Nhân viên đã được tạo thành công.' }
       else
-        format.html { redirect_to them_moi_nhan_vien_path, alert: "#{@user.errors.full_messages.join('\n').html_safe}" }
+        # format.html { redirect_to them_moi_nhan_vien_path, alert: "#{@user.errors.full_messages.join('\n').html_safe}" }
+        format.html { render :new }
       end
     end
   end
@@ -32,7 +33,8 @@ class Admin::UsersController < ApplicationController
       if @user.update(user_params)
         format.html { redirect_to nhan_vien_path, notice: 'Nhân viên đã được cập nhật thành công.' }
       else
-        format.html { redirect_to cap_nhat_nhan_vien_path(@user), alert: "#{@user.errors.full_messages.join('\n').html_safe}" }
+        # format.html { redirect_to cap_nhat_nhan_vien_path(@user), alert: "#{@user.errors.full_messages.join('\n').html_safe}" }
+        format.html { render :edit }
       end
     end
   end

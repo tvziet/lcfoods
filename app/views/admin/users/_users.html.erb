@@ -15,9 +15,9 @@
     <div class="col-lg-3">
       <div class="contact-box center-version">
         <%= link_to cap_nhat_nhan_vien_path(user) do %>
-          <%= image_tag(user&.avatar_url, class: "img-circle") %>
-          <h3 class="m-b-xs"><strong><%= user.name.full %></strong></h3>
-          <div class="font-bold"><%= user.bio %></div>
+          <%= image_tag(user.avatar_url, class: "img-circle") if user.avatar? %>
+          <h3 class="m-b-xs"><strong><%= user.name&.full %></strong></h3>
+          Chức vụ: <div class="font-bold"><%= user.bio.split("\n")&.first %></div>
           <address class="m-t-md">
             Phòng ban: <strong><%= user.group_name %></strong><br>
             <%= user.address %><br>

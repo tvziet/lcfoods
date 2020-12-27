@@ -1,6 +1,6 @@
 class NotificationsController < ApplicationController
   def index
-    @page_notifications        = Notification.all.order(created_at: :desc)
+    @page_notifications        = Notification.all
     @pagy, @page_notifications = pagy(@page_notifications)
   end
 

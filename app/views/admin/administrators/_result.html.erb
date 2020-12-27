@@ -1,13 +1,13 @@
 <% if object.is_a? User %>
-  <h3><%= link_to object.name.full, chi_tiet_nhan_vien_path(object), class:"text-danger" %></h3>
+  <h4><%= link_to object.name.full, cap_nhat_nhan_vien_path(object), class:"text-danger" %></h4>
 <% elsif object.is_a? Regulation %>
-  <h3><%= link_to object.title, chi_tiet_quy_dinh_path(object), class:"text-danger" %></h3>
+  <h4><%= link_to object.title, cap_nhat_quy_dinh_quy_trinh_path(object), class:"text-danger" %></h4>
 <% elsif object.is_a? Notification %>
-  <h3><%= link_to object.title, chi_tiet_thong_bao_path(object), class:"text-danger" %></h3>
+  <h4><%= link_to object.title, cap_nhat_thong_bao_path(object), class:"text-danger" %></h4>
 <% elsif object.is_a? Document %>
-  <h3><%= link_to object.title, chi_tiet_quy_dinh_path(object), class:"text-danger" %></h3>
+  <h4><%= link_to object.title, cap_nhat_van_ban_bieu_mau_path(object), class:"text-danger" %></h4>
 <% elsif object.is_a? News %>
-  <h3><%= link_to object.title, chi_tiet_tin_tuc_path(object), class:"text-danger" %></h3>
+  <h4><%= link_to object.title, cap_nhat_tin_tuc_path(object), class:"text-danger" %></h4>
 <% elsif object.is_a? Group %>
-<h3><%= link_to object.name, chi_tiet_phong_ban_path(object), class: "text-danger" %></h3>
+<h4><%= link_to object.name, cap_nhat_phong_ban_path(object), class: "text-danger" %></h4>
 <% end %>

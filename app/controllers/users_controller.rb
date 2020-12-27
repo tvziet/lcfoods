@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def index
     # @page_users        = User.all.includes([avatar_attachment: :blob]).includes(:group).order(created_at: :desc)
-    @page_users        = User.all.includes(:group).order(created_at: :desc)
+    @page_users        = User.all.includes(:group)
     @pagy, @page_users = pagy(@page_users)
   end
 

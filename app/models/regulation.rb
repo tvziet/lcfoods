@@ -12,8 +12,8 @@ class Regulation < ApplicationRecord
   end
 
   # Validations
-  validates :title, presence: true, length: { in: 10..100 }
-  validates :status, presence: true
+  # validates :title, presence: true, length: { in: 10..100 }
+  # validates :status, presence: true
 
   # Associations
   belongs_to :category

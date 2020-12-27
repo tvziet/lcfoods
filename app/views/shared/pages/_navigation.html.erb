@@ -21,7 +21,6 @@
             <% Group.all.order(created_at: :desc).each do |group| %>
               <li>
                 <%= link_to group.name, tat_ca_nhan_vien_phong_ban_path(group), class: "dropdown-toggle" %>
-                </a>
               </li>
             <% end %>
             <li>
@@ -33,13 +32,12 @@
         <li>
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Quy định, quy trình<b class="caret"></b></a>
           <ul class="dropdown-menu multi-level">
-            <% Group.all.includes([:categories]).order(created_at: :desc).each do |group| %>
+            <% Group.includes(:categories).select { |group| group.categories.count > 0 }.each do |group| %>
               <li class="dropdown-submenu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= group.name %></a>
                 <ul class="dropdown-menu">
                   <% group.categories.each do |category|  %>
                     <li>
-                      <hr>
                       <%= link_to category.name, tat_ca_quy_dinh_danh_muc_path(category), class: "dropdown-toggle" %>
                     </li>
                   <% end %>
@@ -76,7 +74,7 @@
         <li>
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Văn bản, biểu mẫu<b class="caret"></b></a>
           <ul class="dropdown-menu multi-level">
-            <% Group.all.order(created_at: :desc).each do |group| %>
+            <% Group.includes(:categories).select {|group| group.categories.count > 0 }.each do |group| %>
               <li>
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= link_to group.name, tat_ca_van_ban_phong_ban_path(group) %></a>
               </li>

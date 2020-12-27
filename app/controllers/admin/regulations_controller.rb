@@ -21,7 +21,8 @@ class Admin::RegulationsController < ApplicationController
       if @regulation.save
         format.html { redirect_to quy_dinh_quy_trinh_path, notice: 'Quy định, quy trình đã được tạo thành công.' }
       else
-        format.html { redirect_to quy_dinh_quy_trinh_path, alert: "#{@regulation.errors.full_messages.join('\n').html_safe}" }
+        # format.html { redirect_to quy_dinh_quy_trinh_path, alert: "#{@regulation.errors.full_messages.join('\n').html_safe}" }
+        format.html { render :new }
       end
     end
   end
@@ -31,7 +32,8 @@ class Admin::RegulationsController < ApplicationController
       if @regulation.update(regulation_params)
         format.html { redirect_to quy_dinh_quy_trinh_path, notice: 'Quy định, quy trình đã được cập nhật thành công.' }
       else
-        format.html { redirect_to cap_nhat_quy_dinh_quy_trinh_path(@regulation), alert: "#{@regulation.errors.full_messages.join('\n').html_safe}" }
+        # format.html { redirect_to cap_nhat_quy_dinh_quy_trinh_path(@regulation), alert: "#{@regulation.errors.full_messages.join('\n').html_safe}" }
+        format.html { render :edit }
       end
     end
   end

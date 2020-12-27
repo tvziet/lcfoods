@@ -12,8 +12,8 @@ class Notification < ApplicationRecord
   end
 
   # Validations
-  validates :title, presence: true, length: { in: 10..100 }
-  validates :status, presence: true
+  # validates :title, presence: true, length: { in: 10..100 }
+  # validates :status, presence: true
 
   enum status: { normal: 0, notable: 1 }
 

@@ -12,8 +12,8 @@ class Document < ApplicationRecord
   end
 
   # Validations
-  validates :title, presence: true, length: { in: 3..100 }
-  validates :attachment, presence: true
+  # validates :title, presence: true, length: { in: 3..100 }
+  # validates :attachment, presence: true
 
   scope :search_by_title, lambda { |query|
     where('lower(title) LIKE ?', "%#{query}%")

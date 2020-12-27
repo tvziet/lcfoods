@@ -1,6 +1,6 @@
 class NewsController < ApplicationController
   def index
-    @page_all_news        = News.all.order(created_at: :desc)
+    @page_all_news        = News.all
     @pagy, @page_all_news = pagy(@page_all_news)
   end
 

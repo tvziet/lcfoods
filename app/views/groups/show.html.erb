@@ -6,17 +6,18 @@
       <div class="col-lg-3">
         <div class="contact-box center-version">
           <%= link_to chi_tiet_nhan_vien_path(user_of_group) do %>
-            <%= image_tag(user_of_group&.avatar_url, class: "img-circle") %>
+            <%= image_tag(user_of_group&.avatar_url, class: "img-circle zoom") if user_of_group.avatar? %>
             <h3 class="m-b-xs"><strong><%= user_of_group.name.full %></strong></h3>
-            <div class="font-bold"><%= user_of_group.group_name %></div>
+            Chức vụ: <div class="font-bold"><%= user_of_group.bio.split("\n")&.first %></div>
             <address class="m-t-md">
-              <strong><%= user_of_group.group_name %></strong><br>
+              Phòng ban: <strong><%= user_of_group.group_name %></strong><br>
               <%= user_of_group.address %><br>
               <span>Email:</span> <%= user_of_group.email %>
             </address>
           <% end %>
           <div class="contact-box-footer">
             <div class="m-t-xs btn-group">
+              <a class="btn btn-xs btn-white"><i class="fa fa-fax" aria-hidden="true"></i> Mã nhân viên: <%= user_of_group.employee_number %></a>
               <a class="btn btn-xs btn-white"><i class="fa fa-envelope"></i> SĐT: <%= user_of_group.cell_phone %></a>
             </div>
           </div>

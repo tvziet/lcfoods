@@ -12,8 +12,8 @@ class News < ApplicationRecord
   end
 
   # Validations
-  validates :title, presence: true, length: { in: 3..100 }
-  validates :body, presence: true
+  # validates :title, presence: true, length: { in: 3..100 }
+  # validates :body, presence: true
 
   enum status: { normal: 0, notable: 1 }
 

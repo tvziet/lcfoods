@@ -22,7 +22,7 @@
               <td>
                 <div class="file-box">
                   <div class="file">
-                    <%= image_tag(carousel&.image_url, class:"img-responsive") %>
+                    <%= image_tag(carousel.image_url, class:"img-responsive") if carousel.image? %>
                   </div>
                 </div>
               </td>

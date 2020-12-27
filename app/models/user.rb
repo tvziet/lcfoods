@@ -20,13 +20,11 @@ class User < ApplicationRecord
 
   # Validations
   validates :first_name, :last_name, length: { maximum: 50 }
-  validates :first_name, :last_name,
-            :birthday, :cell_phone,
-            :address, :avatar, :employee_number, presence: true
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, presence: true, length: { maximum: 255 },
-                    format: { with: VALID_EMAIL_REGEX },
-                    uniqueness: { case_sensitive: false }
+  validates :first_name, :last_name, presence: true
+  # VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  # validates :email, presence: true, length: { maximum: 255 },
+  #                   format: { with: VALID_EMAIL_REGEX },
+  #                   uniqueness: { case_sensitive: false }
 
   # Associations
   belongs_to :group

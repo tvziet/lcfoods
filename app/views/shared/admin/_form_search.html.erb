@@ -1,8 +1,8 @@
 <%= form_tag(tim_kiem_quan_tri_path, method: :get, class: "navbar-form-custom input-search") do %>
   <div class="input-group">
-    <%= text_field_tag :search, params[:q], placeholder: "Từ khoá", class: "form-control" %>
+    <%= text_field_tag :search, params[:q], placeholder: "Từ khoá ...", class: "form-control lc-admin-search" %>
     <span class="input-group-btn">
-      <%= button_tag "Tìm kiếm", class:"btn btn-primary", name: nil %>
+      <%= button_tag "Tìm kiếm", class:"btn btn-primary lc-admin-button-search", name: nil %>
     </span>
   </div>
 <% end %>

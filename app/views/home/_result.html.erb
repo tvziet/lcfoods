@@ -1,11 +1,20 @@
 <% if object.is_a? User %>
-  <h3><%= link_to object.name.full, chi_tiet_nhan_vien_path(object), class:"text-danger" %></h3>
+  <h4><%= link_to object.name.full, chi_tiet_nhan_vien_path(object), class:"text-danger" %></h4>
 <% elsif object.is_a? Regulation %>
-  <h3><%= link_to object.title, chi_tiet_quy_dinh_path(object), class:"text-danger" %></h3>
+  <h4><%= link_to object.title, chi_tiet_quy_dinh_path(object), class:"text-danger" %></h4>
 <% elsif object.is_a? Notification %>
-  <h3><%= link_to object.title, chi_tiet_thong_bao_path(object), class:"text-danger" %></h3>
+  <h4><%= link_to object.title, chi_tiet_thong_bao_path(object), class:"text-danger" %></h4>
 <% elsif object.is_a? Document %>
-  <h3><%= link_to object.title, chi_tiet_quy_dinh_path(object), class:"text-danger" %></h3>
+  <% if object.attachment.url.split("/").last.include?("pdf") %>
+    <p>
+      <strong>Tệp đính kèm: </strong><%= link_to "#{object.attachment.file.filename}", pdfjs.full_path(file: "#{object.attachment.url}") %>
+    </p>
+  <% else %>
+    <p>
+      Tải về: <i class="fa fa-download" aria-hidden="true"></i>
+      <%= link_to object.attachment.file.filename, object.attachment.url %>
+    </p>
+  <% end %>
 <% elsif object.is_a? News %>
-  <h3><%= link_to object.title, chi_tiet_tin_tuc_path(object), class:"text-danger" %></h3>
+  <h4><%= link_to object.title, chi_tiet_tin_tuc_path(object), class:"text-danger" %></h4>
 <% end %>

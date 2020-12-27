@@ -1,6 +1,6 @@
 require 'babosa'
 class Group < ApplicationRecord
-  validates :name, presence: true, length: { in: 2..30 }
+  # validates :name, presence: true, length: { in: 2..30 }
   has_many :users
   has_many :categories
   has_many :regulations

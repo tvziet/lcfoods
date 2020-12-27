@@ -9,10 +9,10 @@
         </div>
         <div>
           <div class="ibox-content no-padding border-left-right">
-            <%= image_tag(@page_user.avatar_url, class:"img-responsive", style: "height: 250px; widht: 250px") %>
+            <%= image_tag(@page_user.avatar_url, class:"img-responsive zoom", style: "height: 250px; widht: 250px") if @page_user.avatar? %>
           </div>
           <div class="ibox-content profile-content">
-            <h4><strong><%= @page_user.name.full %></strong></h4>
+            <h4><strong><%= @page_user.name&.full %></strong></h4>
             <p><i class="fa fa-map-marker"></i> <%= @page_user.address %></p>
             <h4>
               Thông tin
@@ -39,12 +39,19 @@
             <div class="feed-activity-list">
               <div class="feed-element">
                 <div class="pull-left">
-                  <span><i class="fa fa-users" aria-hidden="true"></i> Phòng ban:  <%= @page_user.group_name %></span>
+                  <span><i class="fa fa-users" aria-hidden="true"></i> PHÒNG BAN:  <%= @page_user.group_name %></span>
                 </div>
               </div>
               <div class="feed-element">
                 <div class="pull-left">
-                  <span><i class="fa fa-info-circle" aria-hidden="true"></i> Chức vụ: <%= @page_user.bio %></span>
+                  <span><i class="fa fa-star-half-o" aria-hidden="true"></i> CHỨC VỤ: <%= @page_user.bio.split("\n")&.first %></span>
+                </div>
+              </div>
+              <div class="feed-element">
+                <div class="pull-left">
+                  <% if @page_user.bio.split("\r\n").slice(1 .. -1) %>
+                    <span><i class="fa fa-info-circle" aria-hidden="true"></i> THÔNG TIN THÊM: <%= @page_user.bio.split("\r\n").slice(1 .. -1).join(" - ") %></span>
+                  <% end %>
                 </div>
               </div>
             </div>
@@ -56,7 +63,7 @@
   <div class="row">
     <div class="text-center">
       <span>
-        <%= link_to tat_ca_nhan_vien_phong_ban_path(@page_user.group_id), class: "btn btn-primary" do %>
+        <%= link_to tat_ca_nhan_vien_phong_ban_path(@page_user.group), class: "btn btn-primary" do %>
           <i class="fa fa-angle-double-left" aria-hidden="true"></i> Quay lại
         <% end %>
       </span>
